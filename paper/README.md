@@ -2,7 +2,7 @@
 
 ## Separating institutional understanding from frontier intelligence
 
-### Acropolis Technical Report 01
+### Acropolis, a governed model of the organization · Technical Report 01
 
 Ran Aroussi
 VarOps LLC

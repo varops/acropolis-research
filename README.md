@@ -1,7 +1,8 @@
 # Own the Knowledge. Rent the Thinking.
 
-**Separating institutional understanding from frontier intelligence.** Acropolis Technical
-Report 01, Ran Aroussi, VarOps LLC, September 2026, version 1.0. This repository holds the
+**Separating institutional understanding from frontier intelligence.** Acropolis, a governed
+model of the organization · Technical Report 01. Ran Aroussi, VarOps LLC, September 2026,
+version 1.0. This repository holds the
 paper, the methodology, and every benchmark report behind its numbers.
 
 The paper's claim in one line: institutional understanding and frontier reasoning can be
