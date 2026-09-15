@@ -28,7 +28,7 @@ produced them, and enough of the method to re-run it.
 | `reproduction/README.md` | harness, revisions, model pins, dataset hashes, commands |
 | `reproduction/manifests/` | the public manifest over the published reports, and the manifest of the unredacted bundle |
 | `reproduction/reports/` | 2,539 per-question run reports, one JSON per shard or part |
-| `releases/` | the frozen, paginated v1.0 PDFs (paper and Appendix A); the citable objects |
+| `releases/` | the frozen v1.0: `acropolis-v1.0.pdf` (paper and Appendix A in one document, the citable object) and its Word source |
 | `CITATION.cff` | how to cite |
 
 ## Results
