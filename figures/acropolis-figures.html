@@ -1,0 +1,416 @@
+<title>Acropolis Benchmark Figures</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f4f4f1; --surface:#fcfcfb; --ink:#0f1012; --ink-2:#4f524f; --muted:#86887f;
+  --grid:#e2e2db; --axis:#bfbfb6; --ring:rgba(15,16,18,.10);
+  --acr:#2a78d6; --acr-light:#86b6ef; --cmp:#8b8983; --cmp-light:#c9c8c1;
+  --good:#006300;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --disp:"Familjen Grotesk","IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#101110; --surface:#1a1a19; --ink:#f4f4f0; --ink-2:#c3c2b7; --muted:#8f8e86;
+    --grid:#2c2c2a; --axis:#3a3a37; --ring:rgba(255,255,255,.10);
+    --acr:#3987e5; --acr-light:#6da7ec; --cmp:#8b8983; --cmp-light:#4a4a46; --good:#0ca30c;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#101110; --surface:#1a1a19; --ink:#f4f4f0; --ink-2:#c3c2b7; --muted:#8f8e86;
+  --grid:#2c2c2a; --axis:#3a3a37; --ring:rgba(255,255,255,.10);
+  --acr:#3987e5; --acr-light:#6da7ec; --cmp:#8b8983; --cmp-light:#4a4a46; --good:#0ca30c;
+}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.55 var(--sans);}
+.wrap{max-width:820px;margin:0 auto;padding:48px 24px 96px;display:grid;gap:44px;}
+header h1{font:700 34px/1.1 var(--disp);letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance;}
+header p{color:var(--ink-2);margin:0;max-width:62ch;}
+header .meta{font:12px/1.4 var(--mono);color:var(--muted);margin-top:14px;letter-spacing:.02em;}
+figure{margin:0;background:var(--surface);border:1px solid var(--ring);border-radius:6px;padding:26px 28px 22px;}
+.fig-head{display:flex;gap:14px;align-items:baseline;margin-bottom:4px;}
+.fig-no{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+figure h2{font:600 20px/1.25 var(--disp);margin:0;text-wrap:balance;}
+.sub{color:var(--ink-2);margin:6px 0 18px;font-size:14px;max-width:66ch;}
+svg{display:block;width:100%;height:auto;font-family:var(--sans);}
+svg text{fill:var(--ink-2);font-size:12px;}
+svg .tick{fill:var(--muted);font-size:11px;font-family:var(--mono);}
+svg .val{fill:var(--ink);font-size:12px;font-family:var(--mono);}
+svg .cat{fill:var(--ink);font-size:13px;}
+svg .grid{stroke:var(--grid);stroke-width:1;}
+svg .axis{stroke:var(--axis);stroke-width:1;}
+svg .note{fill:var(--muted);font-size:11.5px;font-style:italic;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:2px 0 12px;}
+.legend span{display:inline-flex;align-items:center;gap:7px;}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block;}
+.ln{width:18px;height:2px;display:inline-block;}
+figcaption{color:var(--ink-2);font-size:13px;line-height:1.5;margin-top:14px;max-width:70ch;}
+figcaption b{color:var(--ink);font-weight:600;}
+details{margin-top:10px;font-size:13px;}
+summary{cursor:pointer;color:var(--muted);font-size:12.5px;}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:8px;}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--grid);vertical-align:top;}
+th{font-weight:600;color:var(--ink);font-size:12.5px;letter-spacing:.02em;}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;}
+td.best{font-weight:600;color:var(--ink);}
+.thead-dark th{background:var(--ink);color:var(--surface);}
+.thead-dark th.num{color:var(--surface);}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--grid);border-radius:6px;overflow:hidden;}
+.tile{background:var(--surface);padding:18px 16px 16px;}
+.tile .lab{color:var(--muted);font-size:12px;}
+.tile .v{font:600 30px/1.1 var(--disp);color:var(--ink);margin:6px 0 4px;}
+.tile .d{color:var(--ink-2);font-size:12.5px;}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);padding:7px 10px;border-radius:4px;font-size:12.5px;line-height:1.4;opacity:0;transform:translate(-50%,-115%);transition:opacity .08s;z-index:9;white-space:nowrap;}
+.tip b{font-family:var(--mono);font-weight:600;}
+.tip .k{display:inline-block;width:12px;height:2px;vertical-align:middle;margin-right:6px;}
+.hit{fill:transparent;cursor:crosshair;}
+.mark{transition:opacity .1s;}
+.mark:hover,.mark:focus{opacity:.82;outline:none;}
+.status{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.04em;padding:4px 7px;border-radius:3px;border:1px solid var(--ring);text-transform:uppercase;}
+.st-m{background:var(--acr);color:#fff;border-color:transparent;}
+.st-c{background:var(--acr-light);color:var(--ink);border-color:transparent;}
+.st-s{background:transparent;color:var(--ink-2);}
+.st-p{background:transparent;color:var(--muted);border-style:dashed;}
+.flow{display:grid;grid-template-columns:1fr;gap:20px;}
+.path{display:grid;gap:8px;}
+.path h3{font:600 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;}
+.steps{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;}
+.step{border:1px solid var(--ring);border-radius:4px;padding:8px 10px;font-size:12.5px;line-height:1.35;background:var(--surface);min-width:96px;flex:1 1 96px;position:relative;}
+.step.acr{border-color:var(--acr);}
+.step small{display:block;color:var(--muted);font-size:11px;margin-top:3px;}
+.step .bad{color:var(--ink-2);font-style:italic;}
+.arrow{align-self:center;color:var(--muted);font-size:14px;flex:0 0 auto;}
+.fail{color:var(--ink-2);font-size:12.5px;margin-top:4px;}
+@media (prefers-reduced-motion:reduce){.tip,.mark{transition:none;}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="fig-no">Acropolis whitepaper · figure set · draft 2 · 2026-09-15</div>
+  <h1>What is measured, what is by construction, and where the cliff is</h1>
+  <p>Ten figures and two tables for Part I and the appendix, numbered in order of appearance. Every number is copied from the website numbers sheet (2026-09-01) or from the September local-model campaign logged in PLAN.md; nothing is estimated. Blue is Acropolis throughout; gray is the published comparison, Vendor X: a commercial memory layer with none of the identity, authorization, or execution components Acropolis has. Its figures are under a never-refuse protocol and are labeled so wherever they appear.</p>
+  <div class="meta">retrieval identity-scored at budgets 100/300/100 · answering judged by a fixed prompt · full sets only</div>
+</header>
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 1</span><h2>The brain stays inside; a question-sized envelope can leave</h2></div>
+  <p class="sub">The whole paper in one boundary. Conventional enterprise AI sends the company to the model. Acropolis builds the understanding inside the company and, when frontier reasoning is worth renting, sends out the evidence for one question and gets back one answer.</p>
+  <div class="flow">
+    <div class="path"><h3>Conventional</h3>
+      <div class="steps">
+        <div class="step">Company knowledge<small class="bad">documents, threads, records, all of it</small></div><div class="arrow">→</div>
+        <div class="step">Frontier AI<small class="bad">outside the company; understands and answers</small></div><div class="arrow">→</div>
+        <div class="step">Answer<small class="bad">what came back is an answer, not an asset</small></div>
+      </div>
+    </div>
+    <div class="path"><h3>Acropolis</h3>
+      <div class="steps">
+        <div class="step acr">Company<small>observations from the systems it already runs</small></div><div class="arrow">→</div>
+        <div class="step acr">Owned organizational understanding<small>the record: claims, evidence, time, source; built by a model the company runs</small></div><div class="arrow">→</div>
+        <div class="step acr">Answer<small>local answer seat: 84 to 96% of all-frontier</small></div>
+        <div class="arrow">⤷</div>
+        <div class="step">Frontier reasoning when needed<small>sees one question's evidence envelope, never the record; 96 to 99% of all-frontier</small></div>
+      </div>
+      <div class="fail">Boundary: the record never crosses it. An evidence envelope of a few thousand tokens can, one question at a time, and it is logged with the answer.</div>
+    </div>
+  </div>
+  <figcaption>Figure 2 puts the numbers on both rows. Figure 4 shows the request path inside the boundary.</figcaption>
+</figure>
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 2</span><h2>Own the knowledge, rent the thinking: how much frontier you get without a frontier brain</h2></div>
+  <p class="sub">Every row is on brains a local 31B model built (Gemma-4-31B, one H200), with local embeddings and local retrieval. The columns differ only in who answers. Strict per-question accuracy, judge gemini-3.7-flash under the precision-first protocol; full sets: 500, 435 and 400 questions. BEAM 100K is also shown under its own rubric protocol.</p>
+  <table>
+    <tr><th>configuration</th><th>who understands</th><th>who thinks</th><th class="num">LongMemEval-S</th><th class="num">LoCoMo</th><th class="num">BEAM 100K strict</th><th class="num">BEAM 100K protocol</th></tr>
+    <tr><td>Own everything, best local configuration</td><td>local</td><td>local</td><td class="num">87.4</td><td class="num">76.3</td><td class="num">47.2</td><td class="num">57.3</td></tr>
+    <tr><td>Own the knowledge, rent the thinking</td><td>local</td><td>frontier answer seat</td><td class="num best">90.0</td><td class="num">79.3</td><td class="num">53.8</td><td class="num">66.4</td></tr>
+    <tr><td>Rent only when the local answer refuses</td><td>local</td><td>local, frontier on refusals</td><td class="num">88.6</td><td class="num">80.5</td><td class="num">48.5</td><td class="num">—</td></tr>
+    <tr><td>Frontier in every seat, same local brains</td><td>local brains</td><td>frontier</td><td class="num">89.6</td><td class="num best">81.8</td><td class="num best">55.2</td><td class="num best">66.8</td></tr>
+    <tr><td>Reference: published brains, frontier in every seat</td><td>frontier</td><td>frontier</td><td class="num">91.4</td><td class="num">81.8</td><td class="num">56.2</td><td class="num">67.5</td></tr>
+  </table>
+
+  <table>
+    <tr><th>benchmark</th><th class="num">all frontier (reference)</th><th class="num">fully local</th><th class="num">as % of frontier</th><th class="num">rent the thinking</th><th class="num">as % of frontier</th><th class="num">rent on refusals</th><th class="num">as % of frontier</th><th>questions sent out</th></tr>
+    <tr><td>LongMemEval-S</td><td class="num">91.4</td><td class="num">87.4</td><td class="num">95.6%</td><td class="num">90.0</td><td class="num best">98.5%</td><td class="num">88.6</td><td class="num">96.9%</td><td>27 of 500 (5.4%)</td></tr>
+    <tr><td>LoCoMo</td><td class="num">81.8</td><td class="num">76.3</td><td class="num">93.3%</td><td class="num">79.3</td><td class="num">96.9%</td><td class="num">80.5</td><td class="num best">98.4%</td><td>40 of 435 (9.2%)</td></tr>
+    <tr><td>BEAM 100K, strict</td><td class="num">56.2</td><td class="num">47.2</td><td class="num">84.0%</td><td class="num">53.8</td><td class="num best">95.7%</td><td class="num">48.5</td><td class="num">86.3%</td><td>8 of 400 (2.0%)</td></tr>
+    <tr><td>BEAM 100K, own protocol</td><td class="num">67.5</td><td class="num">57.3</td><td class="num">84.9%</td><td class="num">66.4</td><td class="num best">98.4%</td><td class="num">—</td><td class="num">—</td><td></td></tr>
+  </table>
+  <figcaption><b>How much frontier you get without a frontier model holding the knowledge.</b> The reference is a frontier model in every seat on the published brains, the configuration the site scores today. Fully local is the better of the local single call and the local loop, no frontier model anywhere: the single call on LongMemEval (87.4; the loop reads 86.0), the loop on LoCoMo and BEAM. Rent the thinking keeps the knowledge, retrieval and ranking local and rents one seat, the answer, which sees one question's evidence envelope at a time: 96 to 99 percent of the frontier score on every benchmark. Rent on refusals keeps the local loop's answer wherever it answered and sends only its refusals out, 2 to 9 percent of questions (from the local single call instead, LongMemEval reads 88.4 to 88.8). On LongMemEval the two rented rows together, local retrieval with a rented answer and escalation on its refusals, read 91.4, the reference itself.</figcaption>
+  <figcaption>The understanding seat holds on all three benchmarks: brains a local model built score within one to two points of the published brains when a frontier model runs the other seats. The cost of owning everything is in the reading seats, the local model ranking and answering over long excerpts, and it grows with conversation length: 2.2 points under the local-brains frontier row on LongMemEval, 5.5 on LoCoMo, 8 on BEAM. Renting the answer seat buys most of it back, and on BEAM's own protocol the rented-thinking row (66.4) sits within noise of frontier everywhere (66.8). In the rented rows the frontier model sees the evidence envelope for one question at a time, never the corpus; nothing is extracted or learned outside the company. Escalation on refusals sends 27 of 500 LongMemEval questions and 40 of 435 LoCoMo questions to the frontier model; it adds little on BEAM because the local loop rarely refuses there.</figcaption>
+</figure>
+
+
+<!-- F9 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 3</span><h2>BEAM 100K by ability: what renting the answer seat buys back</h2></div>
+  <p class="sub">BEAM's own rubric protocol, mean of 40 questions per ability, all twenty conversations. Every bar is on the same brains a local 31B model built; the three bars differ only in who answers. Abstention has no rubric; it is reported as traps refused in Part I, not here.</p>
+  <div class="legend"><span><i class="sw" style="background:var(--acr-light)"></i>Own everything: local loop</span><span><i class="sw" style="background:var(--acr)"></i>Own the knowledge, rent the thinking</span><span><i class="sw" style="background:var(--cmp)"></i>Frontier in every seat, same brains</span></div>
+  <div id="f9"></div>
+  <figcaption>Overall under the protocol: <b>57.3</b>, <b>66.4</b>, <b>66.8</b>. The rented answer seat recovers the reading abilities almost entirely (extraction 71 to 89, instruction 73 to 91, temporal 67 to 79, contradiction 53 to 68) and lands within noise of frontier everywhere. Ordering and summaries stay low for every configuration, local or frontier, under both protocols.</figcaption>
+  <details><summary>Table view</summary><table><tr><th>ability</th><th class="num">local loop</th><th class="num">rented thinking</th><th class="num">frontier, same brains</th><th class="num">reference, published brains</th></tr>
+  <tr><td>information extraction</td><td class="num">70.8</td><td class="num">89.1</td><td class="num">86.4</td><td class="num">90.5</td></tr>
+  <tr><td>preference following</td><td class="num">94.1</td><td class="num">87.8</td><td class="num">87.9</td><td class="num">92.9</td></tr>
+  <tr><td>instruction following</td><td class="num">72.8</td><td class="num">90.9</td><td class="num">92.1</td><td class="num">90.8</td></tr>
+  <tr><td>knowledge update</td><td class="num">59.7</td><td class="num">57.9</td><td class="num">62.5</td><td class="num">61.2</td></tr>
+  <tr><td>contradiction resolution</td><td class="num">52.7</td><td class="num">67.5</td><td class="num">67.5</td><td class="num">68.8</td></tr>
+  <tr><td>temporal reasoning</td><td class="num">66.7</td><td class="num">78.6</td><td class="num">80.7</td><td class="num">77.5</td></tr>
+  <tr><td>multi-session reasoning</td><td class="num">60.3</td><td class="num">58.0</td><td class="num">55.1</td><td class="num">59.5</td></tr>
+  <tr><td>summarization</td><td class="num">23.8</td><td class="num">36.9</td><td class="num">36.3</td><td class="num">34.6</td></tr>
+  <tr><td>event ordering</td><td class="num">16.5</td><td class="num">32.9</td><td class="num">34.6</td><td class="num">33.2</td></tr>
+  <tr><td>overall</td><td class="num">57.3</td><td class="num best">66.4</td><td class="num">66.8</td><td class="num">67.5</td></tr></table></details>
+</figure>
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 4</span><h2>Bolted-on retrieval and a resident request, step by step</h2></div>
+  <p class="sub">Where each of the four failure modes a buyer pays for enters the first path, and where the second path decides it instead.</p>
+  <div class="flow">
+    <div class="path"><h3>Bolted-on: retrieve, stuff, hope</h3>
+      <div class="steps">
+        <div class="step">Retrieve nearest chunks<small class="bad">stale wins if it ranks higher</small></div><div class="arrow">→</div>
+        <div class="step">Put them in the prompt<small class="bad">model sees what it should not</small></div><div class="arrow">→</div>
+        <div class="step">Instruct the model to behave<small class="bad">policy enforced by the thing being constrained</small></div><div class="arrow">→</div>
+        <div class="step">Answer<small class="bad">gaps filled; no provenance survives</small></div>
+      </div>
+    </div>
+    <div class="path"><h3>Resident: Acropolis request path</h3>
+      <div class="steps">
+        <div class="step acr">Resolve identity and policy<small>Eunomia, from the client's directory</small></div><div class="arrow">→</div>
+        <div class="step acr">Retrieve under that authorization<small>Parthenon; one schema per brain, fails closed</small></div><div class="arrow">→</div>
+        <div class="step acr">Assemble the envelope with a coverage state<small>answered · searched-and-empty · outside-the-ontology</small></div><div class="arrow">→</div>
+        <div class="step acr">Compose or work it out<small>Hero, or Pythia: ask · compute · extract</small></div><div class="arrow">→</div>
+        <div class="step acr">Act with permission, record the outcome<small>attributable; state versioned, never overwritten</small></div>
+      </div>
+    </div>
+  </div>
+  <figcaption>What the model sees is decided before it runs. Whether it asserts beyond the envelope is a contract instruction whose compliance the guard columns in Figures 2, 5 and 6 measure; the deterministic part is the boundary, not the model's behavior.</figcaption>
+</figure>
+
+<!-- F4 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 5</span><h2>Refusal posture is a dial with two measured endpoints</h2></div>
+  <p class="sub">One answering contract, two calibrations, each measured on both benchmarks. Axes run 20 to 100 and 60 to 100; the ranges are stated so the slope is read at its true size.</p>
+  <div class="legend"><span><i class="ln" style="background:var(--acr)"></i>Acropolis answering contract, v0.5 to v0.6</span></div>
+  <div id="f4"></div>
+  <figcaption>Moving from the synthesis-forward setting to the balanced one buys <b>14.3 points of BEAM abstention for 1.1 points of LongMemEval accuracy</b>. Three contract variants scored 56.4, 57.4 and 57.1 overall on BEAM: the knobs redistribute points between refusal and coverage, they do not create them. A system that welds in a never-refuse posture has no dial to turn and no abstention column to publish.</figcaption>
+  <details><summary>Table view</summary><table><tr><th>configuration</th><th class="num">LongMemEval accuracy</th><th class="num">BEAM abstention</th></tr>
+  <tr><td>Acropolis v0.5, synthesis-forward</td><td class="num">90.5</td><td class="num">50.0</td></tr>
+  <tr><td>Acropolis v0.6, balanced (whitepaper profile)</td><td class="num">89.4</td><td class="num">64.3</td></tr></table></details>
+</figure>
+
+<!-- F7 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Table 1</span><h2>Evidence map: every property, with its status</h2></div>
+  <p class="sub">The line between what this paper measures and what it claims by construction, specifies, or plans.</p>
+  <table class="thead-dark">
+    <tr><th>property or path</th><th>status</th><th>evidence</th></tr>
+    <tr><td>Signed intake, distillation, claims with evidence and supersession</td><td><span class="status st-m">measured</span></td><td>Exercised by every benchmark run; door quarantined 5,732 malformed submissions on the first BEAM conversion</td></tr>
+    <tr><td>Retrieval at published budgets, identity-scored</td><td><span class="status st-m">measured</span></td><td>Figure 6; Hit10 99.80 / 93.06 / 44.00. Unchanged when the extractor is swapped: on brains built by a local 31B model, Hit5 99.2 / 91.2 / 40.6 against 99.0 / 90.7 / 40.6 on the published brains (LongMemEval, LoCoMo, BEAM 100K)</td></tr>
+    <tr><td>Absence labeled: coverage states in the envelope</td><td><span class="status st-m">measured</span></td><td>BEAM abstention 75.7 vs 52.5; 25 to 28 of 30 traps refused on LongMemEval; 29 of 30 with no frontier model in any seat. Never-refuse measured on the same brains: removing the refusal moved LongMemEval 88.0 to 87.2 and turned 30 refusals into 30 fabrications</td></tr>
+    <tr><td>Pythia loop: ask, compute, extract with a time anchor</td><td><span class="status st-m">measured</span></td><td>Agentic row 90.5 vs core 89.2, four full runs</td></tr>
+    <tr><td>Governed composite routing on refusal and contradiction signals</td><td><span class="status st-m">measured</span></td><td>Figure 8; validated live before the full run</td></tr>
+    <tr><td>Refusal posture as a configuration</td><td><span class="status st-m">measured</span></td><td>Figure 5; two endpoints, three variants at 56.4 / 57.4 / 57.1; escalation on the system's own refusals measured at 88.4 to 91.4 across four local configurations</td></tr>
+    <tr><td>Scores do not depend on the judging model</td><td><span class="status st-m">measured</span></td><td>A local 31B judge agrees with the frontier judge on 98.7 to 99.2% of 2,223 LongMemEval answers and preserves every ordering; its disagreements are stricter, protocol-literal calls</td></tr>
+    <tr><td>Per-brain isolation, fails closed</td><td><span class="status st-m">measured</span></td><td>Adversarial probe on live per-brain servers, five brain pairs, nine cases each, 45 of 45 refused or contained: wrong tenant, foreign key, tampered, expired and missing assertions refused with no data; an assertion replayed against another brain's server returns none of the first brain's claims; naming another brain or another principal's scope is refused</td></tr>
+    <tr><td>Every answer carries its evidence</td><td><span class="status st-m">measured</span></td><td>All 118,890 claims delivered across 2,500 stored LongMemEval answers resolve to a stored observation with a source identity, 0 exceptions; an LLM audit of 2,233 answers against their delivered evidence finds unsupported wrong assertions in about 1 in 100 answers, evenly across local and frontier rows</td></tr>
+    <tr><td>Graduated disclosure</td><td><span class="status st-m">measured</span></td><td>Rungs derived at write time, never redacted at read time; 18 integration tests including an adversarial reconstruction over 22 reader-visible tables. End to end over the wire: a finance-group reader's envelope carries the precise value 2,140,000; a sales-rung reader's envelope on the same subject carries the band 2.0M to 2.5M and the trend "up", no byte of either precise value and no parent claim id</td></tr>
+    <tr><td>Task-scoped context: ask_batch, context(entities), validity token</td><td><span class="status st-m">measured</span></td><td>Built and drilled over the wire: context over several subjects returns one envelope with a section per subject; ask_batch answers several questions under one assertion, one scope and one snapshot; every envelope carries a validity token, and revalidate reports it stale after the first lifecycle event in its scopes (measured: 3 events after one supersession) while a token for another brain or an ungranted scope is refused. No public benchmark exercises the two-stage ask; the measurement is the mechanism drill</td></tr>
+    <tr><td>Identity resolution and permission-change propagation, bounded fixture</td><td><span class="status st-m">measured</span></td><td>Resolver: 1,000 people across 3 namespaces with 50 evidence-backed duplicate merges and 20 conflicting handles: 3,030 correct, 0 wrong, 0 missing, the 20 conflicts surfaced as typed ambiguity naming both candidates, duplicates follow to the primary, a reversed merge restores the source, ~2 ms per resolve. Propagation: a directory change reaches the next issued assertion in 0 ms with the cache off and within the cache TTL with it on (measured 2.06 s at a 2 s TTL). With the generation feed on, an assertion already in a caller's hand is refused within the poll interval (measured 976 ms at a 1 s poll, 3 s by default) instead of at its expiry; a feed outage is honoured through a grace window and then fails closed (measured 2,993 ms at 3 s). Live directories, aliases at scale and reorganizations are not exercised</td></tr>
+    <tr><td>Sovereignty tier: open-weight models on sub-$100k hardware</td><td><span class="status st-m">measured</span></td><td>Figure 2. Every model seat on Gemma-4-31B, one H200, on all three benchmarks: fully local 87.4 / 76.3 / 47.2 (LongMemEval, LoCoMo, BEAM 100K strict; best local configuration per benchmark); local knowledge with the frontier answer seat 90.0 / 79.3 / 53.8; frontier in every seat on the same local brains 89.6 / 81.8 / 55.2. Brains a local model built score within one to two points of the published brains under frontier seats on every benchmark</td></tr>
+  </table>
+  <figcaption><b>Measured</b>: a benchmark run exercised the property and a number in this paper depends on it; a failure would have shown as a score. <b>By construction</b>: follows from how the system is built and every run had it in place, but no test tried to break it. <b>Specified</b>: designed and documented, partly or fully built, exercised by no benchmark here. <b>Not measured</b>: implied by the design, no test exists yet. <b>Planned</b>: not built. Appendix A.14 lists the tests that move a row up this ladder.</figcaption>
+</figure>
+
+<!-- F1 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 6</span><h2>Retrieval holds to a million tokens, then meets the cliff every published figure shows</h2></div>
+  <p class="sub">Whether the right evidence is in the top five and top ten results, per dataset. Scored before any answering model runs, on document identity.</p>
+  <div class="legend"><span><i class="sw" style="background:var(--acr-light)"></i>Hit5</span><span><i class="sw" style="background:var(--acr)"></i>Hit10</span></div>
+  <div id="f1"></div>
+  <figcaption>LongMemEval-S is one multi-session history per question; LoCoMo is ten long conversations; BEAM 1M is roughly a million tokens per question. <b>Mean reciprocal rank</b> falls the same way: 0.9846, 0.8225, 0.2546. Most systems in this category do not publish retrieval at the 1M scale. The lower six rows are the September campaign on brains a local 31B model built: with a frontier reranker they match the published brains on every benchmark (LoCoMo 91.2 against 90.7, BEAM 100K 39.2 against 40.6); with the local reranker they hold on LongMemEval and give up 10 points on LoCoMo and 5 on BEAM 100K. The brains are not the difference; the reranker is, once conversations get long.</figcaption>
+  <details><summary>Table view</summary><table><tr><th>dataset</th><th class="num">questions</th><th class="num">Hit5</th><th class="num">Hit10</th><th class="num">Recall10 strict</th><th class="num">MRR</th></tr>
+  <tr><td>LongMemEval-S</td><td class="num">500</td><td class="num">99.00</td><td class="num">99.80</td><td class="num">95.80</td><td class="num">0.9846</td></tr>
+  <tr><td>LoCoMo</td><td class="num">432</td><td class="num">90.74</td><td class="num">93.06</td><td class="num">82.64</td><td class="num">0.8225</td></tr>
+  <tr><td>BEAM 1M</td><td class="num">700</td><td class="num">35.84</td><td class="num">44.00</td><td class="num">16.16</td><td class="num">0.2546</td></tr>
+  <tr><td>LongMemEval-S · local brains, local rerank</td><td class="num">500</td><td class="num">99.4</td><td class="num">99.6</td><td class="num">92.2</td><td class="num">0.970</td></tr>
+  <tr><td>LoCoMo · local brains, local rerank</td><td class="num">435</td><td class="num">80.6</td><td class="num">85.2</td><td class="num">74.1</td><td class="num">0.696</td></tr>
+  <tr><td>LoCoMo · local brains, frontier rerank</td><td class="num">435</td><td class="num">91.2</td><td class="num">92.6</td><td class="num">80.3</td><td class="num">0.808</td></tr>
+  <tr><td>BEAM 100K · published brains, frontier rerank</td><td class="num">355</td><td class="num">40.6</td><td class="num">49.6</td><td class="num">29.3</td><td class="num">0.315</td></tr>
+  <tr><td>BEAM 100K · local brains, frontier rerank</td><td class="num">355</td><td class="num">39.2</td><td class="num">47.3</td><td class="num">31.3</td><td class="num">0.294</td></tr>
+  <tr><td>BEAM 100K · local brains, local rerank</td><td class="num">355</td><td class="num">33.8</td><td class="num">43.9</td><td class="num">25.6</td><td class="num">0.246</td></tr></table></details>
+</figure>
+
+<!-- F2 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 7</span><h2>LongMemEval answering: three configurations, one comparison that cannot lose points for refusing</h2></div>
+  <p class="sub">Accuracy on 500 questions, on a full 0 to 100 scale. Thin marks on a bar tip show the band over repeated full runs where repeats exist.</p>
+  <div class="legend"><span><i class="sw" style="background:var(--acr)"></i>Acropolis, published configuration</span><span><i class="sw" style="background:var(--acr-light)"></i>Acropolis, September campaign on local brains</span><span><i class="sw" style="background:var(--cmp)"></i>Vendor X, never-refuse protocol¹</span></div>
+  <div id="f2"></div>
+  <figcaption>Vendor X's figure is not directly comparable: by design, its protocol cannot lose points for refusing, so its accuracy is biased upward relative to a system that allows honest refusals. Acropolis refused <b>25 to 28 of the 30 unanswerable traps</b> per run; one answer in the 120 trap rows across four runs was a fabrication under manual review. ¹ A never-refuse system cannot reach 98.0 under the official abstention rule: 30 of the 500 questions are unanswerable traps that count as correct only when refused, so answering all of them caps accuracy at 94.0. The published figure therefore scores those traps differently or excludes them, which is one more reason the two accuracies are not directly comparable. We measured the bias on our own system instead of estimating it: the same brains, retrieval and judge under a never-refuse contract scored <b>87.2</b> on all 500 questions, lower than with the refusal, and <b>92.8</b> on the 470 answerable ones. Removing the refusal turned 30 refusals into 30 fabrications and bought nothing on the headline.</figcaption>
+  <details><summary>Table view</summary><table><tr><th>configuration</th><th class="num">accuracy</th><th>band</th></tr>
+  <tr><td>Acropolis core</td><td class="num">89.2</td><td>88.4 to 89.6, repeated full runs</td></tr>
+  <tr><td>Acropolis agentic (Pythia)</td><td class="num">90.5</td><td>90.4 to 90.6, four full runs</td></tr>
+  <tr><td>Acropolis agentic + frontier escalation</td><td class="num">91.6</td><td>escalation only on the system's own refusals</td></tr>
+  <tr><td>Local brains, rented answer seat</td><td class="num">90.0</td><td>Gemma-4-31B brains and retrieval, gemini-3.7-flash answers</td></tr>
+  <tr><td>Same system, refusal removed (never-refuse probe)</td><td class="num">87.2</td><td>all 500 questions; all 30 traps answered</td></tr>
+  <tr><td>Same, scored on the 470 answerable questions only</td><td class="num">92.8</td><td>the way never-refuse systems report</td></tr>
+  <tr><td>Vendor X</td><td class="num">98.0</td><td>published, never-refuse protocol</td></tr></table></details>
+</figure>
+
+<!-- F3 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 8</span><h2>BEAM 1M: where the governed composite leads and where it still trails</h2></div>
+  <p class="sub">Per-category scores on the full 700 questions, official rubric protocol. Governed composite: a deterministic routing policy over two complete runs.</p>
+  <div class="legend"><span><i class="sw" style="background:var(--acr)"></i>Acropolis governed composite</span><span><i class="sw" style="background:var(--cmp)"></i>Vendor X, published</span></div>
+  <div id="f3"></div>
+  <figcaption>Abstention <b>75.7</b> is the highest of any configuration we have measured, 23 points above the comparison; contradiction handling is 26 points above. Summarization and multi-session reasoning still trail. Overall is stated only as a paired delta (+3.5 over its paired core) because the composite was measured under a rebuilt aggregation; cross-formula absolutes are not valid.</figcaption>
+  <details><summary>Table view</summary><table><tr><th>category</th><th class="num">Acropolis composite</th><th class="num">Acropolis core</th><th class="num">Vendor X</th></tr>
+  <tr><td>abstention</td><td class="num best">75.7</td><td class="num">74.3</td><td class="num">52.5</td></tr>
+  <tr><td>contradiction resolution</td><td class="num best">62.1</td><td class="num">64.7</td><td class="num">35.7</td></tr>
+  <tr><td>summarization</td><td class="num">56.4</td><td class="num">31.9</td><td class="num best">63.5</td></tr>
+  <tr><td>multi-session reasoning</td><td class="num">57.9</td><td class="num">58.6</td><td class="num best">65.2</td></tr></table></details>
+</figure>
+
+<!-- F8 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Table 2</span><h2>Head to head, with the protocol differences on the table</h2></div>
+  <p class="sub">Best value per row in bold. Dashes mean the system does not publish the figure.</p>
+  <div style="overflow-x:auto">
+  <table class="thead-dark">
+    <tr><th>evaluation</th><th class="num">Acropolis core</th><th class="num">Acropolis agentic</th><th class="num">Acropolis composite</th><th class="num">Vendor X¹</th></tr>
+    <tr><td>LongMemEval-S accuracy</td><td class="num">89.2</td><td class="num">90.5</td><td class="num">—</td><td class="num best">98.0</td></tr>
+    <tr><td>LongMemEval-S unanswerable traps refused (of 30)</td><td class="num">—</td><td class="num best">25 to 28</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>LongMemEval-S Hit10</td><td class="num best">99.80</td><td class="num best">99.80</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>LoCoMo accuracy</td><td class="num">81.8</td><td class="num">—</td><td class="num">—</td><td class="num best">92.5</td></tr>
+    <tr><td>BEAM 1M overall (official protocol)</td><td class="num">60.2²</td><td class="num">—</td><td class="num">+3.5 paired³</td><td class="num best">64.1</td></tr>
+    <tr><td>BEAM 1M abstention</td><td class="num">74.3</td><td class="num">—</td><td class="num best">75.7</td><td class="num">52.5</td></tr>
+    <tr><td>BEAM 1M contradiction resolution</td><td class="num best">64.7</td><td class="num">—</td><td class="num">62.1</td><td class="num">35.7</td></tr>
+    <tr><td>BEAM 1M summarization</td><td class="num">31.9</td><td class="num">—</td><td class="num">56.4</td><td class="num best">63.5</td></tr>
+    <tr><td>BEAM 1M multi-session reasoning</td><td class="num">58.6</td><td class="num">—</td><td class="num">57.9</td><td class="num best">65.2</td></tr>
+    <tr><td>BEAM 1M Hit10</td><td class="num best">44.00</td><td class="num best">44.00</td><td class="num best">44.00</td><td class="num">—</td></tr>
+    <tr><td>Publishes retrieval at 1M tokens</td><td class="num">yes</td><td class="num">yes</td><td class="num">yes</td><td class="num">—</td></tr>
+    <tr><td>Publishes an abstention column</td><td class="num">yes</td><td class="num">yes</td><td class="num">yes</td><td class="num">BEAM only</td></tr>
+  </table></div>
+  <figcaption>¹ Vendor X: a commercial memory layer, no identity, authorization, or execution components; figures as published by the vendor under its own protocol, which instructs the model never to state that information is missing. ² Core band 59.0 to 60.6 under its published aggregation. ³ Composite measured under the rebuilt aggregation; stated as a paired delta over its own core run, not as an absolute.</figcaption>
+</figure><!-- F5 -->
+
+<figure>
+  <div class="fig-head"><span class="fig-no">Figure 9</span><h2>The cost of record: BEAM 1M, 35 conversations, about 35 million tokens</h2></div>
+  <p class="sub">Measured on the 2026-08-20 ingest. Two Xeon 8280s, 16 cores, 31 GB, no GPU.</p>
+  <div class="tiles">
+    <div class="tile"><div class="lab">Ingest, one time</div><div class="v">$8.24</div><div class="d">17,745 accepted claims · 37,387 LLM calls</div></div>
+    <div class="tile"><div class="lab">Per accepted claim</div><div class="v">$0.0021</div><div class="d">about $0.24 per million-token conversation</div></div>
+    <div class="tile"><div class="lab">Index, one time</div><div class="v">$0</div><div class="d">72,986 documents embedded, local nomic, CPU only</div></div>
+    <div class="tile"><div class="lab">Retrieval, per question</div><div class="v">$0.0037</div><div class="d">$2.28 for 625 questions</div></div>
+    <div class="tile"><div class="lab">Quarantined at the door</div><div class="v">0</div><div class="d">after the RFC 3339 fix; 5,732 refused before it</div></div>
+  </div>
+  <figcaption>Two facts most stores cannot claim: there is no embedding vendor in this stack and no GPU in these machines; and the whole corpus cost under ten dollars to ingest and nothing to index.</figcaption>
+</figure>
+
+
+
+<!-- F8 -->
+
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+(function(){
+const NS="http://www.w3.org/2000/svg";
+const tip=document.getElementById("tip");
+function el(n,a,p){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function txt(p,x,y,s,cls,anchor){const t=el("text",{x,y,class:cls||"","text-anchor":anchor||"start"},p);t.textContent=s;return t;}
+function showTip(ev,rows){tip.textContent="";rows.forEach(r=>{const d=document.createElement("div");if(r.k){const k=document.createElement("i");k.className="k";k.style.background=r.k;d.appendChild(k);}const b=document.createElement("b");b.textContent=r.v;d.appendChild(b);d.appendChild(document.createTextNode(" "+r.l));tip.appendChild(d);});tip.style.left=ev.clientX+"px";tip.style.top=(ev.clientY-8)+"px";tip.style.opacity=1;}
+function hideTip(){tip.style.opacity=0;}
+function hit(p,x,y,w,h,rows){const r=el("rect",{x,y,width:w,height:h,class:"hit",tabindex:0},p);r.addEventListener("pointermove",e=>showTip(e,rows));r.addEventListener("pointerleave",hideTip);r.addEventListener("focus",e=>{const b=r.getBoundingClientRect();showTip({clientX:b.x+b.width/2,clientY:b.y},rows)});r.addEventListener("blur",hideTip);return r;}
+const ACR="var(--acr)",ACRL="var(--acr-light)",CMP="var(--cmp)";
+
+/* F1: dumbbell Hit@5 -> Hit@10 */
+(function(){
+  const W=760,L=290,R=40,T=14,rowH=40,rows=[["LongMemEval-S",99.00,99.80,"MRR 0.9846"],["LoCoMo",90.74,93.06,"MRR 0.8225"],["BEAM 1M",35.84,44.00,"MRR 0.2546"],["LongMemEval · local brains, local rerank",99.4,99.6,"MRR 0.970"],["LoCoMo · local brains, local rerank",80.6,85.2,"MRR 0.696"],["LoCoMo · local brains, frontier rerank",91.2,92.6,"MRR 0.808"],["BEAM 100K · published brains",40.6,49.6,"MRR 0.315"],["BEAM 100K · local brains, frontier rerank",39.2,47.3,"MRR 0.294"],["BEAM 100K · local brains, local rerank",33.8,43.9,"MRR 0.246"]];
+  const H=T+rows.length*rowH+34,s=el("svg",{viewBox:`0 0 ${W} ${H}`},document.getElementById("f1"));
+  const x=v=>L+(v/100)*(W-L-R);
+  [0,25,50,75,100].forEach(v=>{el("line",{x1:x(v),x2:x(v),y1:T,y2:T+rows.length*rowH,class:"grid"},s);txt(s,x(v),H-10,v+"%","tick","middle");});
+  rows.forEach((r,i)=>{const y=T+i*rowH+rowH/2;txt(s,L-14,y+4,r[0],"cat","end");
+    el("line",{x1:x(r[1]),x2:x(r[2]),y1:y,y2:y,stroke:ACRL,"stroke-width":2},s);
+    el("circle",{cx:x(r[1]),cy:y,r:6,fill:ACRL,stroke:"var(--surface)","stroke-width":2,class:"mark"},s);
+    el("circle",{cx:x(r[2]),cy:y,r:6,fill:ACR,stroke:"var(--surface)","stroke-width":2,class:"mark"},s);
+    txt(s,x(r[2])+12,y+4,r[2].toFixed(2)+"%","val");
+    txt(s,x(r[1])-12,y+4,r[1].toFixed(2)+"%","tick","end");
+    hit(s,L,y-rowH/2,W-L-R,rowH,[{k:"#2a78d6",v:r[2].toFixed(2)+"%",l:"Hit@10 · "+r[0]},{k:"#86b6ef",v:r[1].toFixed(2)+"%",l:"Hit@5"},{v:r[3].split(" ")[1],l:"MRR"}]);
+  });
+})();
+
+/* F2: horizontal bars from zero; band as a thin mark on the bar tip */
+(function(){
+  const W=760,L=250,R=60,T=14,rowH=40,rows=[["Acropolis core",89.2,88.4,89.6,ACR],["Acropolis agentic (Pythia)",90.5,90.4,90.6,ACR],["Agentic + frontier escalation",91.6,null,null,ACR],["Local brains, rented answer seat",90.0,null,null,ACRL],["Same system, refusal removed (probe)",87.2,null,null,ACRL],["…scored on answerable questions only",92.8,null,null,ACRL],["Vendor X · never-refuse protocol",98.0,null,null,CMP]];
+  const H=T+rows.length*rowH+34,s=el("svg",{viewBox:`0 0 ${W} ${H}`},document.getElementById("f2"));
+  const x=v=>L+(v/100)*(W-L-R), bh=22;
+  [0,25,50,75,100].forEach(v=>{el("line",{x1:x(v),x2:x(v),y1:T,y2:T+rows.length*rowH,class:"grid"},s);txt(s,x(v),H-10,v+"%","tick","middle");});
+  rows.forEach((r,i)=>{const y=T+i*rowH+rowH/2;txt(s,L-14,y+4,r[0],"cat","end");
+    const w=x(r[1])-x(0);
+    el("path",{d:`M${x(0)},${y-bh/2} h${w-4} a4,4 0 0 1 4,4 v${bh-8} a4,4 0 0 1 -4,4 h${-(w-4)} z`,fill:r[4],class:"mark"},s);
+    if(r[2]!=null){el("rect",{x:x(r[2]),y:y-bh/2-4,width:Math.max(x(r[3])-x(r[2]),2),height:bh+8,fill:"var(--surface)",opacity:.55},s);el("line",{x1:x(r[2]),x2:x(r[2]),y1:y-bh/2-4,y2:y+bh/2+4,stroke:"var(--ink)","stroke-width":1},s);el("line",{x1:x(r[3]),x2:x(r[3]),y1:y-bh/2-4,y2:y+bh/2+4,stroke:"var(--ink)","stroke-width":1},s);}
+    txt(s,x(r[1])+10,y+4,r[1].toFixed(1)+"%","val");
+    hit(s,L,y-rowH/2,W-L-R,rowH,[{k:r[4]===CMP?"#8b8983":"#2a78d6",v:r[1].toFixed(1)+"%",l:r[0]+(r[2]!=null?" · band "+r[2]+" to "+r[3]:"")}]);
+  });
+  el("line",{x1:x(0),x2:x(0),y1:T,y2:T+rows.length*rowH,class:"axis"},s);
+})();
+
+
+/* F9: BEAM 100K by ability, three bars per group */
+(function(){
+  const W=760,L=50,R=20,T=26,B=44,PH=240,cats=[["extraction",70.8,89.1,86.4],["preference",94.1,87.8,87.9],["instruction",72.8,90.9,92.1],["update",59.7,57.9,62.5],["contradiction",52.7,67.5,67.5],["temporal",66.7,78.6,80.7],["multi-session",60.3,58.0,55.1],["summary",23.8,36.9,36.3],["ordering",16.5,32.9,34.6]];
+  const H=T+PH+B,s=el("svg",{viewBox:`0 0 ${W} ${H}`},document.getElementById("f9"));
+  const y=v=>T+PH-(v/100)*PH,gw=(W-L-R)/cats.length,bw=20,gap=2;
+  [0,25,50,75,100].forEach(v=>{el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:"grid"},s);txt(s,L-8,y(v)+4,v,"tick","end");});
+  cats.forEach((c,i)=>{const cx=L+gw*i+gw/2;const x0=cx-1.5*bw-gap;
+    const bar=(x,v,col)=>{const h=y(0)-y(v);el("path",{d:`M${x},${y(0)} v${-(h-4)} a4,4 0 0 1 4,-4 h${bw-8} a4,4 0 0 1 4,4 v${h-4} z`,fill:col,class:"mark"},s);};
+    bar(x0,c[1],ACRL);bar(x0+bw+gap,c[2],ACR);bar(x0+2*(bw+gap),c[3],CMP);
+    txt(s,cx,H-16,c[0],"cat","middle");
+    hit(s,cx-gw/2,T,gw,PH,[{k:"#86b6ef",v:c[1].toFixed(1),l:"own everything · "+c[0]},{k:"#2a78d6",v:c[2].toFixed(1),l:"rent the thinking"},{k:"#8b8983",v:c[3].toFixed(1),l:"frontier, same brains"}]);
+  });
+  el("line",{x1:L,x2:W-R,y1:y(0),y2:y(0),class:"axis"},s);
+})();
+
+/* F3: grouped columns */
+(function(){
+  const W=760,L=50,R=20,T=26,B=44,PH=240,cats=[["abstention",75.7,52.5],["contradiction",62.1,35.7],["summarization",56.4,63.5],["multi-session",57.9,65.2]];
+  const H=T+PH+B,s=el("svg",{viewBox:`0 0 ${W} ${H}`},document.getElementById("f3"));
+  const y=v=>T+PH-(v/100)*PH,gw=(W-L-R)/cats.length,bw=24,gap=2;
+  [0,25,50,75,100].forEach(v=>{el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:"grid"},s);txt(s,L-8,y(v)+4,v,"tick","end");});
+  cats.forEach((c,i)=>{const cx=L+gw*i+gw/2;const xa=cx-bw-gap/2,xb=cx+gap/2;
+    const bar=(x0,v,col,lab)=>{const h=y(0)-y(v);const p=el("path",{d:`M${x0},${y(0)} v${-(h-4)} a4,4 0 0 1 4,-4 h${bw-8} a4,4 0 0 1 4,4 v${h-4} z`,fill:col,class:"mark"},s);txt(s,x0+bw/2,y(v)-7,v.toFixed(1),"val","middle");return p;};
+    bar(xa,c[1],ACR);bar(xb,c[2],CMP);
+    txt(s,cx,H-16,c[0],"cat","middle");
+    hit(s,cx-gw/2,T,gw,PH,[{k:"#2a78d6",v:c[1].toFixed(1),l:"Acropolis composite · "+c[0]},{k:"#8b8983",v:c[2].toFixed(1),l:"Vendor X"}]);
+  });
+  el("line",{x1:L,x2:W-R,y1:y(0),y2:y(0),class:"axis"},s);
+})();
+
+/* F4: posture scatter */
+(function(){
+  const W=760,L=70,R=40,T=24,B=54,PH=300,H=T+PH+B,s=el("svg",{viewBox:`0 0 ${W} ${H}`},document.getElementById("f4"));
+  const xs=v=>L+((v-20)/80)*(W-L-R), ys=v=>T+PH-((v-60)/40)*PH;
+  [20,40,60,80,100].forEach(v=>{el("line",{x1:xs(v),x2:xs(v),y1:T,y2:T+PH,class:"grid"},s);txt(s,xs(v),T+PH+18,v,"tick","middle");});
+  [60,70,80,90,100].forEach(v=>{el("line",{x1:L,x2:W-R,y1:ys(v),y2:ys(v),class:"grid"},s);txt(s,L-8,ys(v)+4,v,"tick","end");});
+  txt(s,(L+W-R)/2,H-8,"BEAM 1M abstention (higher = fewer invented answers) →","tick","middle");
+  const yl=txt(s,16,(T+PH)/2,"LongMemEval accuracy →","tick","middle");yl.setAttribute("transform",`rotate(-90 16 ${(T+PH)/2})`);
+  const pts=[["v0.5 synthesis-forward",50.0,90.5],["v0.6 balanced",64.3,89.4]];
+  el("line",{x1:xs(pts[0][1]),y1:ys(pts[0][2]),x2:xs(pts[1][1]),y2:ys(pts[1][2]),stroke:ACR,"stroke-width":2,"stroke-linecap":"round"},s);
+  pts.forEach((p,i)=>{el("circle",{cx:xs(p[1]),cy:ys(p[2]),r:7,fill:ACR,stroke:"var(--surface)","stroke-width":2,class:"mark"},s);txt(s,xs(p[1])+(i?12:-12),ys(p[2])+(i?18:-12),p[0],"cat",i?"start":"end");txt(s,xs(p[1])+(i?12:-12),ys(p[2])+(i?34:4),p[2].toFixed(1)+" / "+p[1].toFixed(1),"tick",i?"start":"end");
+    hit(s,xs(p[1])-16,ys(p[2])-16,32,32,[{k:"#2a78d6",v:p[2].toFixed(1)+"%",l:"LongMemEval · "+p[0]},{v:p[1].toFixed(1),l:"BEAM abstention"}]);});
+  txt(s,xs(57),ys(89.9)-14,"14.3 abstention for 1.1 accuracy","note","middle");
+})();
+})();
+</script>

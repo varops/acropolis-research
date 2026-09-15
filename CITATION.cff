@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use these results or the methodology, please cite the paper."
+title: "Acropolis: a governed model of the organization, measured"
+type: report
+version: "1.0"
+date-released: "2026-09-15"
+authors:
+  - name: "VarOps"
+    website: "https://varops.com"
+  - family-names: "Aroussi"
+    given-names: "Ran"
+    affiliation: "VarOps"
+repository: "https://github.com/varops/acropolis-research"
+url: "https://varops.com"
+abstract: >-
+  Institutional understanding and frontier reasoning can be separated. Across
+  LongMemEval-S, LoCoMo and BEAM 100K, replacing the model that builds the
+  organizational record with a locally operated 31B open-weight model changes
+  downstream frontier performance by one to two points; keeping the entire system
+  local retains 84 to 96 percent of all-frontier performance, and renting a frontier
+  model only for per-question answering raises that to 96 to 99 percent.
+keywords:
+  - enterprise AI
+  - governed knowledge substrate
+  - benchmark
+  - LongMemEval
+  - LoCoMo
+  - BEAM
+  - open-weight models
+license: CC-BY-4.0
