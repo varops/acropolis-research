@@ -1,8 +1,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Own the Knowledge. Rent the Thinking.</title>
-<style>:root{--bg:#ffffff;--panel:#fafaf9;--ink:#1c1f24;--ink2:#4b5160;--muted:#7a8090;--rule:#e3e1da;--accent:#0b6e6e;--accent2:#86b6ef;--band:#eef4f3;--hi:#fff8e1;--side:#ffffff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--s1:#0b6e6e;--s2:#86b6ef;--s3:#8b8983}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}}
-:root[data-theme="dark"]{--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}
-html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.6}
+<style>:root{--bg:#ffffff;--panel:#fafaf9;--ink:#1c1f24;--ink2:#4b5160;--muted:#7a8090;--rule:#e3e1da;--accent:#0b6e6e;--accent2:#86b6ef;--band:#eef4f3;--hi:#fff8e1;--side:#ffffff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--s1:#050b0f;--s2:#19afb8;--s3:#999999;--s4:#091a1b;--link:#1a56db}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#e8e6e0;--s2:#19afb8;--s3:#999999;--s4:#b8b6ae;--link:#7cb0ff}}
+:root[data-theme="dark"]{--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#e8e6e0;--s2:#19afb8;--s3:#999999;--s4:#b8b6ae;--link:#7cb0ff}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;letter-spacing:-0.01em}
 .layout{display:grid;grid-template-columns:250px minmax(0,760px);min-height:100vh;max-width:1060px;margin:0 auto;column-gap:24px}
 .side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side);border-right:1px solid var(--rule);padding:22px 18px 40px;font-size:13.5px}
 .side .brand{display:flex;flex-direction:column;gap:2px;margin-bottom:18px}.side .brand a{font-weight:600;color:var(--ink);text-decoration:none;font-size:15px}.side .brand span{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
@@ -13,11 +13,11 @@ html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);
 .cover h1{font-size:34px;line-height:1.12;margin:0 0 8px;font-weight:600;text-wrap:balance}.cover.small h1{font-size:26px}.cover .sub{font-size:19px;color:var(--ink2);margin:0 0 16px;text-wrap:balance}
 .cover .meta{margin:0;color:var(--ink2);white-space:pre-line;font-size:14px}.cover .meta.muted{color:var(--muted);margin-top:8px}
 h2{font-size:22px;margin:44px 0 10px;font-weight:600;padding-top:8px;border-top:1px solid var(--rule)}h3{font-size:17px;margin:26px 0 6px;font-weight:600}
-p{margin:0 0 12px;max-width:72ch}li{margin:0 0 4px}
+p{margin:0 0 18px;max-width:72ch}li{margin:0 0 4px}
 article blockquote{margin:16px 0;padding:10px 14px;background:var(--panel);border-left:3px solid var(--accent);color:var(--ink2);font-size:14px;border-radius:0 6px 6px 0}
 article blockquote p{margin:0 0 6px}
-table{border-collapse:collapse;width:100%;font-size:13.5px;margin:12px 0 18px;display:block;overflow-x:auto;white-space:nowrap}
-th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tbl{overflow-x:auto;margin:12px 0 18px}table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top;white-space:normal;overflow-wrap:anywhere}th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500}
 td:not(:first-child):not(:nth-child(2)):not(:nth-child(3)){font-family:var(--mono);font-variant-numeric:tabular-nums}
 code{font-family:var(--mono);font-size:.9em;background:var(--panel);border:1px solid var(--rule);padding:1px 5px;border-radius:4px}pre{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.5}pre code{border:0;padding:0;background:transparent}
 hr{border:0;border-top:1px solid var(--rule);margin:28px 0}hr.part{margin:56px 0}
@@ -30,12 +30,23 @@ hr{border:0;border-top:1px solid var(--rule);margin:28px 0}hr.part{margin:56px 0
 .steps{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}.step{flex:1 1 120px;border:1px solid var(--rule);border-radius:5px;padding:8px 10px;font-size:13px;line-height:1.35;background:var(--bg)}.step.in{border-color:var(--accent);background:var(--band)}.step small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}.arrow{align-self:center;color:var(--muted)}
 .flow .note{font-size:12.5px;color:var(--ink2);margin:8px 0 0}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:2px;background:var(--rule);border-radius:6px;overflow:hidden}.tile{background:var(--bg);padding:14px 12px;display:grid;gap:3px}.tile span{font-size:11.5px;color:var(--muted)}.tile b{font-family:var(--mono);font-size:24px;font-weight:500}.tile small{font-size:11.5px;color:var(--ink2)}
-footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted)}footer a,article a{color:var(--accent)}
-@media (max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule)}.doc{padding:28px 20px 60px}}
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted)}footer a,article a{color:var(--link)}
+.toc-select{display:none}@media (max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);padding:14px 20px}.side .group,.side>a{display:none}.side .brand{margin-bottom:10px}.toc-select{display:block;width:100%;font:inherit;font-size:15px;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--ink)}.doc{padding:28px 20px 60px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <div class="layout">
-<nav class="side"><div class="brand"><a href="#top">Acropolis</a><span>Technical Report 01</span></div>
+<nav class="side"><div class="brand"><a href="#top">Acropolis</a><span>Technical Report 01</span></div><select class="toc-select" aria-label="Contents" onchange="if(this.value)location.hash=this.value"><option value="">Contents</option><option value="p-abstract">Abstract</option><option value="p-1-access-is-not-understanding">1. Access is not
+understanding</option><option value="p-2-the-experiment-separating-knowing-from-thinking">2. The
+experiment: separating knowing from thinking</option><option value="p-3-what-acropolis-is">3. What Acropolis is</option><option value="p-4-seven-properties-and-what-each-one-measures">4. Seven
+properties, and what each one measures</option><option value="p-5-the-frontier-configuration-and-the-comparison">5. The frontier
+configuration, and the comparison</option><option value="p-6-the-cost-of-record">6. The cost of record</option><option value="p-7-limitations">7. Limitations</option><option value="p-8-posture-and-what-comes-next">8. Posture, and what comes
+next</option><option value="a-a-1-what-was-measured-and-what-was-not">A. A.1 What was measured,
+and what was not</option><option value="a-a-2-datasets">A. A.2 Datasets</option><option value="a-a-3-the-harness">A. A.3 The harness</option><option value="a-a-4-models-and-budgets">A. A.4 Models and budgets</option><option value="a-a-5-retrieval-scoring">A. A.5 Retrieval scoring</option><option value="a-a-6-answering-scoring">A. A.6 Answering scoring</option><option value="a-a-7-configurations">A. A.7 Configurations</option><option value="a-a-8-noise-floor-and-the-paired-analysis-rule">A. A.8 Noise floor and
+the paired-analysis rule</option><option value="a-a-9-corrections-log">A. A.9 Corrections log</option><option value="a-a-10-reproduction">A. A.10 Reproduction</option><option value="a-a-11-comparisons-to-other-systems">A. A.11 Comparisons to other
+systems</option><option value="a-a-12-release-gate-for-reproducibility">A. A.12 Release gate for
+reproducibility</option><option value="a-a-13-shipped-specified-measured">A. A.13 Shipped, specified,
+measured</option><option value="a-a-14-validation-this-paper-does-not-contain">A. A.14 Validation this
+paper does not contain</option></select>
 <div class="group">Report</div><a href="#p-abstract">Abstract</a><a href="#p-1-access-is-not-understanding">1. Access is not
 understanding</a><a href="#p-2-the-experiment-separating-knowing-from-thinking">2. The
 experiment: separating knowing from thinking</a><a href="#p-3-what-acropolis-is">3. What Acropolis is</a><a href="#p-4-seven-properties-and-what-each-one-measures">4. Seven
@@ -55,8 +66,7 @@ paper does not contain</a>
 <header class="cover"><p class="kicker">Acropolis,
 a governed model of the organization · Technical Report 01</p><h1>Own the Knowledge. Rent the
 Thinking.</h1><p class="sub">Separating
-institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi VarOps LLC September 2026 · Version 1.0 DOI:
-10.xxxx/xxxxx</p><p class="meta muted">Research report</p></header>
+institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi VarOps LLC September 2026 · Version 1.0 DOI:<br>10.xxxx/xxxxx</p><p class="meta muted">Research report</p></header>
 <article>
 
 <h2 id="p-abstract">Abstract</h2>
@@ -162,7 +172,7 @@ operation, not the location of the machine: an open-weight checkpoint
 served under our own control, with no inference sent to a model-provider
 API. The rows differ in who fills the other two.</p>
 <figure class="fig" id="figure-2"><figcaption><span class="fig-no">Figure 2</span> Own the knowledge, rent the thinking: how much frontier you get without a frontier brain</figcaption><div class="chart" data-chart="fig2"><canvas></canvas></div><p class=cap>Reference: a frontier model in every seat on the published brains. Local is Gemma-4-31B on one H200 with local embeddings.</p></figure>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>configuration</th>
@@ -221,10 +231,10 @@ API. The rows differ in who fills the other two.</p>
 <td>67.5</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Read as a share of the all-frontier reference, the configuration the
 site scores today:</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th></th>
@@ -269,7 +279,7 @@ site scores today:</p>
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>● Every row in both tables has full per-question reports in the
 published bundle (Appendix A.12).</p>
 <p>"Own everything" is the better of the local single-call and
@@ -502,7 +512,7 @@ status.</strong> Measured: a run exercised the property and a number
 depends on it. By construction: built in, never attacked. Specified:
 designed, no benchmark exercises it. Source:
 <code>figures/table-1-evidence-map.md</code>.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>property or path</th>
@@ -630,7 +640,7 @@ score within one to two points of the published brains under frontier
 seats on every benchmark</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="p-5-the-frontier-configuration-and-the-comparison">5. The frontier
 configuration, and the comparison</h2>
 <p>Section 2 reported the local campaign against the all-frontier
@@ -640,7 +650,7 @@ reranker, a frontier answer. Everything is identity-scored at the
 published budgets.</p>
 <figure class="fig" id="figure-6"><figcaption><span class="fig-no">Figure 6</span> Retrieval holds to a million tokens, then meets the cliff every published figure shows</figcaption><div class="chart" data-chart="fig6"><canvas></canvas></div><p class=cap>The first three rows are the frontier configuration; the rest are the September local-brain rows.</p></figure>
 <h3 id="retrieval">Retrieval</h3>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th></th>
@@ -693,7 +703,7 @@ published budgets.</p>
 <td>0.2546</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>◐ August retrieval reports partially retained; the local-brain
 retrieval rows in Figure 6 are ●.</p>
 <p>Read the BEAM column first if scale is the question. Every system we
@@ -706,7 +716,7 @@ across every answering configuration below; the agentic layer consumes
 the same ranked evidence the direct path does.</p>
 <figure class="fig" id="figure-7"><figcaption><span class="fig-no">Figure 7</span> LongMemEval answering: the published rows, the local-brain row, the never-refuse probe, and a comparison that cannot lose points for refusing</figcaption><div class="chart" data-chart="fig7"><canvas></canvas></div><p class=cap>Vendor X's protocol cannot lose points for refusing; 30 of the 500 questions are unanswerable traps, so a never-refuse system caps at 94.0 under the official rule.</p></figure>
 <h3 id="answering-longmemeval-s">Answering, LongMemEval-S</h3>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>configuration</th>
@@ -736,7 +746,7 @@ the same ranked evidence the direct path does.</p>
 <td>never-refuse protocol</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>◐ The three Acropolis rows are re-runnable from the tagged harness;
 their August per-question reports are partially retained (Appendix
 A.12). The local-brain rows of Figure 7 and the reference rows on the
@@ -766,7 +776,7 @@ stated protocol.</p>
 <figure class="fig" id="figure-8"><figcaption><span class="fig-no">Figure 8</span> BEAM 1M per category: where the governed composite leads and where it trails</figcaption><div class="chart" data-chart="fig8"><canvas></canvas></div><p class=cap>Overall is stated only as a paired delta (+3.5 over its paired core); cross-formula absolutes are not valid.</p></figure>
 <h3 id="answering-beam-1m-full-700-questions">Answering, BEAM 1M (full
 700 questions)</h3>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>configuration</th>
@@ -803,7 +813,7 @@ stated protocol.</p>
 <td>65.2</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>◐ Re-runnable from the tagged harness; August per-question reports
 partially retained (Appendix A.12).</p>
 <p>The governed composite is a deterministic routing policy over two
@@ -823,7 +833,7 @@ event-ordering 26.0.</p>
 <p><strong>Table 2. Head to head, with the protocol differences on the
 table.</strong> Source:
 <code>figures/table-2-head-to-head.md</code>.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>evaluation</th>
@@ -919,7 +929,7 @@ table.</strong> Source:
 <td>BEAM only</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>¹ Vendor X figures as published by the vendor under its own protocol,
 which instructs the model never to state that information is missing, so
 a refusal can never cost it a point; it does not publish retrieval or
@@ -943,7 +953,7 @@ comparison above should be read knowing what the second one costs to
 run. These figures are from the BEAM 1M ingest of 2026-08-20: 35
 conversations, roughly 35 million tokens.</p>
 <figure class="fig" id="figure-9"><figcaption><span class="fig-no">Figure 9</span> The cost of record: BEAM 1M, 35 conversations, about 35 million tokens</figcaption><div class="tiles"><div class="tile"><span>Ingest, one time</span><b>$8.24</b><small>17,745 accepted claims · 37,387 LLM calls</small></div><div class="tile"><span>Per accepted claim</span><b>$0.0021</b><small>about $0.24 per million-token conversation</small></div><div class="tile"><span>Index, one time</span><b>$0</b><small>72,986 documents embedded, local nomic, CPU only</small></div><div class="tile"><span>Retrieval, per question</span><b>$0.0037</b><small>$2.28 for 625 questions</small></div><div class="tile"><span>Quarantined at the door</span><b>0</b><small>after the RFC 3339 fix; 5,732 refused before it</small></div></div><p class=cap>Two Xeon 8280s, 16 cores, 31 GB, no GPU. Measured on the 2026-08-20 ingest.</p></figure>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>stage</th>
@@ -976,7 +986,7 @@ conversations, roughly 35 million tokens.</p>
 <td>$0.00365 per question</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Two facts most stores cannot claim. The embedder is free and local:
 there is no embedding vendor in this stack and no GPU in these machines.
 And the whole corpus cost under ten dollars to ingest and nothing to
@@ -1191,7 +1201,7 @@ reproducible, and already used by the systems we compare against.</p>
 <p>No corpus or question in this paper was authored by VarOps. Each
 dataset was used as published, without modification to conversations,
 questions, or gold answers.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>dataset</th>
@@ -1236,7 +1246,7 @@ resolution, abstention</td>
 unanswerable</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The LoCoMo figures use the dataset's published sample, two
 conversations per category under the harness's fixed seed. The site
 counted 432 questions; three adversarial items the harness now keeps
@@ -1332,7 +1342,7 @@ model id names a provider snapshot or an open-weight checkpoint; the
 report-bundle manifest carries the same ids per report, and any figure
 whose snapshot is no longer callable is marked as such (A.12).</p>
 <p><strong>Frontier placement (the site's configuration):</strong></p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>seat</th>
@@ -1380,9 +1390,9 @@ direct pass</td>
 <td>fixed prompts, A.6</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Local placement (the September campaign):</strong></p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>seat</th>
@@ -1426,7 +1436,7 @@ answer</td>
 <td>A.6, judge agreement</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The vLLM server ran with a 65,536-token context for LongMemEval and
 LoCoMo and was raised to 131,072 (the model's configured maximum) for
 BEAM 100K, where the synthesis envelope reaches about 57,000 tokens and
@@ -1447,7 +1457,7 @@ content and was the first correction in the log, A.9).</p>
 <h2 id="a-a-5-retrieval-scoring">A.5 Retrieval scoring</h2>
 <p>Retrieval is scored before any answering model runs. The system
 returns a ranked top-10 list of evidence messages per question.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>metric</th>
@@ -1478,7 +1488,7 @@ credit or none</td>
 final ranking</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Since 2026-08-24 every retrieval figure is scored on <strong>document
 identity</strong> (<code>source_object_id</code>), never on text
 overlap. Each report carries <code>text_scored</code>; a non-zero value
@@ -1495,7 +1505,7 @@ it is quoted against the achievable ceiling. On BEAM 100K, 355 of the
 those.</p>
 <p>Published retrieval figures, frontier placement (identity-scored,
 published budgets):</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th></th>
@@ -1542,12 +1552,12 @@ published budgets):</p>
 <td>0.2546</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Retrieval on the local brains (Gemma-4-31B extractor), by reranker.
 The in-run rows are the retrieval each answering row actually received,
 scored per question inside the run; the standalone rows are
 <code>bench retrieval</code> on the same pool.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>brains, reranker</th>
@@ -1595,7 +1605,7 @@ standalone)</td>
 <td>40.6 / 49.6</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Retrieval is identical across every answering configuration that
 shares a reranker: the agentic and composite rows consume the same
 ranked evidence the core row does.</p>
@@ -1800,7 +1810,7 @@ cannot see losses, and the full paired rows reversed it.</li>
 mechanism. This table is maintained in the VarOps benchmark metrics
 glossary and reproduced here verbatim at publication; the entries below
 are the ones that moved a headline.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>date</th>
@@ -1894,7 +1904,7 @@ shown 8 of 43 and 16 of 59 flips; the full rows showed matching
 losses.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="a-a-10-reproduction">A.10 Reproduction</h2>
 <p>Commands as run, with placeholders for machine-local paths. Model
 pins are those in A.4; endpoints are the providers' OpenAI-compatible
@@ -2005,7 +2015,7 @@ protocol difference is a measurement rather than an estimate.
 LongMemEval, all 500 questions, frontier single call over the local
 brains, same retrieval and same judge, paired against the assembly_v2
 row on identical questions:</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>contract</th>
@@ -2034,7 +2044,7 @@ row on identical questions:</p>
 <td>92.8</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Removing the refusal gained 29 questions (22 of the 28 wrong
 refusals, plus 7 others) and lost 33 (all 30 traps, plus 3 answerable).
 It did not raise the headline under a judge that scores a confident
@@ -2104,7 +2114,7 @@ SHA-256 hashes for each.</p>
 measured</h2>
 <p>For every path the paper or website names, its status at
 publication:</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>path</th>
@@ -2180,7 +2190,7 @@ benchmarks; the rent-the-thinking rows place the frontier model in the
 answer seat by design (Part I, Figure 2)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="a-a-14-validation-this-paper-does-not-contain">A.14 Validation this
 paper does not contain</h2>
 <p>Listed so the reader knows what would change the assessment, in rough
@@ -2211,7 +2221,7 @@ const tok=n=>css().getPropertyValue(n).trim();
 function draw(el){
   const spec=CHARTS[el.dataset.chart]; const canvas=el.querySelector('canvas'); const dpr=window.devicePixelRatio||1;
   const W=el.clientWidth||700; const ink=tok('--ink'), ink2=tok('--ink2'), muted=tok('--muted'), rule=tok('--rule'), panel=tok('--panel');
-  const series=[tok('--s1'),tok('--s2'),tok('--s3')];
+  const series=[tok('--s1'),tok('--s2'),tok('--s3'),tok('--s4')];
   const L=Math.min(300,Math.max(150,W*0.36)), R=54, T=8, B=26, bh=spec.kind==='bars'?18:14, gap=spec.kind==='bars'?6:3, ggap=14;
   const rows=spec.kind==='bars'?spec.groups.flatMap(g=>[{label:g[0],head:true}].concat(g[1].map(([l,v])=>({label:l,vals:[v]})))):spec.rows.map(([l,vals])=>({label:l,vals}));
   const nser=spec.kind==='bars'?1:spec.series.length;
