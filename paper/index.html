@@ -1,0 +1,2243 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Own the Knowledge. Rent the Thinking.</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{--bg:#fafaf8;--panel:#ffffff;--ink:#1c1f24;--ink2:#4b5160;--muted:#7a8090;--rule:#e3e1da;--accent:#0b6e6e;--accent2:#86b6ef;--band:#eef4f3;--hi:#fff8e1;--side:#f3f2ee;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--s1:#0b6e6e;--s2:#86b6ef;--s3:#8b8983}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}}
+:root[data-theme="dark"]{--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.6}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side);border-right:1px solid var(--rule);padding:22px 18px 40px;font-size:13.5px}
+.side .brand{display:flex;flex-direction:column;gap:2px;margin-bottom:18px}.side .brand a{font-weight:600;color:var(--ink);text-decoration:none;font-size:15px}.side .brand span{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.side .group{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+.side a{display:block;color:var(--ink2);text-decoration:none;padding:4px 8px;border-radius:4px;line-height:1.35}.side a:hover{background:var(--band);color:var(--ink)}
+.doc{max-width:760px;padding:40px 48px 80px;margin:0}
+.cover{margin:0 0 36px}.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.cover h1{font-size:34px;line-height:1.12;margin:0 0 8px;font-weight:600;text-wrap:balance}.cover.small h1{font-size:26px}.cover .sub{font-size:19px;color:var(--ink2);margin:0 0 16px;text-wrap:balance}
+.cover .meta{margin:0;color:var(--ink2);white-space:pre-line;font-size:14px}.cover .meta.muted{color:var(--muted);margin-top:8px}
+h2{font-size:22px;margin:44px 0 10px;font-weight:600;padding-top:8px;border-top:1px solid var(--rule)}h3{font-size:17px;margin:26px 0 6px;font-weight:600}
+p{margin:0 0 12px;max-width:72ch}li{margin:0 0 4px}
+article blockquote{margin:16px 0;padding:10px 14px;background:var(--panel);border-left:3px solid var(--accent);color:var(--ink2);font-size:14px;border-radius:0 6px 6px 0}
+article blockquote p{margin:0 0 6px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin:12px 0 18px;display:block;overflow-x:auto;white-space:nowrap}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:not(:first-child):not(:nth-child(2)):not(:nth-child(3)){font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{font-family:var(--mono);font-size:.9em;background:var(--panel);border:1px solid var(--rule);padding:1px 5px;border-radius:4px}pre{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.5}pre code{border:0;padding:0;background:transparent}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}hr.part{margin:56px 0}
+.fig{margin:22px 0 26px;padding:16px 18px;background:var(--panel);border:1px solid var(--rule);border-radius:8px}
+.fig figcaption{font-size:14px;font-weight:600;margin:0 0 12px;color:var(--ink)}.fig-no{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:8px;font-weight:500}
+.fig .cap{font-size:13px;color:var(--ink2);margin:10px 0 0}
+.chart{position:relative}.chart canvas{display:block;width:100%;height:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin:0 0 8px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.flow{display:grid;gap:16px}.path h4{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:500}
+.steps{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}.step{flex:1 1 120px;border:1px solid var(--rule);border-radius:5px;padding:8px 10px;font-size:13px;line-height:1.35;background:var(--bg)}.step.in{border-color:var(--accent);background:var(--band)}.step small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}.arrow{align-self:center;color:var(--muted)}
+.flow .note{font-size:12.5px;color:var(--ink2);margin:8px 0 0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:2px;background:var(--rule);border-radius:6px;overflow:hidden}.tile{background:var(--bg);padding:14px 12px;display:grid;gap:3px}.tile span{font-size:11.5px;color:var(--muted)}.tile b{font-family:var(--mono);font-size:24px;font-weight:500}.tile small{font-size:11.5px;color:var(--ink2)}
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted)}footer a,article a{color:var(--accent)}
+@media (max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule)}.doc{padding:28px 20px 60px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<div class="layout">
+<nav class="side"><div class="brand"><a href="#top">Acropolis</a><span>Technical Report 01</span></div>
+<div class="group">Report</div><a href="#p-abstract">Abstract</a><a href="#p-1-access-is-not-understanding">1. Access is not
+understanding</a><a href="#p-2-the-experiment-separating-knowing-from-thinking">2. The
+experiment: separating knowing from thinking</a><a href="#p-3-what-acropolis-is">3. What Acropolis is</a><a href="#p-4-seven-properties-and-what-each-one-measures">4. Seven
+properties, and what each one measures</a><a href="#p-5-the-frontier-configuration-and-the-comparison">5. The frontier
+configuration, and the comparison</a><a href="#p-6-the-cost-of-record">6. The cost of record</a><a href="#p-7-limitations">7. Limitations</a><a href="#p-8-posture-and-what-comes-next">8. Posture, and what comes
+next</a>
+<div class="group">Appendix A</div><a href="#a-a-1-what-was-measured-and-what-was-not">A.1 What was measured,
+and what was not</a><a href="#a-a-2-datasets">A.2 Datasets</a><a href="#a-a-3-the-harness">A.3 The harness</a><a href="#a-a-4-models-and-budgets">A.4 Models and budgets</a><a href="#a-a-5-retrieval-scoring">A.5 Retrieval scoring</a><a href="#a-a-6-answering-scoring">A.6 Answering scoring</a><a href="#a-a-7-configurations">A.7 Configurations</a><a href="#a-a-8-noise-floor-and-the-paired-analysis-rule">A.8 Noise floor and
+the paired-analysis rule</a><a href="#a-a-9-corrections-log">A.9 Corrections log</a><a href="#a-a-10-reproduction">A.10 Reproduction</a><a href="#a-a-11-comparisons-to-other-systems">A.11 Comparisons to other
+systems</a><a href="#a-a-12-release-gate-for-reproducibility">A.12 Release gate for
+reproducibility</a><a href="#a-a-13-shipped-specified-measured">A.13 Shipped, specified,
+measured</a><a href="#a-a-14-validation-this-paper-does-not-contain">A.14 Validation this
+paper does not contain</a>
+<div class="group">Evidence</div><a href="https://github.com/varops/acropolis-research">Reports, manifests, reproduction ↗</a>
+</nav>
+<main class="doc" id="top">
+<header class="cover"><p class="kicker">Acropolis,
+a governed model of the organization · Technical Report 01</p><h1>Own the Knowledge. Rent the
+Thinking.</h1><p class="sub">Separating
+institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi VarOps LLC September 2026 · Version 1.0 DOI:
+10.xxxx/xxxxx</p><p class="meta muted">Research report</p></header>
+<article>
+
+<h2 id="p-abstract">Abstract</h2>
+<p>A company does not need to hand its institutional knowledge to a
+frontier model for an AI to understand it.</p>
+<p>We find that institutional understanding and frontier reasoning can
+be separated: a locally operated 31B model can build the organizational
+record, and a frontier model can be rented only for per-question
+reasoning over that record. Across three public benchmarks, replacing
+the model that builds the organizational record with a locally operated
+31B open-weight model changes downstream frontier performance by one to
+two points. Keeping the entire system local retains 84 to 96 percent of
+all-frontier performance. Renting a frontier model only for answering,
+where it sees the evidence for one question at a time and never the
+record, raises that to 96 to 99 percent.</p>
+<p>The system that makes the separation possible is Acropolis, a
+governed operational model of an organization: a substrate that decides
+what an AI system may know and do before it does either. It holds claims
+rather than chunks. Every claim carries its evidence, its time of
+validity and its source; nothing is silently overwritten; graphs,
+vectors and summaries are disposable projections of a canonical record
+the company owns and can export. Because the record is the asset, the
+models around it are seats, and seats can be filled by whoever the
+company chooses.</p>
+<p>We measured the substrate with one committed harness on
+LongMemEval-S, LoCoMo and BEAM 100K, twice: once with a frontier model
+in every seat, and once with every seat on a local Gemma-4-31B model. We
+report the retrieval, answering and governance columns for both, the
+negative results along the way, what is measured by construction rather
+than by adversarial test, and what still needs a live organization to
+settle.</p>
+<h2 id="p-1-access-is-not-understanding">1. Access is not
+understanding</h2>
+<p>An agent with credentials to the wiki, the CRM, the tracker and three
+years of Slack still does not know who owns a decision, which of four
+documents is current, what was tried last quarter and abandoned, or what
+it is allowed to repeat to whom.</p>
+<p>That is the gap every enterprise AI deployment falls into, and the
+two standard fixes do not close it on their own.</p>
+<p>The first fix is more context. Put the documents in the prompt, or
+retrieve the closest chunks and put those in the prompt, and ask the
+model to behave. This is what most of the market calls
+retrieval-augmented generation. Four things go wrong with it in
+practice, and none of them is intrinsic to retrieval. A model composing
+from fragments fills the gaps between them, and nothing in the pipeline
+knows a gap exists. A chunk from March and a chunk from June about the
+same fact are two chunks, and whichever ranks higher wins. The answer is
+a string, and unless something outside the model kept the citations, the
+evidence was a context window that no longer exists. And when access
+control is applied by instructing the model, the policy is enforced by
+the thing you are trying to constrain. Each of these can be bolted on
+around a retrieval pipeline: citation logging, temporal filters,
+contradiction checks, retrieval-time ACLs. Teams do it, one property at
+a time, and every one of them is a feature of that team's pipeline
+rather than a property of the record. Acropolis makes them properties of
+the substrate, so that every reader of the record inherits them by
+construction.</p>
+<p>The second fix is a bigger model. It helps with the first failure and
+does nothing for the other three. It also carries a cost the first fix
+hides: to understand the company, the bigger model has to be shown the
+company. Every document, every thread, every customer record goes out to
+whoever runs the model, and what comes back is an answer, not an
+asset.</p>
+<p>We took a different position. The problem is not that the model knows
+too little. It is that nothing in the stack holds a governed, current,
+attributable model of the organization in which the model can
+participate. Build that, and the model becomes a replaceable seat. The
+organizational understanding is the asset.</p>
+<p>That position has a testable consequence, and it is the one this
+paper adds. If the understanding lives in a record the company owns, the
+model that builds the record and the model that reasons over it are
+different seats, and they can be filled differently. A model the company
+runs on its own hardware can do the understanding. A frontier model can
+be rented for the thinking, one question at a time, seeing only the
+evidence for that question. Section 2 is the experiment. The rest of the
+paper is what makes the result possible and what it does not yet
+prove.</p>
+<figure class="fig" id="figure-1"><figcaption><span class="fig-no">Figure 1</span> The brain stays inside; a question-sized envelope can leave</figcaption><div class="flow"><div class="path"><h4>Conventional</h4><div class="steps"><div class="step">Company knowledge<small>documents, threads, records, all of it</small></div><span class="arrow">→</span><div class="step">Frontier AI<small>outside the company; understands and answers</small></div><span class="arrow">→</span><div class="step">Answer<small>an answer, not an asset</small></div></div></div>
+<div class="path"><h4>Acropolis</h4><div class="steps"><div class="step in">Company<small>observations from the systems it already runs</small></div><span class="arrow">→</span><div class="step in">Owned organizational understanding<small>the record: claims, evidence, time, source; built by a model the company runs</small></div><span class="arrow">→</span><div class="step in">Answer<small>local answer seat: 84 to 96% of all-frontier</small></div><span class="arrow">⤷</span><div class="step">Frontier reasoning when needed<small>sees one question's evidence envelope, never the record; 96 to 99% of all-frontier</small></div></div><p class="note">The boundary: the record never crosses it. An evidence envelope of a few thousand tokens can, one question at a time, and it is logged with the answer.</p></div></div></figure>
+<h2 id="p-2-the-experiment-separating-knowing-from-thinking">2. The
+experiment: separating knowing from thinking</h2>
+<p>Three public benchmarks, one committed harness, no questions or
+conversations authored by us. LongMemEval-S is 500 questions over
+multi-session chat histories, 30 of them unanswerable traps. LoCoMo is
+435 questions over very long two-person conversations, 88 unanswerable.
+BEAM 100K is 400 questions over twenty conversations of about 100,000
+tokens each, across ten question types, with 40 unanswerable. BEAM is
+run at 100K tokens per conversation for the local campaign; the 1M
+variant is reported only for the frontier reference configuration in
+Section 5, and the two are not compared to each other in this paper.
+Retrieval is scored on document identity before any answering model
+runs; answers are judged by a fixed protocol that scores a confident
+wrong answer as wrong. Appendix A has the definitions, the prompts and
+the commands.</p>
+<p>The system has three model seats. The understanding seat builds the
+record: it reads the conversations and proposes the claims the record
+holds. The retrieval seat rewrites the question and ranks the candidate
+evidence. The answer seat composes from the evidence envelope it is
+given, alone or in a bounded reasoning loop. Every row below fills the
+understanding seat with Gemma-4-31B, an open-weight model on one rented
+GPU, with local embeddings. "Local" throughout means ownership and
+operation, not the location of the machine: an open-weight checkpoint
+served under our own control, with no inference sent to a model-provider
+API. The rows differ in who fills the other two.</p>
+<figure class="fig" id="figure-2"><figcaption><span class="fig-no">Figure 2</span> Own the knowledge, rent the thinking: how much frontier you get without a frontier brain</figcaption><div class="chart" data-chart="fig2"><canvas></canvas></div><p class=cap>Reference: a frontier model in every seat on the published brains. Local is Gemma-4-31B on one H200 with local embeddings.</p></figure>
+<table>
+<thead>
+<tr>
+<th>configuration</th>
+<th>understands</th>
+<th>thinks</th>
+<th>LongMemEval-S</th>
+<th>LoCoMo</th>
+<th>BEAM 100K</th>
+<th>BEAM 100K, own protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Own everything, best local configuration</td>
+<td>local</td>
+<td>local</td>
+<td>87.4</td>
+<td>76.3</td>
+<td>47.2</td>
+<td>57.3</td>
+</tr>
+<tr>
+<td>Own the knowledge, rent the thinking</td>
+<td>local</td>
+<td>frontier answer seat</td>
+<td>90.0</td>
+<td>79.3</td>
+<td>53.8</td>
+<td>66.4</td>
+</tr>
+<tr>
+<td>Rent only when the local answer refuses</td>
+<td>local</td>
+<td>local, frontier on refusals</td>
+<td>88.6</td>
+<td>80.5</td>
+<td>48.5</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Frontier in every seat, same local brains</td>
+<td>local brains</td>
+<td>frontier</td>
+<td>89.6</td>
+<td>81.8</td>
+<td>55.2</td>
+<td>66.8</td>
+</tr>
+<tr>
+<td>Reference: published brains, frontier in every seat</td>
+<td>frontier</td>
+<td>frontier</td>
+<td>91.4</td>
+<td>81.8</td>
+<td>56.2</td>
+<td>67.5</td>
+</tr>
+</tbody>
+</table>
+<p>Read as a share of the all-frontier reference, the configuration the
+site scores today:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>all frontier</th>
+<th>fully local</th>
+<th>rent the thinking</th>
+<th>rent on refusals</th>
+<th>questions sent out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LongMemEval-S</td>
+<td>91.4</td>
+<td>87.4, 95.6%</td>
+<td>90.0, 98.5%</td>
+<td>88.6, 96.9%</td>
+<td>27 of 500</td>
+</tr>
+<tr>
+<td>LoCoMo</td>
+<td>81.8</td>
+<td>76.3, 93.3%</td>
+<td>79.3, 96.9%</td>
+<td>80.5, 98.4%</td>
+<td>40 of 435</td>
+</tr>
+<tr>
+<td>BEAM 100K, strict</td>
+<td>56.2</td>
+<td>47.2, 84.0%</td>
+<td>53.8, 95.7%</td>
+<td>48.5, 86.3%</td>
+<td>8 of 400</td>
+</tr>
+<tr>
+<td>BEAM 100K, own protocol</td>
+<td>67.5</td>
+<td>57.3, 84.9%</td>
+<td>66.4, 98.4%</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>● Every row in both tables has full per-question reports in the
+published bundle (Appendix A.12).</p>
+<p>"Own everything" is the better of the local single-call and
+local-loop configurations, with no frontier model anywhere: the single
+call on LongMemEval (87.4; the loop reads 86.0), the loop on LoCoMo and
+BEAM (the single call reads 73.6 and 42.0). Renting the thinking keeps
+the record, the retrieval and the ranking local and rents one seat, the
+answer; the frontier model sees one question's evidence envelope, a few
+thousand tokens of claims and excerpts, and the envelope is stored with
+the answer. Renting on refusals keeps the local loop's answer wherever
+it answered, and sends out only the questions it declined. With the
+local single-call answers as the base instead, LongMemEval reads 88.4 or
+88.8 depending on which frontier row answers the refusals. BEAM is
+scored two ways because strict correctness gives no credit for a
+partially ordered list or a partial summary; BEAM's own protocol does,
+and the appendix prints both.</p>
+<p>Three things are in those tables, and they are the argument of this
+paper.</p>
+<p><strong>The understanding seat holds.</strong> Brains a local model
+built, with about 60 percent as many accepted claims as the frontier
+extractor produced on the same conversations, score within one to two
+points of the published brains once a frontier model runs the other
+seats: 89.6 against 91.4, 81.8 against 81.8, 55.2 against 56.2.
+Retrieval on them is the same or better: Hit@5 99.2 against 99.0, 91.2
+against 90.7, 39.2 against 40.6. The material gap does not appear in
+what the local model writes down; it arises downstream, in the seats
+that read it.</p>
+<p><strong>The cost of owning everything is in the reading seats, and it
+grows with the length of what has to be read.</strong> The best local
+configuration trails frontier-everywhere on the same brains by 2.2
+points on LongMemEval, 5.5 on LoCoMo and 8.0 on BEAM. On every benchmark
+the loss has the same shape: the local model ranks candidates less well
+over long excerpts (Hit@5 80 against 91 on LoCoMo, 34 against 39 on
+BEAM, on identical pools), and it composes less well from them. A
+cross-encoder reranker was tried as the cheap fix and refuted: on the
+same LoCoMo pool it ranked 28 points below the local language model,
+because ranking a long excerpt against a question is a reading job. A
+contract rewrite aimed at the local answer seat's observed mistakes was
+tried on both LoCoMo conversations and lost half a point. The loop is
+not a free lever either: it pays 2.7 points on LoCoMo and 5.2 on BEAM,
+and costs 1.4 on LongMemEval. The gap is model capacity at length, and
+the paper says so rather than dressing it.</p>
+<p><strong>Renting the thinking buys most of it back.</strong> Swapping
+only the answer seat for a frontier call lifts the local stack to 90.0,
+79.3 and 53.8, which is 98.5, 96.9 and 95.7 percent of the all-frontier
+reference. On BEAM's own protocol that row, 66.4, is 98.4 percent of it
+and within noise of frontier everywhere, 66.8. On LongMemEval it is
+above the site's published core number. Renting only on refusals sends 2
+to 9 percent of questions out and reads 97 and 98 percent on the two
+benchmarks where the local model refuses often enough for it to matter;
+the two mechanisms together, local retrieval with a rented answer and
+escalation on its refusals, read 91.4 on LongMemEval, the reference
+itself, with 21 questions escalated.</p>
+<figure class="fig" id="figure-3"><figcaption><span class="fig-no">Figure 3</span> BEAM 100K by ability: what renting the answer seat buys back</figcaption><div class="chart" data-chart="fig3"><canvas></canvas></div><p class=cap>Overall under the protocol: 57.3, 66.4, 66.8.</p></figure>
+<p>The guard columns survive the swap. With no frontier model in any
+seat, 29 of the 30 LongMemEval traps are refused. On LoCoMo the local
+rows refuse 70 to 75 of 88 traps against 70 to 80 for the frontier rows.
+Provenance is the same in every row because it is a property of the
+record, not of the model reading it.</p>
+<p>Two caveats on the BEAM table. Event ordering and summarization read
+0 to 3 of 40 for every configuration under strict correctness and 15 to
+37 under the protocol, local or frontier; they are the benchmark's
+hardest types for everyone. And contradiction resolution, the question
+type closest to this paper's thesis, is under half for every row: the
+answers name the disagreement and quote both sides, as the contract
+instructs, but the two evidence messages reach the envelope together on
+too few questions. That is the reranker again.</p>
+<p>The model is a replaceable seat. The organizational understanding is
+the asset. The rest of the paper is about the record that makes that
+true.</p>
+<h2 id="p-3-what-acropolis-is">3. What Acropolis is</h2>
+<p>One sentence carries the topology: Varys sees, Parthenon holds,
+Eunomia orders, Hero acts and communicates, Pythia answers, Ariadne
+reaches, MUXI runs it all. Acropolis is the machine.</p>
+<p>The names are deliberate. People-names act; place-names hold. Nothing
+that holds may act, and nothing that acts may hold. That rule is the
+architecture.</p>
+<p><strong>Parthenon holds.</strong> It is the brain: a client-owned,
+versioned, exportable store of observations, evidence, claims and the
+projections built from them. It never acts. It receives proposals
+through one signed intake door, validates them, and accepts, rejects,
+deduplicates or supersedes. A claim in Parthenon says: source S stated X
+at time T, here is the evidence span, here is the interval over which X
+was true, here is what superseded it and when. Nothing is deleted;
+things are corrected, disputed or superseded, and the change log records
+which.</p>
+<p><strong>Varys sees.</strong> Connectors, backfill, triage,
+extraction, proposal. Varys reads the approved systems, distils
+observations into candidate claims and submits them to Parthenon's door.
+It never speaks to a person and never changes operational state.
+Everything it proposes can be refused. The model that does the
+distilling is the understanding seat of Section 2.</p>
+<p><strong>Eunomia orders.</strong> The identity service. It fronts the
+client's own directory and answers one question for both Hero and
+Parthenon: who is this, what groups, whose data. It stores no
+memberships of its own. The directory stays the single source of
+identity truth.</p>
+<p><strong>Hero acts and communicates.</strong> The agent harness, built
+on MUXI, the open-source agent-formation substrate. Hero lives in Slack
+or Teams, runs formations, carries the channels. One Hero binds to one
+brain by structure, not by filter: a work Hero reads the company
+Parthenon, a personal Hero reads a private one.</p>
+<p><strong>Pythia answers.</strong> Some questions need working out
+rather than looking up: how long between two events, how many devices in
+total, whether the absence of a fact is an answer. Pythia is a bounded
+loop with three tools, ask Parthenon, compute deterministically,
+extract, and a mandatory time anchor. No world tools, ever. Her answers
+carry a second kind of warrant: derived from claims X and Y by operation
+O, beside Parthenon's asserted by source S at time T. The model inside
+the loop is the answer seat, the one seat Section 2 shows is worth
+renting.</p>
+<p><strong>Ariadne reaches.</strong> A desktop agent, paired per user
+with consent on the user's machine, dispatched by Hero when the work is
+local. She grants no authority and holds no memory.</p>
+<p>Put those together and the ordinary agent request changes shape.
+Instead of retrieve, stuff, hope, it becomes: resolve identity and
+policy, retrieve under that authorization, assemble task-scoped context
+with an explicit coverage state, plan, act with permission, record an
+attributable outcome, update versioned state. Observation is read-only.
+Memory is persistent. Execution is permissioned. Identity travels with
+the request. Action happens at the edge.</p>
+<figure class="fig" id="figure-4"><figcaption><span class="fig-no">Figure 4</span> Bolted-on retrieval and the resident request path, step by step</figcaption><div class="flow"><div class="path"><h4>Bolted-on: retrieve, stuff, hope</h4><div class="steps"><div class="step">Retrieve nearest chunks<small>stale wins if it ranks higher</small></div><span class="arrow">→</span><div class="step">Put them in the prompt<small>model sees what it should not</small></div><span class="arrow">→</span><div class="step">Instruct the model to behave<small>policy enforced by the thing being constrained</small></div><span class="arrow">→</span><div class="step">Answer<small>gaps filled; no provenance survives</small></div></div></div>
+<div class="path"><h4>Resident: the Acropolis request path</h4><div class="steps"><div class="step in">Resolve identity and policy<small>Eunomia, from the client's directory</small></div><span class="arrow">→</span><div class="step in">Retrieve under that authorization<small>Parthenon, before any model runs</small></div><span class="arrow">→</span><div class="step in">Assemble task-scoped context<small>explicit coverage state</small></div><span class="arrow">→</span><div class="step in">Plan, act with permission<small>Hero; Pythia when working out is needed</small></div><span class="arrow">→</span><div class="step in">Record an attributable outcome<small>update versioned state</small></div></div></div></div></figure>
+<p>This is the architecture for resident AI: the AI lives inside the
+company that owns it, runs where the work already happens, sees the
+whole operation, runs on infrastructure the company owns, and what it
+learns belongs to the company in a form it can export. The full thesis
+is at varops.com/resident-ai. A resident is not a tool invoked per
+query. It accumulates context, carries identity, and needs what a new
+employee needs on day one: to know what is current, who owns what, and
+what it is allowed to do. The fourth condition is why Parthenon is
+client-owned and exportable rather than a service the company rents.</p>
+<p>The threat model is explicit. Acropolis is built to prevent an
+over-privileged agent reading what its principal may not; leakage across
+brains or tenants; and stale or contradictory context leading to a
+confidently wrong action. It does not address a compromised endpoint, an
+insider who legitimately holds high privilege, or a compromised model
+provider. When an external model is rented for a seat, the evidence
+envelope for that question leaves the customer's perimeter: a few
+thousand tokens of claims and excerpts, never the corpus and never the
+record. The envelope is logged with the answer, so what leaves is itself
+auditable. Section 2 quantifies how often that happens under refusal
+escalation, 2 to 9 percent of questions, and what it buys. Only a fully
+local deployment sends nothing out, and Section 2 reports what that
+costs.</p>
+<h2 id="p-4-seven-properties-and-what-each-one-measures">4. Seven
+properties, and what each one measures</h2>
+<p>The properties below are not delegated to prompt compliance.
+Retrieval, authorization, coverage accounting and provenance are code
+paths and record structure; the model composes inside the boundary they
+set. Some benchmark performance does depend on how the model is
+instructed, and the paper measures that too. Here is each property, with
+its measurement where one exists and the plain words "by construction"
+where a test has not attacked it.</p>
+<p><strong>What the model sees is decided before it runs.</strong>
+Retrieval, authorization and coverage accounting are deterministic code
+paths that run before any model is called. The model composes an answer
+from an evidence envelope; it never decides what it was allowed to see.
+Whether it asserts beyond that envelope is a contract instruction, and
+its compliance is what the guard columns measure: across four full
+LongMemEval runs, 25 to 28 of the 30 unanswerable-trap questions were
+correctly refused each run, and one answer in the 120 trap rows was
+classified as a fabrication under manual review. With no frontier model
+in any seat, 29 of 30. That is one fabrication in the tested trap sample
+under the stated protocol; it is not a general hallucination rate, and
+the paper does not treat it as one.</p>
+<p><strong>Absence is labeled, never silent.</strong> Every question
+resolves to an explicit coverage state: answered, searched-and-empty, or
+outside-the-ontology. "The system found nothing" and "the system holds
+no concept of this" are different answers and callers can tell them
+apart. This is why an abstention column exists at all: BEAM abstention
+75.7 under the governed composite, against 52.5 for Vendor X, the
+commercial memory layer of Section 5. We also measured what the column
+costs, by removing it. The same LongMemEval configuration instructed
+never to say the information is missing scored 87.2 against 88.0 with
+the refusal intact, and turned 30 refusals into 30 fabrications. Scored
+on answerable questions only, the way never-refuse systems report, the
+same answers read 92.8. The refusal buys nothing on the headline and
+everything on the guard column.</p>
+<p><strong>Every answer carries its evidence.</strong> Answers cite the
+claims they rest on; each claim carries its source, timestamp and
+evidence span; derived conclusions carry the trace of what they were
+computed from. An auditor can walk any answer back to the conversation
+line it came from. Measured exhaustively on the stored runs: all 118,890
+claims delivered across 2,500 LongMemEval answers resolve to a stored
+observation with a source identity, and an audit of 2,233 answers
+against the evidence each received finds unsupported wrong assertions in
+about one answer in a hundred, at the same rate for local and frontier
+models.</p>
+<p><strong>Access control at the substrate, not in the prompt.</strong>
+Callers hold cryptographic identities; every request carries signed
+authorization; scopes resolve at the substrate itself, per caller. A
+caller below a scope cannot distinguish "withheld" from "empty", so
+permissions cannot be probed through absence. Isolation is one Postgres
+schema per brain, failing closed. It has been attacked: an adversarial
+probe against live per-brain servers, five brain pairs and nine cases
+each, refused or contained all 45. Wrong-tenant, foreign-key, tampered,
+expired and missing assertions are refused with no data; an assertion
+replayed against another brain's server returns none of the first
+brain's claims; naming another brain or another principal's scope is
+refused.</p>
+<p><strong>One writer, one validation path.</strong> Nothing a model
+says grants itself storage. All writes flow through the signed intake
+door, which validates, deduplicates, supersedes and can reject. On the
+BEAM ingest a first conversion emitted human-readable dates instead of
+RFC 3339; the door quarantined 5,732 submissions and accepted zero
+claims rather than store them. After the fix: 388 submitted, 388
+accepted. A store would have indexed the garbage.</p>
+<p><strong>Reproducible by construction.</strong> An answer records the
+snapshot, plan and authorization decision it was produced under. Every
+benchmark report records the dataset hash, the code revisions with a
+dirty-tree flag, and the model pins. The reports behind every number in
+this paper are published with it, under the release gate in Appendix
+A.12.</p>
+<figure class="fig" id="figure-5"><figcaption><span class="fig-no">Figure 5</span> Refusal posture is a dial with two measured endpoints</figcaption><div class="chart" data-chart="fig5"><canvas></canvas></div><p class=cap>Moving from synthesis-forward to balanced buys 14.3 points of BEAM abstention for 1.1 points of LongMemEval accuracy.</p></figure>
+<p><strong>Governance is a dial, not a destiny.</strong> Refusal posture
+is a deployment configuration with two measured endpoints. The
+synthesis-forward setting scores LongMemEval 90.5 and BEAM abstention
+50.0; the balanced setting scores 89.4 and 64.3. One contract cannot
+maximize both, and we measured that rather than asserting it: three
+contract variants scored 56.4, 57.4 and 57.1 overall on BEAM. Knobs
+redistribute points between refusal and coverage. They do not create
+them. We confirmed it once more in September: a fourth contract written
+against the local model's observed mistakes moved LoCoMo from 73.0 to
+72.2 on 435 paired questions, gaining on some and losing on others, with
+the refusal count unchanged. Systems that weld in a never-refuse posture
+cannot publish this column, and do not.</p>
+<p><strong>Table 1. Evidence map: every property, with its
+status.</strong> Measured: a run exercised the property and a number
+depends on it. By construction: built in, never attacked. Specified:
+designed, no benchmark exercises it. Source:
+<code>figures/table-1-evidence-map.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>property or path</th>
+<th>status</th>
+<th>evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signed intake, distillation, claims with evidence and
+supersession</td>
+<td>measured</td>
+<td>Exercised by every benchmark run; door quarantined 5,732 malformed
+submissions on the first BEAM conversion</td>
+</tr>
+<tr>
+<td>Retrieval at published budgets, identity-scored</td>
+<td>measured</td>
+<td>Figure 6; Hit10 99.80 / 93.06 / 44.00. Unchanged when the extractor
+is swapped: on brains built by a local 31B model, Hit5 99.2 / 91.2 /
+40.6 against 99.0 / 90.7 / 40.6 on the published brains (LongMemEval,
+LoCoMo, BEAM 100K)</td>
+</tr>
+<tr>
+<td>Absence labeled: coverage states in the envelope</td>
+<td>measured</td>
+<td>BEAM abstention 75.7 vs 52.5; 25 to 28 of 30 traps refused on
+LongMemEval; 29 of 30 with no frontier model in any seat. Never-refuse
+measured on the same brains: removing the refusal moved LongMemEval 88.0
+to 87.2 and turned 30 refusals into 30 fabrications</td>
+</tr>
+<tr>
+<td>Pythia loop: ask, compute, extract with a time anchor</td>
+<td>measured</td>
+<td>Agentic row 90.5 vs core 89.2, four full runs</td>
+</tr>
+<tr>
+<td>Governed composite routing on refusal and contradiction signals</td>
+<td>measured</td>
+<td>Figure 8; validated live before the full run</td>
+</tr>
+<tr>
+<td>Refusal posture as a configuration</td>
+<td>measured</td>
+<td>Figure 5; two endpoints, three variants at 56.4 / 57.4 / 57.1;
+escalation on the system's own refusals measured at 88.4 to 91.4 across
+four local configurations</td>
+</tr>
+<tr>
+<td>Scores do not depend on the judging model</td>
+<td>measured</td>
+<td>A local 31B judge agrees with the frontier judge on 98.7 to 99.2% of
+2,223 LongMemEval answers and preserves every ordering; its
+disagreements are stricter, protocol-literal calls</td>
+</tr>
+<tr>
+<td>Per-brain isolation, fails closed</td>
+<td>measured</td>
+<td>Adversarial probe on live per-brain servers, five brain pairs, nine
+cases each, 45 of 45 refused or contained: wrong tenant, foreign key,
+tampered, expired and missing assertions refused with no data; an
+assertion replayed against another brain's server returns none of the
+first brain's claims; naming another brain or another principal's scope
+is refused</td>
+</tr>
+<tr>
+<td>Every answer carries its evidence</td>
+<td>measured</td>
+<td>All 118,890 claims delivered across 2,500 stored LongMemEval answers
+resolve to a stored observation with a source identity, 0 exceptions; an
+LLM audit of 2,233 answers against their delivered evidence finds
+unsupported wrong assertions in about 1 in 100 answers, evenly across
+local and frontier rows</td>
+</tr>
+<tr>
+<td>Graduated disclosure</td>
+<td>measured</td>
+<td>Rungs derived at write time, never redacted at read time; 18
+integration tests including an adversarial reconstruction over 22
+reader-visible tables. End to end over the wire: a finance-group
+reader's envelope carries the precise value 2,140,000; a sales-rung
+reader's envelope on the same subject carries the band 2.0M to 2.5M and
+the trend "up", no byte of either precise value and no parent claim
+id</td>
+</tr>
+<tr>
+<td>Task-scoped context: ask_batch, context(entities), validity
+token</td>
+<td>measured</td>
+<td>Built and drilled over the wire: context over several subjects
+returns one envelope with a section per subject; ask_batch answers
+several questions under one assertion, one scope and one snapshot; every
+envelope carries a validity token, and revalidate reports it stale after
+the first lifecycle event in its scopes (measured: 3 events after one
+supersession) while a token for another brain or an ungranted scope is
+refused. No public benchmark exercises the two-stage ask; the
+measurement is the mechanism drill</td>
+</tr>
+<tr>
+<td>Identity resolution and permission-change propagation, bounded
+fixture</td>
+<td>measured</td>
+<td>Resolver: 1,000 people across 3 namespaces with 50 evidence-backed
+duplicate merges and 20 conflicting handles: 3,030 correct, 0 wrong, 0
+missing, the 20 conflicts surfaced as typed ambiguity naming both
+candidates, duplicates follow to the primary, a reversed merge restores
+the source, ~2 ms per resolve. Propagation: a directory change reaches
+the next issued assertion in 0 ms with the cache off and within the
+cache TTL with it on (measured 2.06 s at a 2 s TTL). With the generation
+feed on, an assertion already in a caller's hand is refused within the
+poll interval (measured 976 ms at a 1 s poll, 3 s by default) instead of
+at its expiry; a feed outage is honoured through a grace window and then
+fails closed (measured 2,993 ms at 3 s). Live directories, aliases at
+scale and reorganizations are not exercised</td>
+</tr>
+<tr>
+<td>Sovereignty tier: open-weight models on sub-$100k hardware</td>
+<td>measured</td>
+<td>Figure 2. Every model seat on Gemma-4-31B, one H200, on all three
+benchmarks: fully local 87.4 / 76.3 / 47.2 (LongMemEval, LoCoMo, BEAM
+100K strict; best local configuration per benchmark); local knowledge
+with the frontier answer seat 90.0 / 79.3 / 53.8; frontier in every seat
+on the same local brains 89.6 / 81.8 / 55.2. Brains a local model built
+score within one to two points of the published brains under frontier
+seats on every benchmark</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p-5-the-frontier-configuration-and-the-comparison">5. The frontier
+configuration, and the comparison</h2>
+<p>Section 2 reported the local campaign against the all-frontier
+reference. This section is the reference itself, the configuration the
+site has published since August: a frontier extractor, a frontier
+reranker, a frontier answer. Everything is identity-scored at the
+published budgets.</p>
+<figure class="fig" id="figure-6"><figcaption><span class="fig-no">Figure 6</span> Retrieval holds to a million tokens, then meets the cliff every published figure shows</figcaption><div class="chart" data-chart="fig6"><canvas></canvas></div><p class=cap>The first three rows are the frontier configuration; the rest are the September local-brain rows.</p></figure>
+<h3 id="retrieval">Retrieval</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LongMemEval-S</th>
+<th>LoCoMo</th>
+<th>BEAM 1M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>questions</td>
+<td>500</td>
+<td>432</td>
+<td>700</td>
+</tr>
+<tr>
+<td>corpus per question</td>
+<td>multi-session history</td>
+<td>10 long conversations</td>
+<td>~1M tokens</td>
+</tr>
+<tr>
+<td>Hit@10</td>
+<td>99.80%</td>
+<td>93.06%</td>
+<td>44.00%</td>
+</tr>
+<tr>
+<td>Hit@5</td>
+<td>99.00%</td>
+<td>90.74%</td>
+<td>35.84%</td>
+</tr>
+<tr>
+<td>Recall@10 (strict)</td>
+<td>95.80%</td>
+<td>82.64%</td>
+<td>16.16%</td>
+</tr>
+<tr>
+<td>Recall@10 (micro)</td>
+<td>97.36%</td>
+<td>77.29%</td>
+<td>8.86%</td>
+</tr>
+<tr>
+<td>MRR</td>
+<td>0.9846</td>
+<td>0.8225</td>
+<td>0.2546</td>
+</tr>
+</tbody>
+</table>
+<p>◐ August retrieval reports partially retained; the local-brain
+retrieval rows in Figure 6 are ●.</p>
+<p>Read the BEAM column first if scale is the question. Every system we
+have measured, or for which comparable figures are published, falls off
+a cliff at a million tokens per question, ours included, and the
+memory-layer comparison's own figures show the same cliff: 94.4 on
+LongMemEval, 64.1 on BEAM 1M, 48.6 on BEAM 10M. We publish the retrieval
+figures at that scale. Most competitors do not. Retrieval is identical
+across every answering configuration below; the agentic layer consumes
+the same ranked evidence the direct path does.</p>
+<figure class="fig" id="figure-7"><figcaption><span class="fig-no">Figure 7</span> LongMemEval answering: the published rows, the local-brain row, the never-refuse probe, and a comparison that cannot lose points for refusing</figcaption><div class="chart" data-chart="fig7"><canvas></canvas></div><p class=cap>Vendor X's protocol cannot lose points for refusing; 30 of the 500 questions are unanswerable traps, so a never-refuse system caps at 94.0 under the official rule.</p></figure>
+<h3 id="answering-longmemeval-s">Answering, LongMemEval-S</h3>
+<table>
+<thead>
+<tr>
+<th>configuration</th>
+<th>accuracy</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acropolis core</td>
+<td>89.2%</td>
+<td>band 88.4 to 89.6 over repeated full runs</td>
+</tr>
+<tr>
+<td>Acropolis agentic (Pythia)</td>
+<td>90.5%</td>
+<td>band 90.4 to 90.6, four full runs</td>
+</tr>
+<tr>
+<td>Acropolis agentic + frontier escalation</td>
+<td>91.6%</td>
+<td>escalation only on the system's own refusals</td>
+</tr>
+<tr>
+<td>Vendor X¹</td>
+<td>98.0%</td>
+<td>never-refuse protocol</td>
+</tr>
+</tbody>
+</table>
+<p>◐ The three Acropolis rows are re-runnable from the tagged harness;
+their August per-question reports are partially retained (Appendix
+A.12). The local-brain rows of Figure 7 and the reference rows on the
+published brains are ●.</p>
+<p>Vendor X is a commercial memory layer: retrieval and answering over
+conversation history, with none of the identity, authorization, or
+execution components described in Section 3. Its figure is under a
+never-refuse protocol and is not directly comparable to Acropolis's
+accuracy: by design, that protocol cannot lose points for refusing. We
+measured the size of that bias on our own system rather than estimating
+it. Under a never-refuse contract, the same brains, retrieval and judge
+score 87.2 on all 500 questions and 92.8 on the 470 answerable ones (the
+30 traps count as wrong when not refused). Because 30 of the 500
+questions are unanswerable traps that count as correct only when
+refused, a system that never refuses caps at 94.0 under the official
+rule. A published 98.0 therefore must score those traps differently or
+exclude them, and it is judged by a protocol that does not treat a
+confident wrong answer on an unanswerable question as wrong. In
+practice, the 98.0 cannot be compared to Acropolis's 89.2 to 91.6 as if
+they were measured under the same rules.</p>
+<p>Governance columns: 25 to 28 of 30 unanswerable traps correctly
+refused per run; one fabrication in the tested trap sample under the
+stated protocol.</p>
+<h3 id="answering-locomo">Answering, LoCoMo</h3>
+<p>Accuracy 81.8% on the 432-question sample the site publishes, Hit@5
+90.7.</p>
+<figure class="fig" id="figure-8"><figcaption><span class="fig-no">Figure 8</span> BEAM 1M per category: where the governed composite leads and where it trails</figcaption><div class="chart" data-chart="fig8"><canvas></canvas></div><p class=cap>Overall is stated only as a paired delta (+3.5 over its paired core); cross-formula absolutes are not valid.</p></figure>
+<h3 id="answering-beam-1m-full-700-questions">Answering, BEAM 1M (full
+700 questions)</h3>
+<table>
+<thead>
+<tr>
+<th>configuration</th>
+<th>overall</th>
+<th>abstention</th>
+<th>contradiction</th>
+<th>summarization</th>
+<th>multi-session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acropolis core²</td>
+<td>60.2</td>
+<td>74.3</td>
+<td>64.7</td>
+<td>31.9</td>
+<td>58.6</td>
+</tr>
+<tr>
+<td>Acropolis governed composite³</td>
+<td>+3.5 over its paired core</td>
+<td>75.7</td>
+<td>62.1</td>
+<td>56.4</td>
+<td>57.9</td>
+</tr>
+<tr>
+<td>Vendor X¹</td>
+<td>64.1</td>
+<td>52.5</td>
+<td>35.7</td>
+<td>63.5</td>
+<td>65.2</td>
+</tr>
+</tbody>
+</table>
+<p>◐ Re-runnable from the tagged harness; August per-question reports
+partially retained (Appendix A.12).</p>
+<p>The governed composite is a deterministic routing policy over two
+complete runs: a cheap direct pass's refusals and contradiction
+declarations ship as they are, 150 of 700 rows, and a frontier synthesis
+loop answers the rest. No oracle, no picking the better score per
+question. Its headline is abstention 75.7, the highest of any
+configuration we have measured and 23 points above the comparison, with
+contradiction handling 26 points above, while nearly doubling the core
+system's summarization. It lands within about three points of the
+comparison's overall figure under a cross-protocol comparison, with
+every refusal intact.</p>
+<p>Full core per-category: preference 83.2, extraction 82.1, instruction
+77.8, abstention 74.3, contradiction 64.7, temporal 63.5,
+knowledge-update 63.4, multi-session 58.6, summarization 31.9,
+event-ordering 26.0.</p>
+<p><strong>Table 2. Head to head, with the protocol differences on the
+table.</strong> Source:
+<code>figures/table-2-head-to-head.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>evaluation</th>
+<th>Acropolis core</th>
+<th>Acropolis agentic</th>
+<th>Acropolis composite</th>
+<th>Vendor X¹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LongMemEval-S accuracy</td>
+<td>89.2</td>
+<td>90.5</td>
+<td>—</td>
+<td>98.0</td>
+</tr>
+<tr>
+<td>LongMemEval-S unanswerable traps refused (of 30)</td>
+<td>—</td>
+<td>25 to 28</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>LongMemEval-S Hit10</td>
+<td>99.80</td>
+<td>99.80</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>LoCoMo accuracy</td>
+<td>81.8</td>
+<td>—</td>
+<td>—</td>
+<td>92.5</td>
+</tr>
+<tr>
+<td>BEAM 1M overall (official protocol)</td>
+<td>60.2²</td>
+<td>—</td>
+<td>+3.5 paired³</td>
+<td>64.1</td>
+</tr>
+<tr>
+<td>BEAM 1M abstention</td>
+<td>74.3</td>
+<td>—</td>
+<td>75.7</td>
+<td>52.5</td>
+</tr>
+<tr>
+<td>BEAM 1M contradiction resolution</td>
+<td>64.7</td>
+<td>—</td>
+<td>62.1</td>
+<td>35.7</td>
+</tr>
+<tr>
+<td>BEAM 1M summarization</td>
+<td>31.9</td>
+<td>—</td>
+<td>56.4</td>
+<td>63.5</td>
+</tr>
+<tr>
+<td>BEAM 1M multi-session reasoning</td>
+<td>58.6</td>
+<td>—</td>
+<td>57.9</td>
+<td>65.2</td>
+</tr>
+<tr>
+<td>BEAM 1M Hit10</td>
+<td>44.00</td>
+<td>44.00</td>
+<td>44.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Publishes retrieval at 1M tokens</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Publishes an abstention column</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>BEAM only</td>
+</tr>
+</tbody>
+</table>
+<p>¹ Vendor X figures as published by the vendor under its own protocol,
+which instructs the model never to state that information is missing, so
+a refusal can never cost it a point; it does not publish retrieval or
+abstention metrics at the 1M-token scale. It is a memory layer only: no
+identity, authorization, or execution components. Acropolis figures
+include honest refusals and are measured under our documented
+aggregation; both sides' guard columns are shown so the trade is
+visible.</p>
+<p>² Core band from the August gate campaign under its published
+aggregation.</p>
+<p>³ Governed composite measured on the full 700 questions as a
+deterministic routing policy over two complete runs, validated live on
+the governance categories. Its overall is stated as a paired delta
+because it was measured under a rebuilt aggregation formula; absolute
+cross-formula comparisons are not valid, per-column and paired figures
+are.</p>
+<h2 id="p-6-the-cost-of-record">6. The cost of record</h2>
+<p>A lossless index and a governed, intentionally lossy, multi-tenant
+substrate on rented CPU are not the same kind of thing, and the
+comparison above should be read knowing what the second one costs to
+run. These figures are from the BEAM 1M ingest of 2026-08-20: 35
+conversations, roughly 35 million tokens.</p>
+<figure class="fig" id="figure-9"><figcaption><span class="fig-no">Figure 9</span> The cost of record: BEAM 1M, 35 conversations, about 35 million tokens</figcaption><div class="tiles"><div class="tile"><span>Ingest, one time</span><b>$8.24</b><small>17,745 accepted claims · 37,387 LLM calls</small></div><div class="tile"><span>Per accepted claim</span><b>$0.0021</b><small>about $0.24 per million-token conversation</small></div><div class="tile"><span>Index, one time</span><b>$0</b><small>72,986 documents embedded, local nomic, CPU only</small></div><div class="tile"><span>Retrieval, per question</span><b>$0.0037</b><small>$2.28 for 625 questions</small></div><div class="tile"><span>Quarantined at the door</span><b>0</b><small>after the RFC 3339 fix; 5,732 refused before it</small></div></div><p class=cap>Two Xeon 8280s, 16 cores, 31 GB, no GPU. Measured on the 2026-08-20 ingest.</p></figure>
+<table>
+<thead>
+<tr>
+<th>stage</th>
+<th>measured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hardware</td>
+<td>2 × Intel Xeon Platinum 8280, 16 cores, 31 GB, no GPU</td>
+</tr>
+<tr>
+<td>ingest, one time</td>
+<td>17,745 accepted claims for $8.24 over 37,387 LLM calls</td>
+</tr>
+<tr>
+<td></td>
+<td>$0.0021 per claim, about $0.24 per million-token conversation</td>
+</tr>
+<tr>
+<td></td>
+<td>0 quarantined: the door accepted nothing malformed</td>
+</tr>
+<tr>
+<td>projection, one time</td>
+<td>72,986 documents embedded for $0, CPU only, local nomic</td>
+</tr>
+<tr>
+<td>retrieval</td>
+<td>$0.00365 per question</td>
+</tr>
+</tbody>
+</table>
+<p>Two facts most stores cannot claim. The embedder is free and local:
+there is no embedding vendor in this stack and no GPU in these machines.
+And the whole corpus cost under ten dollars to ingest and nothing to
+index.</p>
+<p>Distillation is deliberately lossy. We throw information away on the
+way in and still put the right evidence in the top ten on 99.8% of
+LongMemEval questions. Compression that keeps the answer is a system
+property, not a retrieval trick.</p>
+<p>The local campaign adds the other half of the bill. Building the
+LoCoMo brains took 53 and 70 minutes per conversation on one H200 with
+16 extractions in flight. Answering is where a 31B model is slow: on
+BEAM 100K the fully local rows ran at a median of 12 to 15 minutes per
+question with 14 conversations sharing the GPU, against under a minute
+for the frontier rows, because the synthesis prompts run near 57,000
+tokens. That is a throughput figure for a shared benchmark box, not a
+single-user latency, and it is the honest price of the "own everything"
+row.</p>
+<h3 id="what-this-means-for-a-deployment">What this means for a
+deployment</h3>
+<p>The benchmarked layer is the knowledge substrate: ingestion,
+distillation, retrieval and answering over conversational history. The
+governance properties are architectural: authorization before context,
+explicit absence states, provenance on every answer. The tables show
+they coexist with strong retrieval and answering on public datasets, and
+that the understanding half of the system can run on hardware the
+company owns without moving the numbers: 84 to 96 percent of the
+all-frontier score with nothing rented, 96 to 99 percent with the answer
+seat rented. That is the sovereignty claim in concrete form: the company
+can own the brain and keep most of the performance. What is measured on
+fixtures rather than live organizations are the enterprise-hardening
+properties: identity resolution at scale, permission propagation through
+a real directory, and operational outcomes. Those are the next
+validation steps, not assumed capabilities; a buyer should treat them as
+such when pricing risk and rollout.</p>
+<h2 id="p-7-limitations">7. Limitations</h2>
+<h3 id="71-measured-on-fixtures-not-live-organizations">7.1 Measured on
+fixtures, not live organizations</h3>
+<p>All identity, permission and task-scoped results in this paper are
+measured on controlled fixtures: a generated organization, a synthetic
+directory, scripted changes. They demonstrate mechanism and correctness
+under test conditions, not behavior under a real company's directory,
+reorganizations and operational load. Section 7.2 details the fixtures;
+Section 8 lists the live-organization tests that would move these from
+mechanism demonstrated on fixtures to validated in production.</p>
+<h3 id="72-identity-permission-and-task-scoped-fixtures">7.2 Identity,
+permission and task-scoped fixtures</h3>
+<p>Identity resolution and permission-change propagation were measured
+on a bounded fixture rather than a live directory: a generated
+organization of 1,000 people across three namespaces, with 50
+evidence-backed duplicate merges and 20 conflicting handles. The fixture
+resolved 3,030 references with none wrong or missing, surfaced each
+conflict as typed ambiguity naming both candidates, and restored a
+reversed merge; a directory change reached the next issued assertion
+immediately with the cache off and within the cache TTL with it on. An
+assertion already issued carries the directory generation it was issued
+against, and a deployment that polls the generation feed refuses it
+within the poll interval once the directory changes: measured at 976
+milliseconds with a one-second poll, three seconds by default, against a
+five-minute assertion. When the feed is unreachable the last known
+generation is honoured through a grace window and the deployment then
+fails closed, which was measured too. Aliases at scale, reorganizations
+and a live directory remain unexercised.</p>
+<p>Task-scoped context, the two-stage path where an agent asks for
+constraints before planning and for entity context after candidates
+exist, is built and drilled rather than benchmarked: a batch of
+questions is answered under one assertion, one scope and one snapshot;
+context is returned for several entities in one envelope; and every
+envelope carries a validity token that a revalidate call reports stale
+after the first change in its scopes, while a token for another brain or
+an ungranted scope is refused. No public benchmark exercises the
+two-stage ask, so its row is measured by mechanism, not by score.</p>
+<p>Graduated disclosure is built and measured: rungs are derived when a
+fact is accepted, superseded or retracted, never redacted at read time,
+and an end-to-end drill shows a finance reader receiving the precise
+value while a sales reader receives the band and the trend on the same
+subject with no byte of the precise value in the envelope. What is not
+claimed is coverage of the rule kinds beyond band, trend and the floors
+the tests exercise.</p>
+<h3 id="73-what-is-not-claimed">7.3 What is not claimed</h3>
+<p>The local placement was measured on one open-weight model,
+Gemma-4-31B, on one rented H200. No claim is made about other
+open-weight models or smaller hardware; the sub-$100,000 figure is a
+hardware class, not a measured bill. The BEAM local rows are on the 100K
+variant, not the 1M variant the site publishes for the frontier
+configuration, and the two are not compared to each other anywhere in
+this paper. The 1M variant on a local model is a cost question, not an
+open one, and it was not run.</p>
+<p>The judge is a language model operating under a fixed prompt. A local
+31B model re-judging 2,223 stored LongMemEval answers under the same
+prompt agreed with it on 98.7 to 99.2 percent of verdicts and preserved
+every ordering; on LoCoMo, where gold answers are longer free-text
+spans, agreement was 95.2 percent and the local judge was stricter on
+every row. The scores do not hinge on which model judges. The one human
+step in scoring is the manual classification of the non-refused trap
+rows, which changes no score and is published for re-classification.
+Comparisons to other systems are cross-protocol and labeled so wherever
+they appear. None of the three datasets is enterprise-shaped.</p>
+<p>Two negative results are reported rather than buried. A local
+cross-encoder reranker did not close the local retrieval gap; it widened
+it. And prompt contracts written against observed failure modes did not
+move scores: three variants on BEAM in August landed within a point of
+each other, and one written for the local model in September lost half a
+point on 435 paired questions.</p>
+<h2 id="p-8-posture-and-what-comes-next">8. Posture, and what comes
+next</h2>
+<p>Refusal posture ships as a labeled configuration. A deployment picks
+the balanced setting or the synthesis-forward one knowing what each
+costs on each benchmark, and the paper reports both endpoints rather
+than the more flattering one.</p>
+<p>Model placement ships the same way. A deployment picks own
+everything, own the knowledge and rent the thinking, or rent only on
+refusal, and Figure 2 is the price list. The recommended default is the
+middle row: the company builds and holds the record on hardware it owns,
+and rents a frontier model only for per-question answering, which sees
+only that question's evidence envelope. On the benchmarks this
+configuration scores 96 to 99 percent of the all-frontier reference,
+exceeds the published core number on the easiest dataset, and keeps the
+organizational record on hardware the company owns. A deployment that
+wants nothing rented at all starts at 84 to 96 percent and can escalate
+its own refusals, 2 to 9 percent of questions, to close most of the
+rest.</p>
+<p>The model is a replaceable seat, and we have the receipt three times
+over: swapping the extraction model from a frontier vendor to a 31B
+open-weight model moved the frontier-seat scores by one to two points on
+every benchmark, measured on identical questions. The organizational
+understanding is the asset. It is the part that does not change when the
+model does: provenance, state, identity, policy, boundaries.</p>
+<p>What is next is the reading seat: a local model that ranks and
+composes over long excerpts as well as a frontier model does. That is
+the one gap the local campaign left, and the levers that pay there are a
+stronger open-weight reranker and better local retrieval, not another
+contract clause. The tests in Appendix A.14 that still need a live
+organization, identity at real scale, permission changes through a real
+directory, operational outcomes, are the other campaign, and the paper
+will not claim them until one has run.</p>
+<p>The harness, the aggregator, the per-question reports and the
+manifest that ties them to the figures above are published with this
+paper. Re-run what we ran. Where a figure cannot be independently
+re-run, the paper says so next to the figure.</p>
+<hr />
+<p>Cite as: Aroussi, R. (2026). <em>Own the Knowledge. Rent the
+Thinking. Separating institutional understanding from frontier
+intelligence.</em> Acropolis Technical Report 01, VarOps LLC, version
+1.0. Methodology: Appendix A, reference v1.2.</p>
+</article>
+<hr class="part">
+<header class="cover small"><p class="kicker">Appendix A</p><h1>Benchmark methodology</h1></header>
+<article>
+<pre><code>Reference v1.2 (draft 4) · 2026-09-15
+Varys harness, main at draft:       93ad8b6c75d11e3679b9e7fe68c86a356fe58ccc  (merge of probe/never-refuse-contract, #65)
+Parthenon, main at draft:           554ae5b18273b6a1a92b8eb7099559c60ef534f4  (merge of feat/directory-generation-revocation, #50)
+Eunomia, main at draft:             549fbf122db8b19e8bde1092795a85456383ae73  (merge of test/permission-propagation-measured, #5)
+Pythia, main at draft:              6742742edee9a340485194dcc34ac0ef993eb945  (merge of feat/derivation-is-coverage, #2)
+Release tag:                        whitepaper-2026-09 at 93ad8b6 (varys)
+Report bundle manifest (SHA-256):   230800cf9c0b72c5aed0ae57be51c39e10745dd4eccec3b1fcd013198defbd1b</code></pre>
+<p>Each published run report carries the harness and Parthenon SHAs that
+produced it, which may predate the commits above; the manifest lists
+every report and its hashes. The September reports record the harness
+commit that produced them: the LongMemEval local rows at 187cc9e and
+8e92cac (clean trees); the LoCoMo rows at cb1606a and the BEAM 100K,
+never-refuse and assembly_v3 rows at 6be26f0, both flagged dirty. The
+dirty flag at both commits is one uncommitted line on the bench
+machines, <code>Cargo.lock</code> gaining <code>futures-util</code> for
+the buffered extraction stream, committed since as 460011e on the same
+branch; the code that ran is the recorded commit plus that lockfile line
+and nothing else. The Parthenon SHA is recorded as unknown in the ask
+reports (the bench machines run a built binary, not a checkout); the
+manifest carries the Parthenon version string instead. The manifest
+covers 2,539 reports: the September local campaign, the reference rows
+on the published brains (lme-gpt41, 2026-09-07: core 89.4 and loop 91.4,
+six shards each, fully retained), and what remains of the August
+frontier work directories lme-s and beam-1M. The four branches are
+merged to main as of 2026-09-15; the release tag names the varys merge
+commit above.</p>
+<p>Draft 4, 2026-09-15. The canonical metric definitions and correction
+history remain in the VarOps benchmark metrics glossary. This appendix
+is the publication-specific, frozen account of the figures and methods
+used in this whitepaper. In the event of a discrepancy, the
+report-bundle manifest and its linked per-question run reports control
+for the published figures; subsequent corrections are recorded in the
+glossary. Where this appendix says "not measured", that is the
+finding.</p>
+<h2 id="a-a-1-what-was-measured-and-what-was-not">A.1 What was measured,
+and what was not</h2>
+<p>This appendix describes how the figures in the whitepaper were
+produced, in enough detail to re-run them from the committed harness. It
+covers three public datasets, one harness, several model placements
+spanning fully local through all-frontier (own everything, rent the
+answer seat, rent on refusal, frontier readers on local brains, and the
+all-frontier reference), two scoring stages (retrieval and answering),
+the aggregation formulas, the noise floor, the two measurement probes
+(never-refuse, and a contract rewrite that nulled), and the comparisons
+to other published systems.</p>
+<p>Throughout this appendix, "local" refers to model ownership and
+operation, not to the physical location of the machine: an open-weight
+checkpoint served by us under our own control, with no inference sent to
+a model-provider API. The benchmark runs used rented H200 hardware
+reached over a tunnel from the bench machines. The experiment therefore
+establishes the feasibility of self-operated models in each seat; it
+does not claim that a benchmark ran inside a customer's building.</p>
+<p>Since draft 3 three properties moved from "by construction" to
+measured on the committed harness and its integration tests, outside any
+benchmark: cross-brain isolation under an adversarial probe (A.13),
+provenance of every delivered claim (A.6), and identity resolution and
+permission-change propagation on a bounded fixture (A.13). What remains
+unmeasured: identity at the scale of a live directory, aliases and
+reorganizations, and operational outcomes in a live organization. None
+of the three datasets is enterprise-shaped. All three are
+conversational-memory benchmarks, chosen because they are public,
+reproducible, and already used by the systems we compare against.</p>
+<h2 id="a-a-2-datasets">A.2 Datasets</h2>
+<p>No corpus or question in this paper was authored by VarOps. Each
+dataset was used as published, without modification to conversations,
+questions, or gold answers.</p>
+<table>
+<thead>
+<tr>
+<th>dataset</th>
+<th>unit under test</th>
+<th>questions</th>
+<th>authored by</th>
+<th>what it exercises</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LongMemEval-S</td>
+<td>one multi-session chat history per question (~50 sessions, ~500
+messages)</td>
+<td>500</td>
+<td>dataset authors, human-written questions</td>
+<td>information extraction, multi-session reasoning, temporal reasoning,
+knowledge updates, abstention (30 unanswerable traps)</td>
+</tr>
+<tr>
+<td>LoCoMo</td>
+<td>ten very long multi-session conversations</td>
+<td>432 (site) / 435 (September)</td>
+<td>dataset authors</td>
+<td>QA over events, causality and time across sessions; 88
+unanswerable</td>
+</tr>
+<tr>
+<td>BEAM 1M</td>
+<td>35 conversations, ~1M tokens each (~35M tokens total)</td>
+<td>700</td>
+<td>dataset authors, generated per their protocol</td>
+<td>ten abilities including summarization, event ordering, contradiction
+resolution, abstention</td>
+</tr>
+<tr>
+<td>BEAM 100K</td>
+<td>20 conversations, ~100K tokens each</td>
+<td>400</td>
+<td>dataset authors, generated per their protocol</td>
+<td>the same ten abilities, 2 questions per ability per conversation; 40
+unanswerable</td>
+</tr>
+</tbody>
+</table>
+<p>The LoCoMo figures use the dataset's published sample, two
+conversations per category under the harness's fixed seed. The site
+counted 432 questions; three adversarial items the harness now keeps
+make it 435, and every September LoCoMo row is 435 of 435. The frontier
+LoCoMo row was re-run on the September brains at 435 and reads 81.8, the
+site's number, so the two counts do not move the figure.</p>
+<p>BEAM 100K was used for the local-model placement rather than BEAM 1M
+because a 31B model reading million-token conversations at benchmark
+concurrency would have taken weeks of GPU time for a number the 100K
+variant already explains. The two variants are never compared to each
+other in this paper; the frontier configuration is scored on both and
+each is labeled.</p>
+<p>Dataset licenses are research licenses; the harness reads a local
+copy of each published file and records its SHA-256 in every report
+(<code>dataset_sha256</code>), so a re-run against a different file is
+refused rather than silently compared.</p>
+<h2 id="a-a-3-the-harness">A.3 The harness</h2>
+<p>All figures come from <code>varys bench</code>, a Rust harness
+committed in the Varys repository. It has three commands and no others
+were used:</p>
+<ul>
+<li><code>varys bench ingest &lt;dataset&gt;</code> — provisions one
+fresh Parthenon brain per conversation, submits every message through
+the production signed-intake door, and runs the production distillation
+pipeline (triage, extraction, claim proposal, validation) with tier
+budgets on. The extractor is the system under test; the benchmark's
+conversations are the only input.</li>
+<li><code>varys bench ask &lt;dataset&gt;</code> — for each question,
+runs retrieval against the brain built for its conversation, composes an
+answer under the named configuration, and scores it.</li>
+<li><code>varys bench retrieval &lt;dataset&gt;</code> — the standalone
+retrieval scorer, used for the alternative-reranker rows (a
+cross-encoder, raw embedding order) that no answering row consumed.</li>
+</ul>
+<p>Properties that matter for reproduction:</p>
+<ul>
+<li><strong>One brain per conversation, fresh per run.</strong> A
+conversation's brain id is derived from the dataset and conversation id,
+and since September from a campaign namespace as well, so two campaigns
+on one machine cannot collide. Re-running a campaign reprovisions the
+brain; resumed runs replay from a per-conversation checkpoint and never
+re-score. A run that mixes resumed and fresh work reports it
+(<code>resumed_claims</code>).</li>
+<li><strong>Projection is part of the pipeline.</strong> Retrieval reads
+projections (lexical, semantic, graph, synopsis) built from the
+canonical claims after ingest. A brain that is ingested but not
+projected returns nothing, which the harness reports as zero candidates
+rather than as an abstention.</li>
+<li><strong>Sharding.</strong> Frontier campaigns ran as 6 (LongMemEval,
+LoCoMo) or 8 (BEAM) shards across lanes on two bench machines. The
+September local campaign ran LongMemEval as 192 shards, LoCoMo as one
+shard per conversation split into 12 question parts, and BEAM 100K as
+one shard per conversation split into two parts, so that one brain could
+be answered by several lanes at once
+(<code>--only-questions &lt;ids&gt;</code> names the part). Every report
+records its shard and part, and a multi-shard work directory records the
+whole-corpus state so the ask guard cannot read a partial ingest as
+complete.</li>
+<li><strong>Every report is self-describing.</strong> It carries the
+dataset hash, the shard, the model ids for extractor, answerer and judge
+(the pipeline model is recorded in the retrieval reports, a v1.1 gap for
+ask reports), the compose contract, the harness and Parthenon git SHAs
+with a dirty-tree flag, the claim-registry hash, per-question rows with
+the retrieved claims, the delivered observations (excerpt capped at
+2,000 characters), the question's own retrieval score
+(<code>retrieval</code>: first hit rank, Hit@5/10, strict Recall@5/10,
+pool size, gold in pool, gold in top 10), cost and latency. A report
+from a dirty tree says so in its provenance warnings.</li>
+<li><strong>One run yields every table.</strong> Since 2026-09-13 the
+ask report carries retrieval and evidence per question, so the
+answering, retrieval, governance, escalation, provenance and
+judge-agreement tables are all derived from the same stored run; nothing
+is re-run to produce a second table. The LoCoMo and BEAM 100K campaigns
+were produced under that rule. The LongMemEval local rows predate it:
+their retrieval figures come from standalone
+<code>bench retrieval</code> runs on the same brains and pool, and their
+provenance audit from the delivered claims, which every report has
+always carried.</li>
+<li><strong>Held questions.</strong> When a model endpoint refuses a
+request (timeout, outage, context overflow), the harness holds the
+question and exits with a resume code; the wrapper resumes up to three
+times. A question still held after that is absent from the report, and
+the report does not say so; only the lane log does. This bit the BEAM
+100K local rows (A.9, 2026-09-14). Publication now requires that every
+report's question count equals the dataset's expected count for its
+shard and part; a mismatch fails the release gate (A.12) and the
+manifest records the count. A report field listing held ids is a v1.1
+harness change.</li>
+</ul>
+<h2 id="a-a-4-models-and-budgets">A.4 Models and budgets</h2>
+<p>All published numbers were produced with the following pins. Every
+model id names a provider snapshot or an open-weight checkpoint; the
+report-bundle manifest carries the same ids per report, and any figure
+whose snapshot is no longer callable is marked as such (A.12).</p>
+<p><strong>Frontier placement (the site's configuration):</strong></p>
+<table>
+<thead>
+<tr>
+<th>seat</th>
+<th>model</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extractor (ingest)</td>
+<td>gpt-4.1-mini</td>
+<td>claims proposed from conversation messages; ~$0.06 per LongMemEval
+conversation</td>
+</tr>
+<tr>
+<td>embeddings</td>
+<td>nomic-ai/nomic-embed-text-v1.5</td>
+<td>local, CPU; semantic projection</td>
+</tr>
+<tr>
+<td>pipeline (query rewrite, rerank)</td>
+<td>gemini-3.7-flash</td>
+<td>pinned snapshot</td>
+</tr>
+<tr>
+<td>answerer, core row</td>
+<td>gemini-3.7-flash</td>
+<td>composes from the evidence envelope under the
+<code>assembly_v2</code> contract</td>
+</tr>
+<tr>
+<td>answerer, agentic row</td>
+<td>Pythia loop on gemini-3.7-flash</td>
+<td>bounded ask / compute / extract loop over the same envelope</td>
+</tr>
+<tr>
+<td>answerer, BEAM composite</td>
+<td>gpt-5.6 (snapshot <code>gpt-5.6-sol</code>) loop, gemini-3.7-flash
+direct pass</td>
+<td>see A.7</td>
+</tr>
+<tr>
+<td>judge</td>
+<td>gemini-3.7-flash</td>
+<td>fixed prompts, A.6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Local placement (the September campaign):</strong></p>
+<table>
+<thead>
+<tr>
+<th>seat</th>
+<th>model</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extractor (ingest)</td>
+<td>gemma-4-31b-it (open weights)</td>
+<td>vLLM on one NVIDIA H200 per bench machine; bf16 weights, fp8 KV
+cache; 8 to 16 extractions in flight</td>
+</tr>
+<tr>
+<td>embeddings</td>
+<td>nomic-ai/nomic-embed-text-v1.5</td>
+<td>unchanged, local</td>
+</tr>
+<tr>
+<td>pipeline (query rewrite, rerank)</td>
+<td>gemma-4-31b-it</td>
+<td>same server; "local reranker" in the tables</td>
+</tr>
+<tr>
+<td>answerer, own-everything rows</td>
+<td>gemma-4-31b-it, single call or Pythia loop</td>
+<td>thinking enabled; <code>&lt;thought&gt;</code> blocks stripped
+before the reply is read</td>
+</tr>
+<tr>
+<td>answerer, rent-the-thinking row</td>
+<td>gemini-3.7-flash</td>
+<td>the only frontier call; sees the evidence envelope for one
+question</td>
+</tr>
+<tr>
+<td>judge</td>
+<td>gemini-3.7-flash, with gemma-4-31b-it as co-judge on every stored
+answer</td>
+<td>A.6, judge agreement</td>
+</tr>
+</tbody>
+</table>
+<p>The vLLM server ran with a 65,536-token context for LongMemEval and
+LoCoMo and was raised to 131,072 (the model's configured maximum) for
+BEAM 100K, where the synthesis envelope reaches about 57,000 tokens and
+the 8,000-token answer budget overflowed the smaller context (A.9). The
+two bench machines are 16-core, 62 GB rented CPU boxes with no GPU; each
+ran up to 14 (BEAM) or 28 (LongMemEval) Parthenon lane servers beside
+the harness, and each was tunnelled to its own H200. These September
+machines are not the August BEAM ingest machines whose cost table Part I
+Section 6 reports (two Xeon 8280s, 31 GB); the boxes were resized for
+the local campaign. Local tokens are priced at the frontier list rate in
+every cost column so the rows are comparable; the real local cost is GPU
+time, reported as latency in A.10.</p>
+<p>Retrieval budgets are fixed at 100 lexical / 300 semantic / 100
+rerank-pool candidates for every published retrieval figure (120
+rerank-pool on BEAM 100K, the synthesis union). Observation excerpts are
+2,000 characters (the 500-character default truncated most assistant
+content and was the first correction in the log, A.9).</p>
+<h2 id="a-a-5-retrieval-scoring">A.5 Retrieval scoring</h2>
+<p>Retrieval is scored before any answering model runs. The system
+returns a ranked top-10 list of evidence messages per question.</p>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hit@10 / Hit@5</td>
+<td>at least one gold evidence unit appears in the top 10 / top 5</td>
+</tr>
+<tr>
+<td>MRR</td>
+<td>mean reciprocal rank of the first gold unit</td>
+</tr>
+<tr>
+<td>Recall@10 strict</td>
+<td>all gold evidence units for the question appear in the top 10; full
+credit or none</td>
+</tr>
+<tr>
+<td>Recall@10 micro</td>
+<td>fraction of all gold evidence units that appear in the top 10</td>
+</tr>
+<tr>
+<td>gold-in-pool</td>
+<td>diagnostic only: gold present anywhere in the candidate pool before
+final ranking</td>
+</tr>
+</tbody>
+</table>
+<p>Since 2026-08-24 every retrieval figure is scored on <strong>document
+identity</strong> (<code>source_object_id</code>), never on text
+overlap. Each report carries <code>text_scored</code>; a non-zero value
+means some questions fell back to text matching and the run is not
+comparable. All published retrieval figures have
+<code>text_scored: 0</code>.</p>
+<p>Two dataset-specific cautions. LongMemEval annotates gold evidence
+per session (one unit that expands to about 22 messages); LoCoMo and
+BEAM annotate per message. Strict recall counts annotated units, never
+expanded messages. BEAM questions often cite more than ten evidence
+messages, so strict Recall@10 has a ceiling below 100% by construction;
+it is quoted against the achievable ceiling. On BEAM 100K, 355 of the
+400 questions carry evidence annotations and retrieval is scored on
+those.</p>
+<p>Published retrieval figures, frontier placement (identity-scored,
+published budgets):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LongMemEval-S</th>
+<th>LoCoMo</th>
+<th>BEAM 1M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>questions</td>
+<td>500</td>
+<td>432</td>
+<td>700</td>
+</tr>
+<tr>
+<td>Hit@10</td>
+<td>99.80%</td>
+<td>93.06%</td>
+<td>44.00%</td>
+</tr>
+<tr>
+<td>Hit@5</td>
+<td>99.00%</td>
+<td>90.74%</td>
+<td>35.84%</td>
+</tr>
+<tr>
+<td>Recall@10 strict</td>
+<td>95.80%</td>
+<td>82.64%</td>
+<td>16.16%</td>
+</tr>
+<tr>
+<td>Recall@10 micro</td>
+<td>97.36%</td>
+<td>77.29%</td>
+<td>8.86%</td>
+</tr>
+<tr>
+<td>MRR</td>
+<td>0.9846</td>
+<td>0.8225</td>
+<td>0.2546</td>
+</tr>
+</tbody>
+</table>
+<p>Retrieval on the local brains (Gemma-4-31B extractor), by reranker.
+The in-run rows are the retrieval each answering row actually received,
+scored per question inside the run; the standalone rows are
+<code>bench retrieval</code> on the same pool.</p>
+<table>
+<thead>
+<tr>
+<th>brains, reranker</th>
+<th>LongMemEval-S Hit@5 / @10</th>
+<th>LoCoMo Hit@5 / @10</th>
+<th>BEAM 100K Hit@5 / @10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local brains, local reranker (in run; LongMemEval standalone)</td>
+<td>99.4 / 99.6</td>
+<td>80.6 / 85.2</td>
+<td>33.5 / 43.1</td>
+</tr>
+<tr>
+<td>local brains, frontier reranker (in run; LongMemEval
+standalone)</td>
+<td>99.2 / 99.6</td>
+<td>91.2 / 92.6</td>
+<td>39.2 / 47.6</td>
+</tr>
+<tr>
+<td>local brains, local reranker (standalone)</td>
+<td>99.4 / 99.6</td>
+<td>80.1 / 84.5</td>
+<td>33.8 / 43.9</td>
+</tr>
+<tr>
+<td>local brains, cross-encoder (BGE reranker v2 m3, standalone)</td>
+<td>—</td>
+<td>52.5 / 60.9</td>
+<td>—</td>
+</tr>
+<tr>
+<td>local brains, no reranker, embedding order (standalone)</td>
+<td>96.2 / —</td>
+<td>40.5 / 50.7</td>
+<td>22.3 / 40.8</td>
+</tr>
+<tr>
+<td>published brains, frontier reranker (standalone)</td>
+<td>99.0 / 99.8</td>
+<td>90.7 / 93.1</td>
+<td>40.6 / 49.6</td>
+</tr>
+</tbody>
+</table>
+<p>Retrieval is identical across every answering configuration that
+shares a reranker: the agentic and composite rows consume the same
+ranked evidence the core row does.</p>
+<h2 id="a-a-6-answering-scoring">A.6 Answering scoring</h2>
+<p><strong>LongMemEval and LoCoMo.</strong> Each answer is judged
+against the dataset's gold answer by a fixed one-word yes/no judge
+prompt (reproduced in A.10). The judge accepts any listed acceptable
+form and ignores formatting, casing and spelled-out numerals. Accuracy
+is the fraction of questions judged correct. An answer beginning with
+the token <code>unanswerable</code> is an abstention; abstentions on
+answerable questions count as wrong. The judge protocol is
+precision-first: softeners pass, narrow closed ranges pass, open bounds
+and contradictions fail.</p>
+<p>Governance metrics on LongMemEval use the dataset's 30 unanswerable
+trap questions (88 on LoCoMo, 40 on BEAM 100K):</p>
+<ul>
+<li><strong>abstention precision</strong> — of all abstentions in a run,
+the fraction that were on trap questions;</li>
+<li><strong>false-answer rate on unanswerable</strong> — of the traps,
+the fraction that received an asserted answer instead of an abstention.
+The published "25–28 of 30 refused" is this metric across the four
+banked agentic runs.</li>
+<li><strong>fabrication</strong> — a narrower, manually classified
+count: among the trap questions that were not refused, an answer that
+asserts a fact absent from the history. Non-refusals that are
+semantically correct refusals phrased without the token, or model
+transport failures, are not fabrications. The published figure is one
+such answer across the four banked agentic runs (4 × 500 judged answers,
+120 trap rows), and it must be read as: one fabrication in the tested
+unanswerable-trap sample under the stated protocol. It is not a general
+hallucination rate over arbitrary questions, and the paper does not use
+it as one. This classification is the one human step in the scoring
+pipeline; it changes no score, only this count, and every non-refused
+trap row is listed in the run reports so the classification can be
+checked.</li>
+<li><strong>declined an answerable</strong> — the count of abstentions
+on answerable questions; the denominator of the escalation rows
+(A.7).</li>
+</ul>
+<p><strong>BEAM.</strong> BEAM ships a per-question checklist ("the
+response should contain: …") and two of its abilities ship no reference
+answer at all, so a gold-string judge is unusable. Each checklist item
+is judged independently by a fixed per-item prompt (A.10), meaning over
+wording. A verdict that cannot be read as one line per item is refused
+and re-judged, never scored as zero. <code>event_ordering</code> is
+scored by BEAM's published protocol, tau_b_norm × F1, with the judge
+used only to match events between the gold and candidate lists; the
+arithmetic is deterministic and tested. Every ask report carries both
+readings per question: <code>correct</code> (strict: every item
+satisfied) and <code>rubric_score</code> (the fraction satisfied, or the
+tau score).</p>
+<p>The <strong>committed aggregator</strong>
+(<code>scripts/beam-official-aggregate.py</code>) produces the published
+BEAM 1M figures: rubric categories as the mean per-question rubric
+fraction; <code>event_ordering</code> as the tau protocol score;
+<code>abstention</code> binary (correct iff the run abstained on the
+trap); overall as the question-weighted mean across categories. The BEAM
+100K tables in Part I are stated both ways: strict correctness, the
+metric shared with LongMemEval and LoCoMo, and the rubric protocol as
+the mean of <code>rubric_score</code> over the non-abstention questions,
+with abstention reported as traps refused. Under strict correctness
+event ordering and summarization read 0 to 3 of 40 for every
+configuration, because a partially ordered list or a partial summary is
+never wholly correct; the protocol reading gives them partial credit,
+and both are printed.</p>
+<p>Cross-formula note, stated once: the committed aggregator reads the
+August core run about 2.6 points below the aggregation it was published
+under. The core row's band (59.0–60.6) stands under its own aggregation;
+the composite row is stated as a paired delta under the committed
+formula. Deltas within one formula are valid; absolute comparisons
+across the two are not, and the paper never makes one. The BEAM 100K
+protocol figures are under the per-question <code>rubric_score</code>
+the harness writes, which is the committed aggregator's per-question
+input; they are not compared to the 1M figures.</p>
+<p><strong>Judge agreement.</strong> Every stored LongMemEval and LoCoMo
+answer of the September campaign was re-judged by gemma-4-31b-it under
+the identical prompt. Agreement with gemini-3.7-flash: 98.7 to 99.2
+percent on 2,223 LongMemEval answers, 95.2 percent on 1,531 LoCoMo
+answers, where gold answers are longer free-text spans. The local judge
+is stricter on every row (by 0.4 to 2.8 points) and preserves every
+ordering in every table. The scores do not hinge on which model
+judges.</p>
+<p><strong>Provenance and evidence audit.</strong> All 118,890 claims
+delivered across 2,500 stored LongMemEval answers resolve to a stored
+observation with a source identity, 0 exceptions. A separate LLM audit
+of 2,233 answers against the evidence each was given finds unsupported
+wrong assertions in about 1 in 100 answers, at the same rate for local
+and frontier answerers. Both are derived from the stored reports, not
+from a new run.</p>
+<h2 id="a-a-7-configurations">A.7 Configurations</h2>
+<p>The configurations in the paper share retrieval, extraction and
+projection within a placement; they differ in which model fills which
+seat and how the answer is composed.</p>
+<ul>
+<li><strong>Core.</strong> A single composition call over the evidence
+envelope under a fixed contract (<code>assembly_v2</code>). Two
+different guarantees apply here and the paper keeps them apart. What the
+model <em>sees</em> is bounded deterministically: the envelope is
+assembled by retrieval under the caller's authorization before any model
+runs, and it carries an explicit coverage state (answered,
+searched-and-empty, outside-the-ontology). Whether the model
+<em>asserts</em> beyond that envelope is a contract instruction (reply
+<code>UNANSWERABLE</code> when the material does not cover the
+question), not a hard gate: in the published answering rows the
+composition model is called even when coverage is empty, and its
+compliance is exactly what the abstention and fabrication metrics
+measure. A deterministic short-circuit (empty coverage scored as an
+abstention without calling any model) exists only in the harness's
+substrate-only mode, which is not a published row.</li>
+<li><strong>Agentic (Pythia).</strong> A bounded loop with three tools
+over the same envelope, ask (retrieve more), compute (deterministic
+arithmetic and date logic), extract, with a mandatory
+<code>asked_at</code> time anchor. Same answering model as core.</li>
+<li><strong>Governed composite (BEAM 1M only).</strong> A deterministic
+routing policy over two complete runs: the cheap direct pass's refusals
+and contradiction declarations ship as-is (150 of 700 rows); a frontier
+loop answers the remainder. No oracle, no per-question selection by
+score; the routing rules are three fixed signals and were validated live
+on the governance categories (abstention 71.9, contradiction 73.4 on the
+smoke set before the full run).</li>
+</ul>
+<p><strong>Model placement rows (Part I, Figure 2).</strong> Each is a
+full run, not a derivation, except the escalation rows:</p>
+<ul>
+<li><em>Own everything</em>: local extractor, local embeddings, local
+rewrite and rerank, local answer (single call or Pythia loop). The
+published figure is the better of the two.</li>
+<li><em>Own the knowledge, rent the thinking</em> ("upgrade" in the run
+reports): everything local except the answer seat, which is
+gemini-3.7-flash in the Pythia loop.</li>
+<li><em>Rent only when the local answer refuses</em> (escalation):
+derived by joining two stored runs on question id. The local row's
+answer is kept wherever it answered; on the questions it declined (an
+answerable question with an abstention), the frontier row's answer and
+verdict are taken instead. No question is re-asked and no selection uses
+the score. The number of questions escalated is printed beside every
+escalation figure.</li>
+<li><em>Frontier in every seat, same local brains</em>: the frontier
+pipeline and answerer over brains the local extractor built; isolates
+the extractor seat.</li>
+<li><em>Reference</em>: the site's configuration, frontier in every seat
+on gpt-4.1-mini brains.</li>
+</ul>
+<p><strong>Contracts and probes.</strong> The refusal posture of the
+agentic contract is a labeled configuration with two measured endpoints:
+v0.5 (LongMemEval 90.5, BEAM abstention 50.0) and v0.6 (LongMemEval
+89.4, BEAM abstention 64.3). The paper headlines v0.6 for BEAM. One
+contract cannot maximize both; three contract variants scored 56.4 /
+57.4 / 57.1 overall on BEAM, which is the measured statement that
+contract knobs redistribute points between refusal posture and coverage
+rather than create them. Two further contracts exist in the harness and
+are labeled in every report that used them:</p>
+<ul>
+<li><code>never_refuse_probe</code> — assembly_v2 with the refusal
+deleted and inverted (the model must always answer). A measurement
+probe, never a deployment configuration; the report carries
+<code>is_probe</code>. Used once, on the LongMemEval frontier single
+call over the local brains, to measure the never-refuse protocol on our
+own substrate (A.11).</li>
+<li><code>assembly_v3</code> — assembly_v2 plus four instructions
+written against the local model's observed mistakes on LoCoMo (read
+every excerpt before refusing, list every item, resolve relative dates,
+treat different dates as different events). Measured paired on 435
+LoCoMo questions: 73.0 → 72.2 on the single call, 79.6 → 77.6 on the
+loop, with the refusal count unchanged. Retired; no published row uses
+it.</li>
+</ul>
+<h2 id="a-a-8-noise-floor-and-the-paired-analysis-rule">A.8 Noise floor and
+the paired-analysis rule</h2>
+<p>Two full-700 BEAM runs of byte-identical code differ by ±2–5 points
+per category (n=70 per category) and about 1 point overall. LongMemEval
+categories are n=30–150 and behave similarly; BEAM 100K abilities are
+n=40 and are wider still. Consequences, applied throughout:</p>
+<ul>
+<li>A category delta under about 5 points on a single run is not
+reported as a result.</li>
+<li>Every comparison used to interpret a small difference as a result is
+<strong>paired</strong> on the identical question set and inspected as
+gains / losses; aggregate percentages are still reported for
+readability, and a difference between two of them is not a finding until
+the paired view agrees. The v3 contract (14 gained, 18 lost on one
+conversation; 6 gained, 5 lost on the other) and the never-refuse probe
+(29 gained, 33 lost) were both decided this way.</li>
+<li>Numbers are published as bands over repeated full runs where repeats
+exist: LongMemEval core 89.2 (band 88.4–89.6), agentic 90.5 (band
+90.4–90.6, four full runs), BEAM core 60.2 (band 59.0–60.6). The
+September rows are single full runs, and the paper reads them at the
+noise floor above: the extractor-seat comparison (one to two points on
+1,335 questions) is called a hold, not a win.</li>
+<li>Half-set previews are not published. The one time a half set was
+used to preview a BEAM result, the full set came in 2.4 points lower
+(A.9, 2026-09-01). The BEAM 100K half read on 2026-09-14 (200 questions)
+was reported as preliminary and superseded by the full 400 the next
+morning.</li>
+<li>Two-shard pilots (n=18 per category) were retired after
+mis-signalling twice; the September v3 probe on error-only question sets
+(8 of 43 and 16 of 59 flipped) is the same lesson: a probe on errors
+cannot see losses, and the full paired rows reversed it.</li>
+</ul>
+<h2 id="a-a-9-corrections-log">A.9 Corrections log</h2>
+<p>Every correction that changed a published number, dated, with the
+mechanism. This table is maintained in the VarOps benchmark metrics
+glossary and reproduced here verbatim at publication; the entries below
+are the ones that moved a headline.</p>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-08-23</td>
+<td>Observation excerpts were truncated at 500 characters, deleting most
+assistant content. Fixed to 2,000. LongMemEval answering 83.4 → 89; BEAM
+27 → 41 strict.</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>Retrieval had been scored by text overlap against the excerpt; now
+scored by document identity. LongMemEval retrieval up; BEAM down 9
+points as false hits were removed. All earlier retrieval figures
+withdrawn.</td>
+</tr>
+<tr>
+<td>2026-08-27</td>
+<td>An apparent 26% judge-noise signal came from a probe that changed
+two variables at once; two full runs under the fixed protocol refuted
+it. Rule adopted: judge rechecks must match the scoring protocol
+exactly.</td>
+</tr>
+<tr>
+<td>2026-08-30</td>
+<td>BEAM <code>event_ordering</code> moved from a rubric stand-in to the
+published tau protocol; the category fell from 15.1 to 11.9 (later 26.0
+with the committed aggregator). The official aggregator script and one
+gate run's raw reports were lost to temp cleanup; the aggregator was
+rebuilt and committed, and a fresh gate run made on current main before
+any composite figure was published.</td>
+</tr>
+<tr>
+<td>2026-09-01</td>
+<td>Half-set BEAM preview (shards 4–7) was optimistic: composite 63.5 →
+61.1 on the full 700; summarization 64.8 → 56.4. Rule adopted: full set
+only.</td>
+</tr>
+<tr>
+<td>2026-09-04</td>
+<td>Extractor swap (gemini-3.7-flash for gpt-4.1-mini) measured as a
+null: LongMemEval core 87.4 vs 89.2, agentic 89.2 vs 90.5 (paired 15/16,
+a tie). Two intermediate runs retracted before that result: one with 118
+unprojected brains (69.8), one with six brains emptied by a colliding
+test campaign (85.8 / 88.8). Banked figures unchanged.</td>
+</tr>
+<tr>
+<td>2026-09-12</td>
+<td>The LongMemEval local rows' reports lacked per-question retrieval,
+so their retrieval table had to come from separate standalone runs on
+the same brains rather than from the answering run itself. Rule adopted:
+a report field the paper needs is a launch blocker; one run must yield
+every table. The harness gained retrieval and observations per question
+the next day, and LoCoMo and BEAM 100K were run under it.</td>
+</tr>
+<tr>
+<td>2026-09-13</td>
+<td>A local cross-encoder reranker (BGE reranker v2 m3) was predicted to
+close the local retrieval gap on LoCoMo and measured at Hit@5 52.5
+against 80.6 for the local language model on the same pool. Reported as
+a negative result; no published row uses it.</td>
+</tr>
+<tr>
+<td>2026-09-14</td>
+<td>Every BEAM 100K local-answer part was short by two synthesis
+questions: the ~57K-token synthesis envelope plus the 8,000-token answer
+budget exceeded the local server's 65,536 context, and held questions
+were dropped from the reports without a field saying so. Context raised
+to 131,072, every short part re-asked from its progress file, every
+report verified at 10 of 10 before scoring. Lowering the answer budget
+was rejected because stored local answers reach 7,323 output
+tokens.</td>
+</tr>
+<tr>
+<td>2026-09-15</td>
+<td>Part I draft 5 had stated the fully local loop with escalation on
+refusals at 91.4 on LongMemEval; the stored join reads 88.6 (27
+escalated). 91.4 is the local-retrieval, rented-answer row with
+escalation (21 escalated). Corrected in the draft and in the placement
+figure (then Figure 8, now Figure 2) before review.</td>
+</tr>
+<tr>
+<td>2026-09-15</td>
+<td><code>assembly_v3</code> retired after two paired full rows (73.0 →
+72.2; loop 79.6 → 77.6). The error-only probe that motivated it had
+shown 8 of 43 and 16 of 59 flips; the full rows showed matching
+losses.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-a-10-reproduction">A.10 Reproduction</h2>
+<p>Commands as run, with placeholders for machine-local paths. Model
+pins are those in A.4; endpoints are the providers' OpenAI-compatible
+endpoints, or the local vLLM server for the local placement.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ingest: one brain per conversation, 6 shards (i/6), production intake door + pipeline</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">varys</span> bench ingest longmemeval <span class="at">--file</span> longmemeval_s.json <span class="at">--dir</span> <span class="va">$DATA</span> <span class="at">--work-dir</span> <span class="va">$WORK</span>/lme <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--shard</span> <span class="va">$i</span>/6 <span class="at">--door-url</span> http://127.0.0.1:<span class="va">$PORT</span> <span class="at">--signing-key</span> <span class="va">$KEYS</span>/bench-intake.key <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--tenant</span> <span class="va">$TENANT</span> <span class="at">--provision-cmd</span> <span class="st">&quot;</span><span class="va">$HOOKS</span><span class="st">/provision.sh {brain_id}&quot;</span> <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--register-cmd</span> <span class="st">&quot;</span><span class="va">$HOOKS</span><span class="st">/register.sh {brain_id} {identity_id} {public_key}&quot;</span> <span class="dt">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--extractor</span> model <span class="at">--extractor-model</span> gpt-4.1-mini <span class="at">--extractor-max-output-tokens</span> 1500 <span class="dt">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--confidence-floor</span> 0.3 <span class="at">--extractor-profile</span> episodic</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># local placement: the same ingest against the vLLM server, N extractions in flight</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="va">VARYS_BRAIN_NAMESPACE</span><span class="op">=</span>sov <span class="va">VARYS_EXTRACT_CONCURRENCY</span><span class="op">=</span>16 <span class="dt">\</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">varys</span> bench ingest longmemeval ... <span class="at">--extractor-endpoint</span> http://127.0.0.1:8000/v1 <span class="dt">\</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--extractor-model</span> gemma-4-31b-it <span class="at">--extractor-api-key-env</span> GEMMA_API_KEY</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># project every brain the ingest built (the ask path reads projections, not claims)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$WORK</span>/lme <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;^brn_&#39;</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-P</span> 4 <span class="at">-I{}</span> parthenon project run <span class="at">--brain</span> {} <span class="at">--dsn</span> <span class="va">$DSN</span> <span class="at">--owner-dsn</span> <span class="va">$DSN</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ask, frontier core row (drop VARYS_PYTHIA for core; set VARYS_PYTHIA=1 for the agentic row)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">varys</span> bench ask longmemeval <span class="at">--file</span> longmemeval_s.json <span class="at">--dir</span> <span class="va">$DATA</span> <span class="at">--work-dir</span> <span class="va">$WORK</span>/lme <span class="dt">\</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">--shard</span> <span class="va">$i</span>/6 <span class="at">--parthenon-url</span> http://127.0.0.1:<span class="va">$PORT</span> <span class="at">--tenant</span> <span class="va">$TENANT</span> <span class="dt">\</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--answering</span> full <span class="at">--compose-contract</span> assembly_v2 <span class="at">--rewrite</span> <span class="at">--rerank</span> <span class="dt">\</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--pipeline-model</span> gemini-3.7-flash <span class="at">--answer-model</span> gemini-3.7-flash <span class="at">--judge-model</span> gemini-3.7-flash <span class="dt">\</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--out</span> <span class="va">$WORK</span>/lme/ask_core_<span class="va">$i_6</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ask, own-everything row: pipeline and answer seats on the local server, judge unchanged</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="va">PARTHENON_OBSERVATION_EXCERPT_CHARS</span><span class="op">=</span>2000 <span class="va">PARTHENON_OBSERVATION_LIMIT</span><span class="op">=</span>100 <span class="va">VARYS_RERANK_POOL</span><span class="op">=</span>100 <span class="dt">\</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ex">varys</span> bench ask longmemeval ... <span class="at">--compose-contract</span> assembly_v2 <span class="at">--rewrite</span> <span class="at">--rerank</span> <span class="dt">\</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">--pipeline-endpoint</span> http://127.0.0.1:8000/v1 <span class="at">--pipeline-model</span> gemma-4-31b-it <span class="dt">\</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">--answer-endpoint</span>   http://127.0.0.1:8000/v1 <span class="at">--answer-model</span>   gemma-4-31b-it <span class="at">--answer-max-output-tokens</span> 8000 <span class="dt">\</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">--judge-model</span> gemini-3.7-flash <span class="at">--out</span> <span class="va">$WORK</span>/lme-sov/ask_core_owned_<span class="va">$i_192</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># rent-the-thinking row: same, with --answer-model gemini-3.7-flash and VARYS_PYTHIA=1</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># never-refuse probe: same as the frontier row with --compose-contract never_refuse_probe</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># a question part of one conversation: --only-questions ids.txt (one question id per line)</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># BEAM aggregation, committed formula</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/beam-official-aggregate.py <span class="va">$WORK</span>/beam/ask_<span class="pp">*</span>.json</span></code></pre></div>
+<p>Judge prompts, verbatim from the harness:</p>
+<blockquote>
+<p><em>Gold-answer judge (LongMemEval, LoCoMo):</em> "You judge whether
+a hypothesis answer is correct given a question and the gold answer. The
+gold may list several acceptable forms or alternatives; answer yes if
+the hypothesis matches ANY acceptable form. Ignore formatting
+differences: markdown, casing, spelled-out vs numeric values, and extra
+words that do not change the meaning. Reply with exactly one word: yes
+or no."</p>
+</blockquote>
+<blockquote>
+<p><em>Rubric judge (BEAM):</em> "You judge a response against a grading
+checklist. You are given a question, the response, and a numbered
+checklist of required elements. Judge EACH item independently. Judge
+meaning, not wording: an item is satisfied when the response conveys it,
+regardless of phrasing, order, casing, or formatting. Reply with one
+line per checklist item and nothing else, in the form
+<code>&lt;number&gt;: yes</code> or <code>&lt;number&gt;: no</code>. Do
+not add commentary, and do not merge items."</p>
+</blockquote>
+<p>Cost and wall-clock, for planning a re-run. Frontier placement:
+LongMemEval ingest is about $3 and 6–7 hours across six lanes with
+gpt-4.1-mini; a full LongMemEval ask pass is about $7 and one hour; a
+full BEAM 1M campaign with the frontier loop is roughly three to four
+times a LongMemEval pass in model spend. The BEAM corpus cost under $10
+to ingest. Local placement, on one H200 per bench machine: LongMemEval
+ingest of 500 brains in about 12 hours across two machines at 48 lanes
+each; LoCoMo ingest 53 and 70 minutes per conversation with 16
+extractions in flight; BEAM 100K ingest of 20 conversations in about
+three hours across two machines. Answering: the LongMemEval local single
+call ran at a median of 150 seconds per question on a single lane; the
+BEAM 100K local rows ran at a median of 746 (single call) and 917
+seconds (loop) per question with 14 conversations sharing one GPU,
+against 54 to 60 seconds for the frontier rows. The local BEAM loop row
+took 6 to 13 hours per machine. Those are throughput figures for a
+shared benchmark box, not single-user latencies.</p>
+<h2 id="a-a-11-comparisons-to-other-systems">A.11 Comparisons to other
+systems</h2>
+<p>The paper compares to one other system, referred to as Vendor X: a
+commercial memory layer (retrieval and answering over conversation
+history) with none of the identity, authorization, or execution
+components in the Acropolis topology. Its figures are its own published
+figures under its own protocol. The vendor is not named in the paper;
+the report-bundle manifest records the source page and retrieval date
+for the cited figures so the comparison is checkable. Three things make
+it cross-protocol, and the paper labels it so wherever it appears:</p>
+<ol type="1">
+<li>Vendor X's protocol instructs the model never to state that
+information is missing, so a refusal can never cost it a point;
+Acropolis figures include honest refusals.</li>
+<li>Vendor X does not publish retrieval or abstention metrics at the
+1M-token scale. Its LongMemEval-S accuracy cannot have been produced
+under the official abstention rule: 30 of 500 questions are unanswerable
+traps, correct only when refused, so a never-refuse system caps at 94.0.
+A score of 98.0 is therefore incompatible with applying the official
+abstention rule to all 500 questions under a never-refuse policy.</li>
+<li>BEAM figures are under two different aggregations (A.6,
+cross-formula note).</li>
+</ol>
+<p>Both systems' guard columns (abstention, contradiction) are shown
+alongside overall so the trade is visible. No third-party system was
+re-run by VarOps.</p>
+<p><strong>The never-refuse protocol, measured on our own
+substrate.</strong> One Acropolis figure was produced under a
+never-refuse contract, as a labeled probe (A.7), so that the size of the
+protocol difference is a measurement rather than an estimate.
+LongMemEval, all 500 questions, frontier single call over the local
+brains, same retrieval and same judge, paired against the assembly_v2
+row on identical questions:</p>
+<table>
+<thead>
+<tr>
+<th>contract</th>
+<th>all 500</th>
+<th>traps refused of 30</th>
+<th>traps answered</th>
+<th>declined an answerable of 470</th>
+<th>answerable-only accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assembly_v2</td>
+<td>88.0</td>
+<td>29</td>
+<td>1</td>
+<td>28</td>
+<td>87.4</td>
+</tr>
+<tr>
+<td>never_refuse_probe</td>
+<td>87.2</td>
+<td>0</td>
+<td>30</td>
+<td>0</td>
+<td>92.8</td>
+</tr>
+</tbody>
+</table>
+<p>Removing the refusal gained 29 questions (22 of the 28 wrong
+refusals, plus 7 others) and lost 33 (all 30 traps, plus 3 answerable).
+It did not raise the headline under a judge that scores a confident
+wrong answer as wrong, and it raised the answerable-only figure, the way
+never-refuse systems report, by 5.4 points. The paper uses this to state
+the bridge from a published never-refuse number to its own as three
+parts: answerable-only scoring, a judge that does not see fabrications,
+and whatever model or retrieval difference remains. The probe row is not
+a published configuration and appears only in Part I's Figure 7 and
+here.</p>
+<h2 id="a-a-12-release-gate-for-reproducibility">A.12 Release gate for
+reproducibility</h2>
+<p>Reproducibility is a claim only if the artefacts are available.
+Before publication, the Varys repository, the <code>varys bench</code>
+harness and the committed aggregator are publicly available under the
+release tag named in the report-bundle manifest; the per-question run
+reports behind every published figure are published alongside the paper;
+dataset retrieval instructions and hashes are included; model pins name
+provider snapshots or open-weight checkpoints. If any of these is
+missing at release, the affected figure is marked "not independently
+reproducible" in the paper. Applied: the site's banked LongMemEval
+figures (core 89.2 band, agentic 90.5 over four runs, escalation 91.6)
+and the BEAM 1M figures (core 60.2 band, governed composite) are only
+partially retained as per-shard reports, because later runs on the same
+work directories overwrote shard files under reused tags and one gate
+run's raw reports were lost to temp cleanup (A.9, 2026-08-30). Those
+figures stand as published in the 2026-09-01 numbers sheet and the
+glossary, are re-runnable from the tagged harness and the named
+datasets, and are marked not independently auditable per question from
+this bundle. Every September figure and both reference rows are fully
+retained. Part I marks each table: ● full per-question artifacts in the
+bundle; ◐ re-runnable from the tagged harness, historical artifacts
+partially retained. The snapshot-callability check was not repeated at
+release; the model ids are as pinned in A.4 and the reports. If a named
+model snapshot is no longer callable by an independent reader, the
+affected figure is marked the same way, even when the harness and
+reports remain available: the published reports stay auditable and the
+aggregations stay repeatable, but the end-to-end figure is not
+independently reproducible. The local placement's figures depend on an
+open-weight checkpoint and a serving configuration (vLLM version,
+context, KV precision, thinking on), all recorded in the manifest; they
+are reproducible by anyone with the checkpoint and one comparable
+GPU.</p>
+<p>The report-bundle manifest is published alongside the paper in
+human-readable and machine-readable (JSON) form; its SHA-256 is printed
+in the reference block above. It records the repository URL, release
+tag, immutable commit SHA and licence, and for every published run
+report: file name, SHA-256, dataset and dataset hash, configuration
+name, compose contract, model ids and snapshot identifiers, harness and
+Parthenon SHAs with the dirty-tree flag, run date range, shard and part
+coverage, question count against the dataset, whether resumed work was
+included, and the exact aggregate output file behind each published
+number.</p>
+<p>Report format: machine-readable JSON, one file per shard (and part)
+per configuration, each containing the run's provenance block (dataset
+hash, shard, model ids and endpoints, compose contract, harness and
+Parthenon SHAs with dirty-tree flag, registry hash) and one row per
+question with the question id, category, gold, the answer, abstention
+flag, judge verdict, strict and rubric scores where the dataset has a
+rubric, the retrieved claims with their source object ids and ranks, the
+delivered observations, the question's retrieval score, cost and
+latency, plus the run's provenance warnings.</p>
+<p>The release does not redistribute datasets whose licenses prohibit
+redistribution; it provides the official source, required file names and
+SHA-256 hashes for each.</p>
+<h2 id="a-a-13-shipped-specified-measured">A.13 Shipped, specified,
+measured</h2>
+<p>For every path the paper or website names, its status at
+publication:</p>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>signed intake door, distillation pipeline, claims with evidence and
+supersession</td>
+<td>shipped; exercised by every benchmark run</td>
+</tr>
+<tr>
+<td>projections (lexical, semantic, graph, synopsis) and retrieval at
+published budgets</td>
+<td>shipped; exercised by every run</td>
+</tr>
+<tr>
+<td>coverage states in the answer envelope (answered /
+searched-and-empty / outside-the-ontology)</td>
+<td>shipped; the abstention figures depend on it</td>
+</tr>
+<tr>
+<td>Pythia loop (ask / compute / extract, <code>asked_at</code>
+anchor)</td>
+<td>shipped in the harness host; the agentic row</td>
+</tr>
+<tr>
+<td>governed composite routing (refusal and contradiction signals)</td>
+<td>shipped as a deterministic policy in the harness; validated
+live</td>
+</tr>
+<tr>
+<td>per-brain isolation, fails closed</td>
+<td>shipped; measured by an adversarial probe against live per-brain
+servers: five brain pairs, nine cases each, 45 of 45 refused or
+contained (wrong tenant, foreign key, tampered, expired and missing
+assertions refused with no data; an assertion replayed against another
+brain's server returns none of the first brain's claims; naming another
+brain or another principal's scope refused)</td>
+</tr>
+<tr>
+<td>graduated disclosure ladders</td>
+<td>shipped; rungs derived at write time, never redacted at read time;
+18 integration tests including an adversarial reconstruction over 22
+reader-visible tables; end to end, a finance reader's envelope carries
+the precise value and a sales reader's carries the band and trend on the
+same subject with no byte of the precise value</td>
+</tr>
+<tr>
+<td>task-scoped context (<code>ask_batch</code>,
+<code>context(subjects)</code>, validity token,
+<code>revalidate</code>)</td>
+<td>shipped and drilled over the wire; no public benchmark exercises the
+two-stage ask, so measured by mechanism, not by score</td>
+</tr>
+<tr>
+<td>identity resolution and permission-change propagation</td>
+<td>measured on a bounded fixture: 1,000 people across 3 namespaces, 50
+evidence-backed merges, 20 conflicting handles; 3,030 references
+resolved, 0 wrong, 0 missing, conflicts surfaced as typed ambiguity;
+directory change reaches the next assertion at 0 ms (cache off) or
+within the TTL; an issued assertion refused within the generation-feed
+poll interval (976 ms at a 1 s poll, 3 s default); feed outage honoured
+through a grace window then fails closed. Live directories, aliases at
+scale and reorganizations not exercised</td>
+</tr>
+<tr>
+<td>self-operated open-weight placement</td>
+<td>measured across the extractor, pipeline and answer seats on rented
+H200 infrastructure (one per bench machine, two machines) on all three
+benchmarks; the rent-the-thinking rows place the frontier model in the
+answer seat by design (Part I, Figure 2)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-a-14-validation-this-paper-does-not-contain">A.14 Validation this
+paper does not contain</h2>
+<p>Listed so the reader knows what would change the assessment, in rough
+order of what the harness could measure next:</p>
+<ol type="1">
+<li>Red-team tests that unauthorized facts never enter model context
+through policy, cache, retry and failure paths (the isolation probe
+covers the assertion and brain boundaries; not the caching and retry
+paths).</li>
+<li>Contradictory-source and supersession tests on authored
+corpora.</li>
+<li>Identity resolution against a live directory, with aliases at scale
+and reorganizations.</li>
+<li>A live enterprise pilot with measured operational outcomes.</li>
+<li>Independent review of the signed intake, policy engine, audit trail
+and endpoint execution boundaries.</li>
+<li>A second open-weight model in the reading seats, and BEAM 1M under
+the local placement, to bound how much of the local gap is this model
+rather than local models.</li>
+</ol>
+</article>
+<footer>Own the Knowledge. Rent the Thinking. · Acropolis, a governed model of the organization · Technical Report 01 · VarOps LLC, September 2026, version 1.0 · CC BY 4.0 · <a href="https://github.com/varops/acropolis-research">varops/acropolis-research</a></footer>
+</main></div>
+<script>const CHARTS={"fig2": {"kind": "bars", "title": "Share of the all-frontier score, by placement", "unit": "% of reference", "max": 100, "groups": [["LongMemEval-S", [["own everything", 95.6], ["rent the thinking", 98.5], ["rent on refusals", 96.9]]], ["LoCoMo", [["own everything", 93.3], ["rent the thinking", 96.9], ["rent on refusals", 98.4]]], ["BEAM 100K, strict", [["own everything", 84.0], ["rent the thinking", 95.7], ["rent on refusals", 86.3]]], ["BEAM 100K, own protocol", [["own everything", 84.9], ["rent the thinking", 98.4]]]]}, "fig3": {"kind": "grouped", "title": "BEAM 100K by ability, BEAM's own protocol (mean of 40)", "unit": "mean rubric score", "max": 100, "series": ["own everything (local loop)", "rent the thinking", "frontier in every seat, same brains"], "rows": [["extraction", [70.8, 89.1, 86.4]], ["preference", [94.1, 87.8, 87.9]], ["instruction", [72.8, 90.9, 92.1]], ["knowledge update", [59.7, 57.9, 62.5]], ["contradiction", [52.7, 67.5, 67.5]], ["temporal", [66.7, 78.6, 80.7]], ["multi-session", [60.3, 58.0, 55.1]], ["summarization", [23.8, 36.9, 36.3]], ["event ordering", [16.5, 32.9, 34.6]]]}, "fig5": {"kind": "grouped", "title": "Refusal posture: two calibrations of one contract", "unit": "percent", "max": 100, "series": ["LongMemEval accuracy", "BEAM abstention"], "rows": [["synthesis-forward", [90.5, 50.0]], ["balanced", [89.4, 64.3]]]}, "fig6": {"kind": "grouped", "title": "Retrieval, identity-scored", "unit": "% of questions", "max": 100, "series": ["Hit@5", "Hit@10"], "rows": [["LongMemEval-S, frontier", [99.0, 99.8]], ["LoCoMo, frontier", [90.74, 93.06]], ["BEAM 1M, frontier", [35.84, 44.0]], ["LongMemEval-S, local brains, local rerank", [99.4, 99.6]], ["LoCoMo, local brains, local rerank", [80.6, 85.2]], ["LoCoMo, local brains, frontier rerank", [91.2, 92.6]], ["BEAM 100K, published brains", [40.6, 49.6]], ["BEAM 100K, local brains, frontier rerank", [39.2, 47.3]], ["BEAM 100K, local brains, local rerank", [33.8, 43.9]]]}, "fig7": {"kind": "bars", "title": "LongMemEval-S accuracy, 500 questions", "unit": "accuracy", "max": 100, "groups": [["Acropolis, published configuration", [["core", 89.2], ["agentic (Pythia)", 90.5], ["agentic + frontier escalation", 91.6]]], ["Acropolis, local brains", [["rented answer seat", 90.0]]], ["Same system, never-refuse probe", [["all 500 questions", 87.2], ["470 answerable only", 92.8]]], ["Vendor X, never-refuse protocol", [["as published", 98.0]]]]}, "fig8": {"kind": "grouped", "title": "BEAM 1M per category, official rubric protocol", "unit": "score", "max": 100, "series": ["Acropolis governed composite", "Vendor X, published"], "rows": [["abstention", [75.7, 52.5]], ["contradiction", [62.1, 35.7]], ["summarization", [56.4, 63.5]], ["multi-session", [57.9, 65.2]]]}};</script>
+<script>(function(){
+const css=()=>getComputedStyle(document.documentElement);
+const tok=n=>css().getPropertyValue(n).trim();
+function draw(el){
+  const spec=CHARTS[el.dataset.chart]; const canvas=el.querySelector('canvas'); const dpr=window.devicePixelRatio||1;
+  const W=el.clientWidth||700; const ink=tok('--ink'), ink2=tok('--ink2'), muted=tok('--muted'), rule=tok('--rule'), panel=tok('--panel');
+  const series=[tok('--s1'),tok('--s2'),tok('--s3')];
+  const L=Math.min(300,Math.max(150,W*0.36)), R=54, T=8, B=26, bh=spec.kind==='bars'?18:14, gap=spec.kind==='bars'?6:3, ggap=14;
+  const rows=spec.kind==='bars'?spec.groups.flatMap(g=>[{label:g[0],head:true}].concat(g[1].map(([l,v])=>({label:l,vals:[v]})))):spec.rows.map(([l,vals])=>({label:l,vals}));
+  const nser=spec.kind==='bars'?1:spec.series.length;
+  let y=T; const pos=[]; rows.forEach(r=>{ if(r.head){y+=ggap;pos.push({r,y});y+=16;return;} pos.push({r,y}); y+=nser*bh+(nser-1)*gap+ (spec.kind==='bars'?gap:8); });
+  const H=y+B;
+  canvas.width=W*dpr; canvas.height=H*dpr; canvas.style.height=H+'px'; const c=canvas.getContext('2d'); c.scale(dpr,dpr);
+  c.font='12px '+tok('--sans'); const x=v=>L+(v/spec.max)*(W-L-R);
+  [0,25,50,75,100].forEach(v=>{c.strokeStyle=rule;c.lineWidth=1;c.beginPath();c.moveTo(x(v)+.5,T);c.lineTo(x(v)+.5,H-B+4);c.stroke();c.fillStyle=muted;c.font='11px '+tok('--mono');c.textAlign='center';c.fillText(v,x(v),H-8);});
+  c.fillStyle=muted;c.font='11px '+tok('--mono');c.textAlign='left';c.fillText(spec.unit,8,H-8);
+  pos.forEach(({r,y})=>{
+    if(r.head){c.fillStyle=ink2;c.font='600 12px '+tok('--sans');c.textAlign='left';c.fillText(r.label,8,y+12);return;}
+    c.fillStyle=ink;c.font='12.5px '+tok('--sans');c.textAlign='right';
+    // wrap label into two lines if long
+    const words=r.label.split(' ');let lines=[''];words.forEach(w=>{const t=(lines[lines.length-1]+' '+w).trim();if(c.measureText(t).width>L-16&&lines[lines.length-1]){lines.push(w);}else lines[lines.length-1]=t;});
+    const rowH=nser*bh+(nser-1)*gap; const ly=y+rowH/2+4-(lines.length-1)*7; lines.forEach((ln,i)=>c.fillText(ln,L-10,ly+i*14));
+    r.vals.forEach((v,i)=>{const by=y+i*(bh+gap); c.fillStyle=series[i]; const w=Math.max(x(v)-x(0),2);
+      c.beginPath(); c.roundRect(x(0),by,w,bh,[0,4,4,0]); c.fill();
+      c.fillStyle=ink;c.font='11.5px '+tok('--mono');c.textAlign='left';c.fillText(v.toFixed(1),x(v)+6,by+bh/2+4);});
+  });
+  c.strokeStyle=tok('--muted');c.beginPath();c.moveTo(x(0)+.5,T);c.lineTo(x(0)+.5,H-B+4);c.stroke();
+  let lg=el.previousElementSibling; if(spec.kind!=='bars'){ if(!el.parentNode.querySelector('.legend')){const d=document.createElement('div');d.className='legend';d.innerHTML=spec.series.map((s,i)=>`<span><i style="background:${series[i]}"></i>${s}</span>`).join('');el.parentNode.insertBefore(d,el);} }
+}
+function all(){document.querySelectorAll('.chart').forEach(draw);}
+all(); let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(all,120);});
+if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',all);}
+new MutationObserver(all).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>

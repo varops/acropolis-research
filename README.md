@@ -21,6 +21,7 @@ produced them, and enough of the method to re-run it.
 | path | what it holds |
 |---|---|
 | `paper/README.md` | the paper, Markdown, source of truth |
+| `paper/index.html` | the paper and Appendix A as one self-contained web page (canvas charts, sidebar navigation) |
 | `paper/methodology.md` | Appendix A, benchmark methodology (reference v1.2) |
 | `paper/figures/acropolis-figures.html` | the figure set, self-contained HTML (Figures 1 to 9, Tables 1 and 2) |
 | `paper/references.bib` | references |
