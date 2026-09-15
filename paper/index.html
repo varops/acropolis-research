@@ -1,15 +1,14 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Own the Knowledge. Rent the Thinking.</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>:root{--bg:#fafaf8;--panel:#ffffff;--ink:#1c1f24;--ink2:#4b5160;--muted:#7a8090;--rule:#e3e1da;--accent:#0b6e6e;--accent2:#86b6ef;--band:#eef4f3;--hi:#fff8e1;--side:#f3f2ee;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--s1:#0b6e6e;--s2:#86b6ef;--s3:#8b8983}
+<style>:root{--bg:#ffffff;--panel:#fafaf9;--ink:#1c1f24;--ink2:#4b5160;--muted:#7a8090;--rule:#e3e1da;--accent:#0b6e6e;--accent2:#86b6ef;--band:#eef4f3;--hi:#fff8e1;--side:#ffffff;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--s1:#0b6e6e;--s2:#86b6ef;--s3:#8b8983}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}}
 :root[data-theme="dark"]{--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983}
 html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.6}
-.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}
+.layout{display:grid;grid-template-columns:250px minmax(0,760px);min-height:100vh;max-width:1060px;margin:0 auto;column-gap:24px}
 .side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side);border-right:1px solid var(--rule);padding:22px 18px 40px;font-size:13.5px}
 .side .brand{display:flex;flex-direction:column;gap:2px;margin-bottom:18px}.side .brand a{font-weight:600;color:var(--ink);text-decoration:none;font-size:15px}.side .brand span{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 .side .group{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
 .side a{display:block;color:var(--ink2);text-decoration:none;padding:4px 8px;border-radius:4px;line-height:1.35}.side a:hover{background:var(--band);color:var(--ink)}
-.doc{max-width:760px;padding:40px 48px 80px;margin:0}
+.doc{max-width:760px;padding:40px 24px 80px 8px;margin:0}
 .cover{margin:0 0 36px}.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
 .cover h1{font-size:34px;line-height:1.12;margin:0 0 8px;font-weight:600;text-wrap:balance}.cover.small h1{font-size:26px}.cover .sub{font-size:19px;color:var(--ink2);margin:0 0 16px;text-wrap:balance}
 .cover .meta{margin:0;color:var(--ink2);white-space:pre-line;font-size:14px}.cover .meta.muted{color:var(--muted);margin-top:8px}
