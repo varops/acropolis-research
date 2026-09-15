@@ -4,7 +4,7 @@
 :root[data-theme="dark"]{--bg:#111417;--panel:#171b20;--ink:#e8e6e0;--ink2:#b8b6ae;--muted:#858b96;--rule:#2a2f36;--accent:#4fc3c0;--accent2:#6da7ec;--band:#16302f;--hi:#2c2a1c;--side:#14171b;--s1:#4fc3c0;--s2:#6da7ec;--s3:#8b8983;--s4:#4fc3c0;--link:#7cb0ff}
 html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .layout{display:grid;grid-template-columns:minmax(0,760px) 250px;min-height:100vh;max-width:1060px;margin:0 auto;column-gap:24px}
-.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side);border-left:1px solid var(--rule);padding:40px 18px 40px;font-size:13.5px;order:2}
+.side{position:sticky;top:30px;height:calc(100vh - 30px);overflow-y:auto;background:var(--side);border-left:1px solid var(--rule);padding:10px 18px 40px;font-size:13.5px;order:2}
 .side .brand{margin:0 0 6px;padding:0}.side .brand a{font-weight:600;color:var(--ink);text-decoration:none;font-size:14px;padding:0}
 .side .group{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
 .side a{display:block;color:var(--ink2);text-decoration:none;padding:4px 8px;border-radius:4px;line-height:1.35}.side a:hover{background:var(--band);color:var(--ink)}
@@ -65,7 +65,7 @@ paper does not contain</a>
 </nav>
 <main class="doc" id="top">
 <header class="cover"><p class="kicker">Acropolis,
-a governed model of the organization · Technical Report 01</p><h1>Own the Knowledge. Rent the
+a governed model of the organization</p><h1>Own the Knowledge. Rent the
 Thinking.</h1><p class="sub">Separating
 institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi<br>VarOps LLC<br>September 2026 · Version 1.0<br>DOI: 10.xxxx/xxxxx</p><p class="links"><a href="https://varops.com/acropolis">website</a><span>|</span><a href="https://github.com/varops/acropolis-research">github</a><span>|</span><a href="mailto:research@varops.com">contact</a></p><p class="meta muted">Research report</p></header>
 <article>
