@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" width="760" height="310" font-family="Helvetica, Arial, sans-serif">
+<text x="0" y="14" fill="#777777" font-size="10.5" letter-spacing="1" font-family="Menlo, Consolas, monospace">CONVENTIONAL</text>
+<rect x="0" y="24" width="220" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="10" y="42" fill="#111111" font-size="12.5" font-weight="600">Company knowledge</text>
+<text x="10" y="58" fill="#777777" font-size="10.5">documents, threads, records, all of it</text>
+<line x1="224" y1="56" x2="260" y2="56" stroke="#777777" stroke-width="1.2"/><path d="M260,52 L266,56 L260,60" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="270" y="24" width="220" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="280" y="42" fill="#111111" font-size="12.5" font-weight="600">Frontier AI</text>
+<text x="280" y="58" fill="#777777" font-size="10.5">outside the company;</text>
+<text x="280" y="71" fill="#777777" font-size="10.5">understands and answers</text>
+<line x1="494" y1="56" x2="530" y2="56" stroke="#777777" stroke-width="1.2"/><path d="M530,52 L536,56 L530,60" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="540" y="24" width="220" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="550" y="42" fill="#111111" font-size="12.5" font-weight="600">Answer</text>
+<text x="550" y="58" fill="#777777" font-size="10.5">an answer, not an asset</text>
+<text x="0" y="132" fill="#777777" font-size="10.5" letter-spacing="1" font-family="Menlo, Consolas, monospace">ACROPOLIS</text>
+<rect x="0" y="142" width="170" height="78" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="10" y="160" fill="#111111" font-size="12.5" font-weight="600">Company</text>
+<text x="10" y="176" fill="#777777" font-size="10.5">observations from the</text>
+<text x="10" y="189" fill="#777777" font-size="10.5">systems it already runs</text>
+<line x1="174" y1="181" x2="200" y2="181" stroke="#777777" stroke-width="1.2"/><path d="M200,177 L206,181 L200,185" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="210" y="142" width="250" height="78" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="220" y="160" fill="#111111" font-size="12.5" font-weight="600">Owned organizational understanding</text>
+<text x="220" y="176" fill="#777777" font-size="10.5">the record: claims, evidence, time, source;</text>
+<text x="220" y="189" fill="#777777" font-size="10.5">built by a model the company runs</text>
+<line x1="464" y1="181" x2="500" y2="181" stroke="#777777" stroke-width="1.2"/><path d="M500,177 L506,181 L500,185" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="510" y="142" width="250" height="78" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="520" y="160" fill="#111111" font-size="12.5" font-weight="600">Answer</text>
+<text x="520" y="176" fill="#777777" font-size="10.5">local answer seat:</text>
+<text x="520" y="189" fill="#777777" font-size="10.5">84 to 96% of all-frontier</text>
+<line x1="335" y1="220" x2="335" y2="262" stroke="#777777" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="335" y1="262" x2="500" y2="262" stroke="#777777" stroke-width="1.2" stroke-dasharray="4 3"/><path d="M500,258 L506,262 L500,266" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="510" y="236" width="250" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="520" y="254" fill="#111111" font-size="12.5" font-weight="600">Frontier reasoning when needed</text>
+<text x="520" y="270" fill="#777777" font-size="10.5">sees one question&#x27;s evidence envelope,</text>
+<text x="520" y="283" fill="#777777" font-size="10.5">never the record; 96 to 99% of all-frontier</text>
+<line x1="0" y1="118" x2="760" y2="118" stroke="#e2e2e2"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" font-family="Helvetica, Arial, sans-serif">
+<text x="0" y="14" fill="#777777" font-size="10.5" letter-spacing="1" font-family="Menlo, Consolas, monospace">BOLTED-ON: RETRIEVE, STUFF, HOPE</text>
+<rect x="0" y="24" width="172" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="10" y="42" fill="#111111" font-size="12.5" font-weight="600">Retrieve nearest chunks</text>
+<text x="10" y="58" fill="#777777" font-size="10.5">stale wins if it ranks higher</text>
+<line x1="176" y1="56" x2="190" y2="56" stroke="#777777" stroke-width="1.2"/><path d="M190,52 L196,56 L190,60" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="196" y="24" width="172" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="206" y="42" fill="#111111" font-size="12.5" font-weight="600">Put them in the prompt</text>
+<text x="206" y="58" fill="#777777" font-size="10.5">model sees what it should not</text>
+<line x1="372" y1="56" x2="386" y2="56" stroke="#777777" stroke-width="1.2"/><path d="M386,52 L392,56 L386,60" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="392" y="24" width="172" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="402" y="42" fill="#111111" font-size="12.5" font-weight="600">Instruct the model to behave</text>
+<text x="402" y="58" fill="#777777" font-size="10.5">policy enforced by the thing being</text>
+<text x="402" y="71" fill="#777777" font-size="10.5"> constrained</text>
+<line x1="568" y1="56" x2="582" y2="56" stroke="#777777" stroke-width="1.2"/><path d="M582,52 L588,56 L582,60" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="588" y="24" width="172" height="64" rx="4" fill="#ffffff" stroke="#cfcfcf"/>
+<text x="598" y="42" fill="#111111" font-size="12.5" font-weight="600">Answer</text>
+<text x="598" y="58" fill="#777777" font-size="10.5">gaps filled; no provenance survive</text>
+<text x="598" y="71" fill="#777777" font-size="10.5">s</text>
+<text x="0" y="132" fill="#777777" font-size="10.5" letter-spacing="1" font-family="Menlo, Consolas, monospace">RESIDENT: THE ACROPOLIS REQUEST PATH</text>
+<rect x="0" y="142" width="136" height="72" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="10" y="160" fill="#111111" font-size="12.5" font-weight="600">Resolve identity and p…</text>
+<text x="10" y="176" fill="#777777" font-size="10.5">Eunomia, from the client&#x27;s</text>
+<text x="10" y="189" fill="#777777" font-size="10.5"> directory</text>
+<line x1="140" y1="178" x2="150" y2="178" stroke="#777777" stroke-width="1.2"/><path d="M150,174 L156,178 L150,182" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="156" y="142" width="136" height="72" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="166" y="160" fill="#111111" font-size="12.5" font-weight="600">Retrieve under authori…</text>
+<text x="166" y="176" fill="#777777" font-size="10.5">Parthenon, before any mode</text>
+<text x="166" y="189" fill="#777777" font-size="10.5">l runs</text>
+<line x1="296" y1="178" x2="306" y2="178" stroke="#777777" stroke-width="1.2"/><path d="M306,174 L312,178 L306,182" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="312" y="142" width="136" height="72" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="322" y="160" fill="#111111" font-size="12.5" font-weight="600">Assemble task-scoped c…</text>
+<text x="322" y="176" fill="#777777" font-size="10.5">explicit coverage state</text>
+<line x1="452" y1="178" x2="462" y2="178" stroke="#777777" stroke-width="1.2"/><path d="M462,174 L468,178 L462,182" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="468" y="142" width="136" height="72" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="478" y="160" fill="#111111" font-size="12.5" font-weight="600">Plan, act with permiss…</text>
+<text x="478" y="176" fill="#777777" font-size="10.5">Hero; Pythia when working </text>
+<text x="478" y="189" fill="#777777" font-size="10.5">out is needed</text>
+<line x1="608" y1="178" x2="618" y2="178" stroke="#777777" stroke-width="1.2"/><path d="M618,174 L624,178 L618,182" fill="none" stroke="#777777" stroke-width="1.2"/>
+<rect x="624" y="142" width="136" height="72" rx="4" fill="#eef4f3" stroke="#0b6e6e"/>
+<text x="634" y="160" fill="#111111" font-size="12.5" font-weight="600">Record an attributable…</text>
+<text x="634" y="176" fill="#777777" font-size="10.5">update versioned state</text>
+</svg>
