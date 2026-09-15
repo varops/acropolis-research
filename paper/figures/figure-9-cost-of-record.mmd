@@ -1,0 +1,8 @@
+%% Figure 9: the cost of record. BEAM 1M ingest of 2026-08-20: 35 conversations, about 35 million tokens, two Xeon 8280s, 31 GB, no GPU.
+flowchart LR
+  I["Ingest, one time<br/><b>$8.24</b><br/>17,745 accepted claims · 37,387 LLM calls"] --> C["Per accepted claim<br/><b>$0.0021</b><br/>about $0.24 per million-token conversation"]
+  C --> P["Index, one time<br/><b>$0</b><br/>72,986 documents embedded, local nomic, CPU only"]
+  P --> Q["Retrieval, per question<br/><b>$0.0037</b><br/>$2.28 for 625 questions"]
+  I --> D["Quarantined at the door<br/><b>0</b><br/>after the RFC 3339 fix; 5,732 refused before it"]
+  classDef tile fill:#f7f6f2,stroke:#dcd9d0,color:#1c1f24;
+  class I,C,P,Q,D tile;

@@ -123,8 +123,17 @@ not the location of the machine: an open-weight checkpoint served under our own 
 with no inference sent to a model-provider API. The rows differ in who fills the other
 two.
 
-> **[Figure 2 — Own the knowledge, rent the thinking: how much frontier you get without a frontier brain]**
-> One table, three benchmarks, five rows on the same local brains; the reference row on the published brains closes it. The distance table beneath it. "Local" is Gemma-4-31B on one H200 with local embeddings; "frontier" is the same frontier models as the published reference.
+**Figure 2. Own the knowledge, rent the thinking: how much frontier you get without a frontier brain.** The two tables below are the data; "local" is Gemma-4-31B on one H200 with local embeddings, "frontier" the same frontier models as the published reference. Source: `figures/figure-2-placement.mmd`.
+
+```mermaid
+%% Figure 2: own the knowledge, rent the thinking. Percent of the all-frontier reference per benchmark.
+%% Reference = frontier model in every seat on the published brains: LME 91.4, LoCoMo 81.8, BEAM 100K 56.2 strict / 67.5 protocol.
+xychart-beta
+    title "Share of the all-frontier score, by placement (percent)"
+    x-axis ["LME own", "LME rent thinking", "LME rent on refusals", "LoCoMo own", "LoCoMo rent thinking", "LoCoMo rent on refusals", "BEAM own", "BEAM rent thinking", "BEAM rent on refusals", "BEAM protocol own", "BEAM protocol rent thinking"]
+    y-axis "percent of all-frontier reference" 0 --> 100
+    bar [95.6, 98.5, 96.9, 93.3, 96.9, 98.4, 84.0, 95.7, 86.3, 84.9, 98.4]
+```
 
 | configuration | understands | thinks | LongMemEval-S | LoCoMo | BEAM 100K | BEAM 100K, own protocol |
 |---|---|---|---|---|---|---|
@@ -191,8 +200,19 @@ refuses often enough for it to matter; the two mechanisms together, local retrie
 with a rented answer and escalation on its refusals, read 91.4 on LongMemEval, the
 reference itself, with 21 questions escalated.
 
-> **[Figure 3 — BEAM 100K by ability: what renting the answer seat buys back]**
-> Grouped columns per ability under BEAM's own protocol: local loop, rented thinking, frontier on the same brains.
+**Figure 3. BEAM 100K by ability: what renting the answer seat buys back.** Series in order: own everything (local loop), rent the thinking, frontier in every seat on the same brains. Overall 57.3, 66.4, 66.8. Source: `figures/figure-3-beam100k-by-ability.mmd`.
+
+```mermaid
+%% Figure 3: BEAM 100K by ability under BEAM's own protocol (mean rubric score of 40 questions per ability).
+%% Three placements on the same local brains: own everything (local loop), rent the thinking (frontier answer seat), frontier in every seat.
+xychart-beta
+    title "BEAM 100K by ability: local loop vs rented thinking vs frontier, same brains"
+    x-axis ["extraction", "preference", "instruction", "update", "contradiction", "temporal", "multi-session", "summary", "ordering"]
+    y-axis "mean rubric score (percent)" 0 --> 100
+    line [70.8, 94.1, 72.8, 59.7, 52.7, 66.7, 60.3, 23.8, 16.5]
+    line [89.1, 87.8, 90.9, 57.9, 67.5, 78.6, 58.0, 36.9, 32.9]
+    line [86.4, 87.9, 92.1, 62.5, 67.5, 80.7, 55.1, 36.3, 34.6]
+```
 
 The guard columns survive the swap. With no frontier model in any seat, 29 of the 30
 LongMemEval traps are refused. On LoCoMo the local rows refuse 70 to 75 of 88 traps
@@ -361,8 +381,17 @@ decision it was produced under. Every benchmark report records the dataset hash,
 code revisions with a dirty-tree flag, and the model pins. The reports behind every
 number in this paper are published with it, under the release gate in Appendix A.12.
 
-> **[Figure 5 — Refusal posture is a dial with two measured endpoints]**
-> Two-point line on BEAM-abstention × LongMemEval-accuracy, Acropolis only; the comparison stays in Figures 7, 8 and Table 2.
+**Figure 5. Refusal posture is a dial with two measured endpoints.** Moving from synthesis-forward to balanced buys 14.3 points of BEAM abstention for 1.1 points of LongMemEval accuracy. Source: `figures/figure-5-refusal-dial.mmd`.
+
+```mermaid
+%% Figure 5: refusal posture is a dial with two measured endpoints (one contract, two calibrations).
+%% synthesis-forward: LongMemEval 90.5, BEAM abstention 50.0. balanced: LongMemEval 89.4, BEAM abstention 64.3.
+xychart-beta
+    title "Refusal posture: what each calibration costs and buys"
+    x-axis ["synthesis-forward LME", "synthesis-forward BEAM abstention", "balanced LME", "balanced BEAM abstention"]
+    y-axis "percent" 0 --> 100
+    bar [90.5, 50.0, 89.4, 64.3]
+```
 
 **Governance is a dial, not a destiny.** Refusal posture is a deployment configuration
 with two measured endpoints. The synthesis-forward setting scores LongMemEval 90.5 and
@@ -375,8 +404,23 @@ contract written against the local model's observed mistakes moved LoCoMo from 7
 count unchanged. Systems that weld in a never-refuse posture cannot publish this
 column, and do not.
 
-> **[Table 1 — Evidence map: every property with its status]**
-> Table with status chips and the evidence cell for each. Legend: measured (a run exercised it and a score depends on it) · by construction (built in, every run had it, never attacked) · specified (designed, partly built, no benchmark exercises it) · not measured (implied by the design, no test exists) · planned (not built).
+**Table 1. Evidence map: every property, with its status.** Measured: a run exercised the property and a number depends on it. By construction: built in, never attacked. Specified: designed, no benchmark exercises it. Source: `figures/table-1-evidence-map.md`.
+
+| property or path | status | evidence |
+|---|---|---|
+| Signed intake, distillation, claims with evidence and supersession | measured | Exercised by every benchmark run; door quarantined 5,732 malformed submissions on the first BEAM conversion |
+| Retrieval at published budgets, identity-scored | measured | Figure 6; Hit10 99.80 / 93.06 / 44.00. Unchanged when the extractor is swapped: on brains built by a local 31B model, Hit5 99.2 / 91.2 / 40.6 against 99.0 / 90.7 / 40.6 on the published brains (LongMemEval, LoCoMo, BEAM 100K) |
+| Absence labeled: coverage states in the envelope | measured | BEAM abstention 75.7 vs 52.5; 25 to 28 of 30 traps refused on LongMemEval; 29 of 30 with no frontier model in any seat. Never-refuse measured on the same brains: removing the refusal moved LongMemEval 88.0 to 87.2 and turned 30 refusals into 30 fabrications |
+| Pythia loop: ask, compute, extract with a time anchor | measured | Agentic row 90.5 vs core 89.2, four full runs |
+| Governed composite routing on refusal and contradiction signals | measured | Figure 8; validated live before the full run |
+| Refusal posture as a configuration | measured | Figure 5; two endpoints, three variants at 56.4 / 57.4 / 57.1; escalation on the system's own refusals measured at 88.4 to 91.4 across four local configurations |
+| Scores do not depend on the judging model | measured | A local 31B judge agrees with the frontier judge on 98.7 to 99.2% of 2,223 LongMemEval answers and preserves every ordering; its disagreements are stricter, protocol-literal calls |
+| Per-brain isolation, fails closed | measured | Adversarial probe on live per-brain servers, five brain pairs, nine cases each, 45 of 45 refused or contained: wrong tenant, foreign key, tampered, expired and missing assertions refused with no data; an assertion replayed against another brain's server returns none of the first brain's claims; naming another brain or another principal's scope is refused |
+| Every answer carries its evidence | measured | All 118,890 claims delivered across 2,500 stored LongMemEval answers resolve to a stored observation with a source identity, 0 exceptions; an LLM audit of 2,233 answers against their delivered evidence finds unsupported wrong assertions in about 1 in 100 answers, evenly across local and frontier rows |
+| Graduated disclosure | measured | Rungs derived at write time, never redacted at read time; 18 integration tests including an adversarial reconstruction over 22 reader-visible tables. End to end over the wire: a finance-group reader's envelope carries the precise value 2,140,000; a sales-rung reader's envelope on the same subject carries the band 2.0M to 2.5M and the trend "up", no byte of either precise value and no parent claim id |
+| Task-scoped context: ask_batch, context(entities), validity token | measured | Built and drilled over the wire: context over several subjects returns one envelope with a section per subject; ask_batch answers several questions under one assertion, one scope and one snapshot; every envelope carries a validity token, and revalidate reports it stale after the first lifecycle event in its scopes (measured: 3 events after one supersession) while a token for another brain or an ungranted scope is refused. No public benchmark exercises the two-stage ask; the measurement is the mechanism drill |
+| Identity resolution and permission-change propagation, bounded fixture | measured | Resolver: 1,000 people across 3 namespaces with 50 evidence-backed duplicate merges and 20 conflicting handles: 3,030 correct, 0 wrong, 0 missing, the 20 conflicts surfaced as typed ambiguity naming both candidates, duplicates follow to the primary, a reversed merge restores the source, ~2 ms per resolve. Propagation: a directory change reaches the next issued assertion in 0 ms with the cache off and within the cache TTL with it on (measured 2.06 s at a 2 s TTL). With the generation feed on, an assertion already in a caller's hand is refused within the poll interval (measured 976 ms at a 1 s poll, 3 s by default) instead of at its expiry; a feed outage is honoured through a grace window and then fails closed (measured 2,993 ms at 3 s). Live directories, aliases at scale and reorganizations are not exercised |
+| Sovereignty tier: open-weight models on sub-$100k hardware | measured | Figure 2. Every model seat on Gemma-4-31B, one H200, on all three benchmarks: fully local 87.4 / 76.3 / 47.2 (LongMemEval, LoCoMo, BEAM 100K strict; best local configuration per benchmark); local knowledge with the frontier answer seat 90.0 / 79.3 / 53.8; frontier in every seat on the same local brains 89.6 / 81.8 / 55.2. Brains a local model built score within one to two points of the published brains under frontier seats on every benchmark |
 
 ## 5. The frontier configuration, and the comparison
 
@@ -385,8 +429,17 @@ is the reference itself, the configuration the site has published since August: 
 frontier extractor, a frontier reranker, a frontier answer. Everything is identity-scored
 at the published budgets.
 
-> **[Figure 6 — Retrieval holds to a million tokens, then meets the cliff]**
-> Hit@5 → Hit@10 dumbbells per dataset, frontier and local brains; MRR in the caption.
+**Figure 6. Retrieval holds to a million tokens, then meets the cliff every published figure shows.** First series Hit@5, second Hit@10; the first three points are the frontier configuration, the rest the September local-brain rows. Source: `figures/figure-6-retrieval.mmd`.
+
+```mermaid
+%% Figure 6: retrieval holds to a million tokens, then meets the cliff every published figure shows. Hit@5 and Hit@10, identity-scored.
+xychart-beta
+    title "Retrieval: Hit@5 (first series) and Hit@10 (second series)"
+    x-axis ["LME frontier", "LoCoMo frontier", "BEAM 1M frontier", "LME local brains, local rerank", "LoCoMo local brains, local rerank", "LoCoMo local brains, frontier rerank", "BEAM 100K published brains", "BEAM 100K local brains, frontier rerank", "BEAM 100K local brains, local rerank"]
+    y-axis "percent of questions" 0 --> 100
+    line [99.0, 90.74, 35.84, 99.4, 80.6, 91.2, 40.6, 39.2, 33.8]
+    line [99.8, 93.06, 44.0, 99.6, 85.2, 92.6, 49.6, 47.3, 43.9]
+```
 
 ### Retrieval
 
@@ -410,8 +463,16 @@ on BEAM 10M. We publish the retrieval figures at that scale. Most competitors do
 Retrieval is identical across every answering configuration below; the agentic layer
 consumes the same ranked evidence the direct path does.
 
-> **[Figure 7 — LongMemEval answering: three configurations and one never-refuse comparison]**
-> Bars with run bands; the local-brain rows and the never-refuse probe beside Vendor X.
+**Figure 7. LongMemEval answering: the published configurations, the local-brain row, the never-refuse probe, and a comparison that cannot lose points for refusing.** Source: `figures/figure-7-longmemeval-answering.mmd`.
+
+```mermaid
+%% Figure 7: LongMemEval answering, published configurations, the local-brain rows, the never-refuse probe, and the comparison that cannot lose points for refusing.
+xychart-beta
+    title "LongMemEval-S accuracy, 500 questions"
+    x-axis ["core", "agentic (Pythia)", "agentic + escalation", "local brains, rented answer seat", "never-refuse probe, all 500", "never-refuse probe, 470 answerable only", "Vendor X, never-refuse protocol"]
+    y-axis "accuracy (percent)" 0 --> 100
+    bar [89.2, 90.5, 91.6, 90.0, 87.2, 92.8, 98.0]
+```
 
 ### Answering, LongMemEval-S
 
@@ -448,8 +509,17 @@ fabrication in the tested trap sample under the stated protocol.
 
 Accuracy 81.8% on the 432-question sample the site publishes, Hit@5 90.7.
 
-> **[Figure 8 — BEAM 1M per category: where the governed composite leads and where it trails]**
-> Grouped columns, composite vs Vendor X, on abstention, contradiction, summarization, multi-session.
+**Figure 8. BEAM 1M per category: where the governed composite leads and where it trails.** First series the governed composite, second Vendor X as published. Source: `figures/figure-8-beam1m-composite.mmd`.
+
+```mermaid
+%% Figure 8: BEAM 1M per category, governed composite vs Vendor X (published), official rubric protocol.
+xychart-beta
+    title "BEAM 1M: governed composite (first series) vs Vendor X (second series)"
+    x-axis ["abstention", "contradiction", "summarization", "multi-session"]
+    y-axis "score (percent)" 0 --> 100
+    line [75.7, 62.1, 56.4, 57.9]
+    line [52.5, 35.7, 63.5, 65.2]
+```
 
 ### Answering, BEAM 1M (full 700 questions)
 
@@ -475,8 +545,22 @@ Full core per-category: preference 83.2, extraction 82.1, instruction 77.8, abst
 74.3, contradiction 64.7, temporal 63.5, knowledge-update 63.4, multi-session 58.6,
 summarization 31.9, event-ordering 26.0.
 
-> **[Table 2 — Head to head, with the protocol differences on the table]**
-> Full comparison table: Acropolis core / agentic / composite vs Vendor X, best per row bold, dashes for unpublished, footnotes attached.
+**Table 2. Head to head, with the protocol differences on the table.** Source: `figures/table-2-head-to-head.md`.
+
+| evaluation | Acropolis core | Acropolis agentic | Acropolis composite | Vendor X¹ |
+|---|---|---|---|---|
+| LongMemEval-S accuracy | 89.2 | 90.5 | — | 98.0 |
+| LongMemEval-S unanswerable traps refused (of 30) | — | 25 to 28 | — | — |
+| LongMemEval-S Hit10 | 99.80 | 99.80 | — | — |
+| LoCoMo accuracy | 81.8 | — | — | 92.5 |
+| BEAM 1M overall (official protocol) | 60.2² | — | +3.5 paired³ | 64.1 |
+| BEAM 1M abstention | 74.3 | — | 75.7 | 52.5 |
+| BEAM 1M contradiction resolution | 64.7 | — | 62.1 | 35.7 |
+| BEAM 1M summarization | 31.9 | — | 56.4 | 63.5 |
+| BEAM 1M multi-session reasoning | 58.6 | — | 57.9 | 65.2 |
+| BEAM 1M Hit10 | 44.00 | 44.00 | 44.00 | — |
+| Publishes retrieval at 1M tokens | yes | yes | yes | — |
+| Publishes an abstention column | yes | yes | yes | BEAM only |
 
 ¹ Vendor X figures as published by the vendor under its own protocol, which instructs
 the model never to state that information is missing, so a refusal can never cost it a
@@ -500,8 +584,18 @@ CPU are not the same kind of thing, and the comparison above should be read know
 what the second one costs to run. These figures are from the BEAM 1M ingest of
 2026-08-20: 35 conversations, roughly 35 million tokens.
 
-> **[Figure 9 — The cost of record: stat tiles]**
-> $8.24 ingest · $0.0021 per claim · $0 index · $0.0037 per question · 0 quarantined.
+**Figure 9. The cost of record.** Source: `figures/figure-9-cost-of-record.mmd`.
+
+```mermaid
+%% Figure 9: the cost of record. BEAM 1M ingest of 2026-08-20: 35 conversations, about 35 million tokens, two Xeon 8280s, 31 GB, no GPU.
+flowchart LR
+  I["Ingest, one time<br/><b>$8.24</b><br/>17,745 accepted claims · 37,387 LLM calls"] --> C["Per accepted claim<br/><b>$0.0021</b><br/>about $0.24 per million-token conversation"]
+  C --> P["Index, one time<br/><b>$0</b><br/>72,986 documents embedded, local nomic, CPU only"]
+  P --> Q["Retrieval, per question<br/><b>$0.0037</b><br/>$2.28 for 625 questions"]
+  I --> D["Quarantined at the door<br/><b>0</b><br/>after the RFC 3339 fix; 5,732 refused before it"]
+  classDef tile fill:#f7f6f2,stroke:#dcd9d0,color:#1c1f24;
+  class I,C,P,Q,D tile;
+```
 
 | stage | measured |
 |---|---|
