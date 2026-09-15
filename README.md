@@ -9,24 +9,28 @@ a frontier model can be rented only for per-question reasoning over that record.
 LongMemEval-S, LoCoMo and BEAM 100K, keeping everything local retains 84 to 96 percent of
 all-frontier performance, and renting only the answer seat retains 96 to 99 percent.
 
-This repository is not Acropolis source code. It is the evidence the paper promises to
-publish: per-question run reports, their hashes, the code revisions and model pins that
+The Markdown under `paper/` is the source of truth and can evolve; the PDFs under
+`releases/` are the frozen, citable v1.0. This repository is not Acropolis source code.
+It is the evidence the paper promises to publish: per-question run reports, their hashes, the code revisions and model pins that
 produced them, and enough of the method to re-run it.
 
 ## Layout
 
 | path | what it holds |
 |---|---|
-| `paper/acropolis-measured-v1.0.pdf` | Part I, the paper |
-| `methodology/Appendix-A.pdf` | Appendix A, benchmark methodology (reference v1.2) |
-| `results/` | 2,539 per-question run reports, one JSON per shard or part, plus manifests |
-| `figures/acropolis-figures.html` | the figure set, self-contained HTML (Figures 1 to 9, Tables 1 and 2) |
-| `reproduce/README.md` | harness, revisions, model pins, dataset hashes, commands |
+| `paper/README.md` | the paper, Markdown, source of truth |
+| `paper/methodology.md` | Appendix A, benchmark methodology (reference v1.2) |
+| `paper/figures/acropolis-figures.html` | the figure set, self-contained HTML (Figures 1 to 9, Tables 1 and 2) |
+| `paper/references.bib` | references |
+| `reproduction/README.md` | harness, revisions, model pins, dataset hashes, commands |
+| `reproduction/manifests/` | the public manifest over the published reports, and the manifest of the unredacted bundle |
+| `reproduction/reports/` | 2,539 per-question run reports, one JSON per shard or part |
+| `releases/` | the frozen, paginated v1.0 PDFs (paper and Appendix A); the citable objects |
 | `CITATION.cff` | how to cite |
 
 ## Results
 
-`results/<benchmark>/<campaign>/<bench-machine>/<report>.json`, exactly as the harness
+`reproduction/reports/<benchmark>/<campaign>/<bench-machine>/<report>.json`, exactly as the harness
 wrote them, with one change described below.
 
 | directory | what | retention |
@@ -43,8 +47,9 @@ Each report carries the dataset hash, shard and part, compose contract, model id
 harness commit with its dirty flag, cost and latency, and one row per question with the
 answer, the verdict, the strict and rubric scores where the dataset has a rubric, the
 claims delivered, the observations delivered, and (LoCoMo and BEAM) the question's own
-retrieval score. `results/manifest.json` lists every file with its SHA-256 and maps each
-published figure to the files behind it; `results/manifest.md` is the readable version.
+retrieval score. `reproduction/manifests/manifest.json` lists every file with its SHA-256 and maps
+each published figure to the files behind it; `manifest.md` beside it is the readable
+version.
 
 **Partial retention.** The site's August figures (LongMemEval core 89.2, agentic 90.5,
 escalation 91.6; BEAM 1M core 60.2 and the governed composite) are only partially
@@ -61,16 +66,16 @@ the dataset) and each question's `gold` answer. Both are replaced by an object h
 SHA-256 and character count of the original, so a reader who holds the dataset can verify
 every one of them per question. Nothing else is altered: ids, our answers, verdicts,
 scores, retrieval rows, extracted claims and provenance are as written. The
-`methodology/manifest-full-bundle.json` file is the manifest of the unredacted bundle (SHA-256
+`reproduction/manifests/manifest-full-bundle.json` file is the manifest of the unredacted bundle (SHA-256
 `230800cf9c0b72c5aed0ae57be51c39e10745dd4eccec3b1fcd013198defbd1b`, the value printed
 in Appendix A); its per-file hashes are of the full reports and will not match the
-published files. `results/manifest.json` is the manifest of what is published here.
+published files. `reproduction/manifests/manifest.json` is the manifest of what is published here.
 
 ## Reading a report
 
 ```python
 import json
-r = json.load(open("results/beam/100k-local-brains-2026-09/lon1/ask_agentic_upgrade_10_20_p0.json"))
+r = json.load(open("reproduction/reports/beam/100k-local-brains-2026-09/lon1/ask_agentic_upgrade_10_20_p0.json"))
 r["compose_contract"], r["reproducibility"]["answer_model"], r["scores"]["overall_accuracy"]
 q = r["questions"][0]
 q["question_id"], q["correct"], q["abstained"], q.get("rubric_score"), q.get("retrieval")
@@ -82,7 +87,7 @@ event ordering). Aggregation rules and the noise floor are in Appendix A.6 and A
 
 ## Reproduction
 
-`reproduce/README.md` has the harness location and release tag, the exact commit and
+`reproduction/README.md` has the harness location and release tag, the exact commit and
 dirty state of every run, the model pins per seat, the dataset files and hashes the
 harness checks before it runs, and the commands. The harness is `varys bench` in
 [acropolis-varys](https://github.com/varops/acropolis-varys) at tag `whitepaper-2026-09`.
@@ -91,4 +96,12 @@ harness checks before it runs, and the commands. The harness is `varys bench` in
 
 The paper, methodology, figures and results in this repository are released under
 CC BY 4.0 (see `LICENSE`). Benchmark datasets are not redistributed; see
-`reproduce/README.md` for their sources and hashes.
+`reproduction/README.md` for their sources and hashes.
+
+## Diagrams
+
+The two diagram figures (Figure 1, the boundary; Figure 4, the request path) are kept
+as Mermaid sources in `paper/figures/*.mmd` and embedded in `paper/README.md`, so the
+graph that generated a figure can be read and edited, not only looked at. The chart
+figures (retrieval, answering, the placement table, BEAM by ability, the cost tiles) are
+data tables in the paper and rendered in `paper/figures/acropolis-figures.html`.

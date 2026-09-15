@@ -1,0 +1,12 @@
+%% Figure 4: bolted-on retrieval vs the resident request path, step by step.
+flowchart LR
+  subgraph bolted["Bolted-on: retrieve, stuff, hope"]
+    direction LR
+    B1["Retrieve nearest chunks<br/><i>stale wins if it ranks higher</i>"] --> B2["Put them in the prompt<br/><i>model sees what it should not</i>"] --> B3["Instruct the model to behave<br/><i>policy enforced by the thing being constrained</i>"] --> B4["Answer<br/><i>gaps filled; no provenance survives</i>"]
+  end
+  subgraph resident["Resident: the Acropolis request path"]
+    direction LR
+    S1["Resolve identity and policy<br/>Eunomia, from the client's directory"] --> S2["Retrieve under that authorization<br/>Parthenon, before any model runs"] --> S3["Assemble task-scoped context<br/>explicit coverage state"] --> S4["Plan, act with permission<br/>Hero; Pythia when working out is needed"] --> S5["Record an attributable outcome<br/>update versioned state"]
+  end
+  classDef acr fill:#e8f1f0,stroke:#0b6e6e,color:#1c1f24;
+  class S1,S2,S3,S4,S5 acr;

@@ -1,6 +1,6 @@
 # Reproducing the numbers
 
-Everything below is stated in full in `methodology/Appendix-A.pdf`; this page is the
+Everything below is stated in full in `../paper/methodology.md`; this page is the
 short form with the values you need to re-run.
 
 ## Code
