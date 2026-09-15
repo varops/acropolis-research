@@ -18,7 +18,7 @@ article blockquote{margin:16px 0;padding:10px 14px;background:var(--panel);borde
 article blockquote p{margin:0 0 6px}
 .tbl{overflow-x:auto;margin:12px 0 18px}table{border-collapse:collapse;width:100%;font-size:13.5px}
 th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top;white-space:normal;overflow-wrap:anywhere}th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
-table.evidence td:first-child{min-width:160px}table.evidence td:nth-child(2){white-space:nowrap}
+table.evidence td:first-child,table.firstwide td:first-child{min-width:160px}table.evidence td:nth-child(2){white-space:nowrap}
 td:not(:first-child):not(:nth-child(2)):not(:nth-child(3)){font-family:var(--mono);font-variant-numeric:tabular-nums}
 code{font-family:var(--mono);font-size:.9em;background:var(--panel);border:1px solid var(--rule);padding:1px 5px;border-radius:4px}pre{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.5}pre code{border:0;padding:0;background:transparent}
 hr{border:0;border-top:1px solid var(--rule);margin:28px 0}hr.part{margin:56px 0}
@@ -30,7 +30,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:28px 0}hr.part{margin:56px 0
 .flow{display:grid;gap:16px}.path h4{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:500}
 .steps{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}.step{flex:1 1 120px;border:1px solid var(--rule);border-radius:5px;padding:8px 10px;font-size:13px;line-height:1.35;background:var(--bg)}.step.in{border-color:var(--accent);background:var(--band)}.step small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}.arrow{align-self:center;color:var(--muted)}
 .flow .note{font-size:12.5px;color:var(--ink2);margin:8px 0 0}
-.tiles{display:grid;grid-template-columns:160px auto 1fr;column-gap:16px;row-gap:0}.tile{display:contents}.tile>*{padding:9px 0;border-bottom:1px solid var(--rule)}.tile span{font-size:13px;color:var(--muted);align-self:center}.tile b{font-family:var(--mono);font-size:22px;font-weight:500;align-self:center;white-space:nowrap}.tile small{font-size:13px;color:var(--ink2);align-self:center}.tiles .tile:last-child>*{border-bottom:0}@media (max-width:600px){.tiles{grid-template-columns:1fr auto}.tile small{grid-column:1/-1;padding-top:0;border-bottom:1px solid var(--rule)}.tile span,.tile b{border-bottom:0}}
+.tiles{display:grid;gap:0}.tile{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--rule)}.tile:last-child{border-bottom:0}.tile span{grid-column:1/-1;font-size:13px;color:var(--muted);margin-bottom:4px}.tile b{font-family:var(--mono);font-size:22px;font-weight:500;white-space:nowrap}.tile small{font-size:14px;color:var(--ink2)}
 footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted)}footer a,article a{color:var(--link)}
 .toc-select{display:none}@media (max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);padding:14px 20px}.side .group,.side>a{display:none}.side .brand{margin-bottom:10px}.toc-select{display:block;width:100%;font:inherit;font-size:15px;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--ink)}.doc{padding:28px 20px 60px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -1202,7 +1202,7 @@ reproducible, and already used by the systems we compare against.</p>
 <p>No corpus or question in this paper was authored by VarOps. Each
 dataset was used as published, without modification to conversations,
 questions, or gold answers.</p>
-<div class="tbl"><table>
+<div class="tbl"><table class="firstwide">
 <thead>
 <tr>
 <th>dataset</th>
@@ -1343,7 +1343,7 @@ model id names a provider snapshot or an open-weight checkpoint; the
 report-bundle manifest carries the same ids per report, and any figure
 whose snapshot is no longer callable is marked as such (A.12).</p>
 <p><strong>Frontier placement (the site's configuration):</strong></p>
-<div class="tbl"><table>
+<div class="tbl"><table class="firstwide">
 <thead>
 <tr>
 <th>seat</th>
@@ -1393,7 +1393,7 @@ direct pass</td>
 </tbody>
 </table></div>
 <p><strong>Local placement (the September campaign):</strong></p>
-<div class="tbl"><table>
+<div class="tbl"><table class="firstwide">
 <thead>
 <tr>
 <th>seat</th>
@@ -1811,7 +1811,7 @@ cannot see losses, and the full paired rows reversed it.</li>
 mechanism. This table is maintained in the VarOps benchmark metrics
 glossary and reproduced here verbatim at publication; the entries below
 are the ones that moved a headline.</p>
-<div class="tbl"><table>
+<div class="tbl"><table class="firstwide">
 <thead>
 <tr>
 <th>date</th>
@@ -2115,7 +2115,7 @@ SHA-256 hashes for each.</p>
 measured</h2>
 <p>For every path the paper or website names, its status at
 publication:</p>
-<div class="tbl"><table>
+<div class="tbl"><table class="firstwide">
 <thead>
 <tr>
 <th>path</th>
