@@ -1,7 +1,8 @@
-# Acropolis, measured
+# Own the Knowledge. Rent the Thinking.
 
-The paper, the methodology, and every benchmark report behind the numbers in
-*Acropolis: a governed model of the organization, measured* (VarOps, September 2026).
+**Separating institutional understanding from frontier intelligence.** Acropolis Technical
+Report 01, Ran Aroussi, VarOps LLC, September 2026, version 1.0. This repository holds the
+paper, the methodology, and every benchmark report behind its numbers.
 
 The paper's claim in one line: institutional understanding and frontier reasoning can be
 separated. A locally operated 31B open-weight model can build the organizational record;

@@ -1,6 +1,17 @@
-# Acropolis: a governed model of the organization, measured
+# Own the Knowledge. Rent the Thinking.
 
-> This is the machine-readable version of *Acropolis: a governed model of the organization, measured*, v1.0. The canonical published version is the PDF in `releases/` (DOI: to be assigned). The Markdown may continue to evolve; the release is frozen.
+## Separating institutional understanding from frontier intelligence
+
+### Acropolis Technical Report 01
+
+Ran Aroussi
+VarOps LLC
+September 2026 · Version 1.0
+DOI: 10.xxxx/xxxxx
+
+Research report
+
+> This is the machine-readable version of *Own the Knowledge. Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: to be assigned). The Markdown may continue to evolve; the release is frozen.
 
 Figures: `figures/acropolis-figures.html`. Numbers come from
 the run reports under `../reproduction/reports/`; how they were produced is Appendix A
@@ -743,5 +754,6 @@ cannot be independently re-run, the paper says so next to the figure.
 
 ---
 
-Cite as: VarOps, "Acropolis: a governed model of the organization, measured", Draft 7,
-2026-09-15. Methodology: Appendix A, reference v1.2.
+Cite as: Aroussi, R. (2026). *Own the Knowledge. Rent the Thinking. Separating institutional
+understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.0.
+Methodology: Appendix A, reference v1.2.
