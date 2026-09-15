@@ -84,7 +84,7 @@ def navlist(prefix):
 css=open(f"{S}/site.css").read(); js=open(f"{S}/charts.js").read()
 paper=re.sub(r'<table>(\s*<thead>\s*<tr[^>]*>\s*<th[^>]*>property or path</th>.*?)</table>', r'<table class="evidence">\1</table>', paper, count=1, flags=re.S); paper=re.sub(r'<table>(.*?)</table>', r'<div class="tbl"><table>\1</table></div>', paper, flags=re.S); paper=re.sub(r'<table class="evidence">(.*?)</table>', r'<div class="tbl"><table class="evidence">\1</table></div>', paper, flags=re.S); app=re.sub(r'<table>(\s*<thead>\s*<tr[^>]*>\s*<th[^>]*>path</th>.*?)</table>', r'<table class="firstwide wrapfirst">\1</table>', app, flags=re.S); app=re.sub(r'<table>(\s*<thead>\s*<tr[^>]*>\s*<th[^>]*>(?:dataset|seat|date)</th>.*?)</table>', r'<table class="firstwide">\1</table>', app, flags=re.S); app=re.sub(r'<table>(.*?)</table>', r'<div class="tbl"><table>\1</table></div>', app, flags=re.S); app=re.sub(r'<table class="(firstwide(?: wrapfirst)?)">(.*?)</table>', r'<div class="tbl"><table class="\1">\2</table></div>', app, flags=re.S)
 kicker=re.sub(r'\s*·\s*Technical Report 01\s*$','',series)
-page=f'''<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Own the Knowledge. Rent the Thinking.</title>
+page=f'''<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Own the Knowledge, Rent the Thinking.</title>
 <style>{css}</style>
 <div class="layout">
 <nav class="side"><div class="brand"><a href="#top">Table of Contents</a></div>{tocselect()}
@@ -98,7 +98,7 @@ page=f'''<meta charset="utf-8"><meta name="viewport" content="width=device-width
 <hr class="part">
 <header class="cover small"><p class="kicker">Appendix A</p><h1>Benchmark methodology</h1></header>
 <article>{app}</article>
-<footer>Own the Knowledge. Rent the Thinking. · Acropolis, a governed model of the organization · Technical Report 01 · VarOps LLC, September 2026, version 1.0 · CC BY 4.0 · <a href="https://github.com/varops/acropolis-research">varops/acropolis-research</a></footer>
+<footer>Own the Knowledge, Rent the Thinking. · Acropolis, a governed model of the organization · Technical Report 01 · VarOps LLC, September 2026, version 1.0 · CC BY 4.0 · <a href="https://github.com/varops/acropolis-research">varops/acropolis-research</a></footer>
 </main></div>
 <script>const CHARTS={json.dumps(CH)};</script>
 <script>{js}</script>

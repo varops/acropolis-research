@@ -1,4 +1,4 @@
-# Own the Knowledge. Rent the Thinking.
+# Own the Knowledge, Rent the Thinking.
 
 ## Separating institutional understanding from frontier intelligence
 
@@ -11,7 +11,7 @@ DOI: [10.5281/zenodo.22775192](https://doi.org/10.5281/zenodo.22775192)
 
 Research report
 
-> This is the machine-readable version of *Own the Knowledge. Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
+> This is the machine-readable version of *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
 
 Figures: `figures/acropolis-figures.html`. Numbers come from
 the run reports under `../reproduction/reports/`; how they were produced is Appendix A
@@ -754,6 +754,6 @@ cannot be independently re-run, the paper says so next to the figure.
 
 ---
 
-Cite as: Aroussi, R. (2026). *Own the Knowledge. Rent the Thinking. Separating institutional
+Cite as: Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional
 understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.0.
 Methodology: Appendix A, reference v1.2.

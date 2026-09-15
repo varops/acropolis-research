@@ -1,4 +1,4 @@
-# Own the Knowledge. Rent the Thinking.
+# Own the Knowledge, Rent the Thinking.
 
 **Separating institutional understanding from frontier intelligence.** Acropolis, a governed
 model of the organization · Technical Report 01. Ran Aroussi, VarOps LLC, September 2026,

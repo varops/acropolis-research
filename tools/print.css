@@ -1,5 +1,5 @@
 @page { size: A4; margin: 24mm 20mm 24mm 20mm;
-  @top-left { content: "Own the Knowledge. Rent the Thinking."; font: 8.5pt system-ui, sans-serif; color: #777; }
+  @top-left { content: "Own the Knowledge, Rent the Thinking."; font: 8.5pt system-ui, sans-serif; color: #777; }
   @top-right { content: "Acropolis Technical Report 01"; font: 8.5pt system-ui, sans-serif; color: #777; }
   @bottom-center { content: counter(page); font: 9pt system-ui, sans-serif; color: #555; } }
 @page :first { @top-left { content: none } @top-right { content: none } }

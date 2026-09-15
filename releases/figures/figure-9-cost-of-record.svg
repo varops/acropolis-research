@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" width="760" height="280" font-family="Helvetica, Arial, sans-serif">
+<text x="0" y="16" fill="#777777" font-size="11.5">Ingest, one time</text><text x="0" y="40" fill="#111111" font-size="20" font-family="Menlo, Consolas, monospace">$8.24</text><text x="130" y="40" fill="#444444" font-size="12.5">17,745 accepted claims · 37,387 LLM calls</text>
+<line x1="0" x2="760" y1="50" y2="50" stroke="#e2e2e2"/>
+<text x="0" y="70" fill="#777777" font-size="11.5">Per accepted claim</text><text x="0" y="94" fill="#111111" font-size="20" font-family="Menlo, Consolas, monospace">$0.0021</text><text x="130" y="94" fill="#444444" font-size="12.5">about $0.24 per million-token conversation</text>
+<line x1="0" x2="760" y1="104" y2="104" stroke="#e2e2e2"/>
+<text x="0" y="124" fill="#777777" font-size="11.5">Index, one time</text><text x="0" y="148" fill="#111111" font-size="20" font-family="Menlo, Consolas, monospace">$0</text><text x="130" y="148" fill="#444444" font-size="12.5">72,986 documents embedded, local nomic, CPU only</text>
+<line x1="0" x2="760" y1="158" y2="158" stroke="#e2e2e2"/>
+<text x="0" y="178" fill="#777777" font-size="11.5">Retrieval, per question</text><text x="0" y="202" fill="#111111" font-size="20" font-family="Menlo, Consolas, monospace">$0.0037</text><text x="130" y="202" fill="#444444" font-size="12.5">$2.28 for 625 questions</text>
+<line x1="0" x2="760" y1="212" y2="212" stroke="#e2e2e2"/>
+<text x="0" y="232" fill="#777777" font-size="11.5">Quarantined at the door</text><text x="0" y="256" fill="#111111" font-size="20" font-family="Menlo, Consolas, monospace">0</text><text x="130" y="256" fill="#444444" font-size="12.5">after the RFC 3339 fix; 5,732 refused before it</text>
+</svg>

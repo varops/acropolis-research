@@ -1,8 +1,8 @@
 # Appendix A: benchmark methodology
 
-### Own the Knowledge. Rent the Thinking. · Acropolis, a governed model of the organization · Technical Report 01
+### Own the Knowledge, Rent the Thinking. · Acropolis, a governed model of the organization · Technical Report 01
 
-> This is the machine-readable version of Appendix A to *Own the Knowledge. Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
+> This is the machine-readable version of Appendix A to *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
 
 ```
 Reference v1.2 (draft 4) · 2026-09-15
