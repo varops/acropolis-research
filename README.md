@@ -65,12 +65,34 @@ Strict correctness (`correct`) is the metric shared across all three benchmarks;
 
 ## Reproduction
 
-`reproduction/README.md` has the harness location and release tag, the exactcommit and dirty state of every run, the model pins per seat, the dataset files and hashes the harness checks before it runs, and the commands. The harness is `varys bench` in [acropolis-varys](https://github.com/varops/acropolis-varys) at tag `whitepaper-2026-09`.
+`reproduction/README.md` has the harness location and release tag, the exact commit and dirty state of every run, the model pins per seat, the dataset files and hashes the harness checks before it runs, and the commands. The harness is `varys bench` in [acropolis-varys](https://github.com/varops/acropolis-varys) at tag `whitepaper-2026-09`.
 
 ## License
 
-The paper, methodology, figures and results in this repository arereleased under CC BY 4.0 (see `LICENSE`). Benchmark datasets are not redistributed; see `reproduction/README.md` for their sources and hashes.
+The paper, methodology, figures and results in this repository are released under CC BY 4.0 (see `LICENSE`). Benchmark datasets are not redistributed; see `reproduction/README.md` for their sources and hashes.
 
 ## Diagrams
 
 The two diagram figures (Figure 1, the boundary; Figure 4, the request path) are kept as Mermaid sources in `paper/figures/*.mmd` and embedded in `paper/README.md`, so the graph that generated a figure can be read and edited, not only looked at. The chart figures (retrieval, answering, the placement table, BEAM by ability, the cost tiles) are data tables in the paper and rendered in `paper/figures/acropolis-figures.html`.
+
+## Citation
+
+If you use the results, the methodology or the reports, please cite the report.
+
+Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence.* Acropolis, a governed model of the organization: Technical Report 01, version 1.0. VarOps LLC. https://doi.org/10.5281/zenodo.22775192
+
+```bibtex
+@techreport{aroussi2026ownknowledge,
+  title       = {Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence},
+  author      = {Aroussi, Ran},
+  institution = {VarOps LLC},
+  number      = {Acropolis, a governed model of the organization: Technical Report 01},
+  year        = {2026},
+  month       = {9},
+  version     = {1.0},
+  doi         = {10.5281/zenodo.22775192},
+  url         = {https://github.com/varops/acropolis-research}
+}
+```
+
+`CITATION.cff` at the root carries the same metadata for GitHub's "Cite this repository" button and for reference managers.
