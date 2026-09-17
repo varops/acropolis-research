@@ -24,12 +24,14 @@ commit plus that line.
 Not redistributed. The harness reads a local copy and refuses to run if the file's
 SHA-256 does not match the one recorded in the reports.
 
-| file | SHA-256 (as recorded in the reports) | source |
-|---|---|---|
-| `longmemeval_s.json` | `08d8dad4be43ee2049a22ff5674eb86725d0ce5ff434cde2627e5e8e7e117894` | LongMemEval authors' release |
-| `locomo10.json` | `79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4` | LoCoMo authors' release |
-| `beam_100K.json` | `759d9c618c732603ddb7873657155d511e96512feec4b7b3bc2d16c0226f09bc` | BEAM authors' release |
-| `beam_1M.json` | `ca9bac4820d237b65bd0d20fccf395659b545acfc117d8c0ea5c6776fe98d292` | BEAM authors' release |
+| file | SHA-256 (as recorded in the reports) | source | licence |
+|---|---|---|---|
+| `longmemeval_s.json` | `08d8dad4be43ee2049a22ff5674eb86725d0ce5ff434cde2627e5e8e7e117894` | LongMemEval authors' release (github.com/xiaowu0162/LongMemEval; Hugging Face `xiaowu0162/longmemeval-cleaned`) | MIT |
+| `locomo10.json` | `79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4` | LoCoMo authors' release (github.com/snap-research/locomo) | CC BY-NC 4.0 |
+| `beam_100K.json` | `759d9c618c732603ddb7873657155d511e96512feec4b7b3bc2d16c0226f09bc` | BEAM authors' release (github.com/mohammadtavakoli78/BEAM; Hugging Face `Mohammadta/BEAM`) | data CC BY-SA 4.0, code MIT |
+| `beam_1M.json` | `ca9bac4820d237b65bd0d20fccf395659b545acfc117d8c0ea5c6776fe98d292` | BEAM authors' release | data CC BY-SA 4.0, code MIT |
+
+Licences checked 2026-09-17 against each project's repository and dataset card. Because LoCoMo is non-commercial, the published reports keep dataset text redacted for all three benchmarks (see the root README).
 
 ## Model seats
 
