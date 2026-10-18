@@ -104,6 +104,14 @@ Retrieval: document identity against the dataset's evidence annotations, `text_s
 must be 0. Full definitions, judge prompts and the noise-floor rules: Appendix A.5, A.6,
 A.8, A.10.
 
+## BEAM 100K under the published comparison protocol (v1.1)
+
+Section 5's Tables 3 and 4 re-score the September BEAM 100K evidence under the answer and judge prompts the highest published BEAM figures use. The harness and how to run it are in `beam-published-protocol/README.md`; results, 21 runs of 400 questions, are in `reports/beam/100k-published-protocol-2026-10/`; the comparison sources are in `manifests/comparisons.md`. Check every published score from its saved verdicts, with no model calls:
+
+```bash
+cd beam-published-protocol && python3 verify.py ../reports/beam/100k-published-protocol-2026-10
+```
+
 ## Wall-clock and cost, for planning
 
 Frontier: LongMemEval ingest about $3 and 6 to 7 hours over six lanes; a full ask pass

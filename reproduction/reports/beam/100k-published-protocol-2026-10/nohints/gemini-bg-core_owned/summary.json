@@ -1,0 +1,64 @@
+{
+  "questions": 400,
+  "failedAnswers": 0,
+  "failedVerdicts": 0,
+  "microAverage": 0.7407592603593335,
+  "macroAverage": 0.7407592603593335,
+  "categories": {
+    "abstention": {
+      "questions": 40,
+      "mean": 0.85
+    },
+    "contradiction_resolution": {
+      "questions": 40,
+      "mean": 0.815625
+    },
+    "event_ordering": {
+      "questions": 40,
+      "mean": 0.4466402226409535
+    },
+    "information_extraction": {
+      "questions": 40,
+      "mean": 0.9072916666666666
+    },
+    "instruction_following": {
+      "questions": 40,
+      "mean": 0.8625
+    },
+    "knowledge_update": {
+      "questions": 40,
+      "mean": 0.69375
+    },
+    "multi_session_reasoning": {
+      "questions": 40,
+      "mean": 0.6513392857142857
+    },
+    "preference_following": {
+      "questions": 40,
+      "mean": 0.8645833333333334
+    },
+    "summarization": {
+      "questions": 40,
+      "mean": 0.5846130952380952
+    },
+    "temporal_reasoning": {
+      "questions": 40,
+      "mean": 0.73125
+    }
+  },
+  "row": "core_owned",
+  "reports": [
+    "beam100-bg",
+    "beam100-bg"
+  ],
+  "answerModel": "google/gemini-3.7-flash",
+  "answerReasoning": "minimal",
+  "judgeModel": "google/gemini-3.7-flash",
+  "judgeReasoning": "minimal",
+  "noHints": true,
+  "nativeAnswers": false,
+  "maxTokens": 8000,
+  "promptsSha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+  "usd": 8.9972,
+  "seconds": 501
+}

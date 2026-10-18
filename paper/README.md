@@ -6,12 +6,12 @@
 
 Ran Aroussi
 VarOps LLC
-September 2026 · Version 1.0
-DOI: [10.5281/zenodo.22775192](https://doi.org/10.5281/zenodo.22775192)
+October 2026 · Version 1.1 (v1.0: September 2026)
+DOI: [10.5281/zenodo.22775191](https://doi.org/10.5281/zenodo.22775191) (all versions; v1.0: [10.5281/zenodo.22775192](https://doi.org/10.5281/zenodo.22775192))
 
 Research report
 
-> This is the machine-readable version of *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
+> This is the machine-readable version of *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.1. The canonical published versions are the PDFs in `releases/`: v1.0 (DOI: 10.5281/zenodo.22775192) and v1.1. Version 1.1 adds one result, BEAM 100K under the published comparison protocol (Section 5, Tables 3 and 4; Appendix A.11); nothing in v1.0 changes. The Markdown may continue to evolve; each release is frozen.
 
 Figures: `figures/acropolis-figures.html`. Numbers come from
 the run reports under `../reproduction/reports/`; how they were produced is Appendix A
@@ -588,6 +588,75 @@ is stated as a paired delta because it was measured under a rebuilt aggregation
 formula; absolute cross-formula comparisons are not valid, per-column and paired figures
 are.
 
+### BEAM 100K under the published comparison protocol (added in v1.1)
+
+The highest published BEAM results are scored under a different protocol from ours: the answer and judge prompts of one vendor's published BEAM adapter, which other vendors reuse unchanged. That protocol pastes the dataset's own annotations for each question into the answer prompt for six of BEAM's ten abilities, and its judges score against those same annotations:
+
+- event ordering: the topics to order;
+- summarization: the rubric items the summary must cover;
+- preference following: the preference under test;
+- instruction following: the instruction and its compliance indicators;
+- abstention: why the question may be unanswerable;
+- temporal reasoning: the key time points and a calculation hint.
+
+Its event-ordering score is Kendall tau-b mapped to 0–1, so an unrelated order earns about half credit. Our protocol uses BEAM's published tau × F1, which also requires naming the expected items. To compare on equal terms, we re-scored the evidence Acropolis retrieved in the September BEAM 100K runs under that protocol, with nothing re-retrieved, using two models:
+
+- the leading figure's own setup: one frontier model, `gpt-5.6-luna`, answers and judges with reasoning off;
+- our answer and judge model, `gemini-3.7-flash`.
+
+Appendix A.11 gives the method and its checks.
+
+**Table 3. BEAM 100K, 400 questions: our protocol and the published comparison protocol, on the same stored evidence.** Source: `figures/table-3-beam100k-published-protocol.md`; per-question records in `reproduction/reports/beam/100k-published-protocol-2026-10/`.
+
+| configuration | our protocol, answerable only (as in Figure 2) | our protocol, all 400 | published protocol, gemini-3.7-flash | published protocol, gpt-5.6-luna |
+|---|---|---|---|---|
+| Own everything, local single call | 53.3 | 52.5 | 85.2 | 87.8 |
+| Own everything, local loop | 57.3 | 56.4 | 86.8 | 87.9 |
+| Own the knowledge, rent the thinking | 66.4 | 64.7 | 85.6 | 87.7 |
+| Frontier single call, same local brains | 64.5 | 62.4 | 85.6 | 87.8 |
+| Frontier loop, same local brains | 66.8 | 66.9 | 85.3 | 87.6 |
+| Reference: frontier single call, published brains | 66.7 | 65.1 | 84.9 | 88.1 |
+| Reference: frontier loop, published brains | 67.5 | 66.7 | 86.0 | 88.4 |
+| Vendor Y⁴, highest published BEAM 100K figure | — | — | — | 92.1 |
+| Vendor Z⁵, author of the protocol's prompts | — | — | 76.9 | — |
+
+● Every Acropolis cell has per-question records with saved verdicts in the bundle; `verify.py` recomputes each score from them.
+
+Figure 2's protocol column scores the answerable questions only and reports abstention as traps refused; the comparison protocol scores all 400, abstention included, so the second column restates our protocol on that basis.
+
+Under the comparison protocol every configuration lands within 3.5 points of every other: 84.9 to 88.4. The differences that separate them under our protocol, between 52.5 and 66.9, almost vanish. The protocol, not the system, sets most of the number.
+
+**Table 4. Where the distance between the two protocols comes from.** Local single call on the local brains (the first row of Table 3); each step changes one thing. Source: `figures/table-4-protocol-distance.md`.
+
+| step | gemini-3.7-flash | gpt-5.6-luna | six annotated abilities | four unannotated abilities |
+|---|---|---|---|---|
+| our protocol: our answer contract, our judge | 52.5 | 52.5 | 50.6 | 55.4 |
+| the same stored answers under the comparison judge | 58.7 | 63.9 | 57.8 | 60.2 |
+| comparison answer prompt on the same evidence, annotations removed | 74.1 | 74.0 | 72.3 | 76.7 |
+| comparison answer prompt with the annotations, the published protocol | 85.2 | 87.8 | 91.4 | 75.9 |
+
+The two right-hand columns are gemini-3.7-flash.
+
+From our 52.5 to the published protocol's 85.2 under one model, the distance divides into three parts of similar size:
+
+- **The judge, +6.2.** The comparison judge scores the same answers higher; with gpt-5.6-luna judging, +11.4.
+- **Our answer contract, +15.4.** Its rule is to answer only from material that literally states the answer and otherwise to refuse. That rule is the governance property this paper measures, and on a benchmark that rewards answering it costs about 15 points.
+- **The annotations, +11.1.** All of it falls on the six annotated abilities; the four unannotated abilities move by less than a point. Under gpt-5.6-luna the annotations add 13.8, and event ordering reaches 100.0 because the model orders the list it is handed.
+
+With the annotations removed, Acropolis evidence scores 74.1 (gemini-3.7-flash) and 74.0 (gpt-5.6-luna).
+
+On the four abilities the annotations do not touch, the published protocol puts Acropolis at 75.9, against 82.9 for Vendor Y on the same four:
+
+- knowledge update is most of the difference, 69.4 against 89.4; Vendor Y asks each knowledge-update question as of the update turn the dataset cites, which our re-scoring does not;
+- contradiction resolution is 77.2 against 78.1;
+- multi-session reasoning is 67.6 against 68.9.
+
+We have not checked the prompts behind other vendors' published BEAM figures, so Table 3 lists only the two vendors that publish this protocol.
+
+⁴ Vendor Y's published run, answer and judge `gpt-5.6-luna` with reasoning off, on all 400 questions, with its harness public. Source page and retrieval date in the bundle manifest.
+
+⁵ Vendor Z's own published figure, answered with Gemini 3 Flash as the vendor states, under the prompts it authored; its judge configuration is as the vendor states it and is not part of our check.
+
 ## 6. The cost of record
 
 A lossless index and a governed, intentionally lossy, multi-tenant substrate on rented
@@ -755,5 +824,5 @@ cannot be independently re-run, the paper says so next to the figure.
 ---
 
 Cite as: Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional
-understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.0.
-Methodology: Appendix A, reference v1.2.
+understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.1.
+Methodology: Appendix A, reference v1.3.
