@@ -6,12 +6,12 @@
 
 Ran Aroussi
 VarOps LLC
-September 2026 · Version 1.0
-DOI: [10.5281/zenodo.22775192](https://doi.org/10.5281/zenodo.22775192)
+October 2026 · Version 1.1 (v1.0: September 2026)
+DOI: [10.5281/zenodo.22775191](https://doi.org/10.5281/zenodo.22775191) (all versions; v1.0: [10.5281/zenodo.22775192](https://doi.org/10.5281/zenodo.22775192))
 
 Research report
 
-> This is the machine-readable version of *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
+> This is the machine-readable version of *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.1. The canonical published versions are the PDFs in `releases/`: v1.0 (DOI: 10.5281/zenodo.22775192) and v1.1. Version 1.1 adds one result, BEAM 100K under the published comparison protocol (Section 5, Tables 3 and 4; Appendix A.11); nothing in v1.0 changes. The Markdown may continue to evolve; each release is frozen.
 
 Figures: `figures/acropolis-figures.html`. Numbers come from
 the run reports under `../reproduction/reports/`; how they were produced is Appendix A
@@ -606,7 +606,7 @@ Its event-ordering score is Kendall tau-b mapped to 0–1, so an unrelated order
 
 Appendix A.11 gives the method and its checks.
 
-**Table 3. BEAM 100K, 400 questions: our protocol and the published comparison protocol, on the same stored evidence.** Source: `reproduction/reports/beam/100k-published-protocol-2026-10/`.
+**Table 3. BEAM 100K, 400 questions: our protocol and the published comparison protocol, on the same stored evidence.** Source: `figures/table-3-beam100k-published-protocol.md`; per-question records in `reproduction/reports/beam/100k-published-protocol-2026-10/`.
 
 | configuration | our protocol, answerable only (as in Figure 2) | our protocol, all 400 | published protocol, gemini-3.7-flash | published protocol, gpt-5.6-luna |
 |---|---|---|---|---|
@@ -626,7 +626,7 @@ Figure 2's protocol column scores the answerable questions only and reports abst
 
 Under the comparison protocol every configuration lands within 3.5 points of every other: 84.9 to 88.4. The differences that separate them under our protocol, between 52.5 and 66.9, almost vanish. The protocol, not the system, sets most of the number.
 
-**Table 4. Where the distance between the two protocols comes from.** Local single call on the local brains (the first row of Table 3); each step changes one thing.
+**Table 4. Where the distance between the two protocols comes from.** Local single call on the local brains (the first row of Table 3); each step changes one thing. Source: `figures/table-4-protocol-distance.md`.
 
 | step | gemini-3.7-flash | gpt-5.6-luna | six annotated abilities | four unannotated abilities |
 |---|---|---|---|---|
@@ -824,5 +824,5 @@ cannot be independently re-run, the paper says so next to the figure.
 ---
 
 Cite as: Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional
-understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.0.
-Methodology: Appendix A, reference v1.2.
+understanding from frontier intelligence.* Acropolis Technical Report 01, VarOps LLC, version 1.1.
+Methodology: Appendix A, reference v1.3.

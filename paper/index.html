@@ -68,7 +68,7 @@ paper does not contain</a>
 <header class="cover"><p class="logo"><svg viewBox="0 0 87.4 45.1" xmlns="http://www.w3.org/2000/svg" style="width:88px; height: 45px;" role="img" aria-label="VarOps"><path d="m10.8 2.2c-1.1 1.7-1.5 5 0 9.2l8.5 22.9 7.6-20.5c2.3-6.2 1.2-9.7-.1-11.5 0-.1 8.3-.1 8.3-.1-2.4 2.8-3.5 5-5.1 9.4l-11.4 30.8h-2.2l-11.5-31.2c-1.8-4.9-3-6.8-4.9-8.9 0-.1 10.9-.1 10.9-.1z"></path><path d="m43.5.1 1.3 1.6c-1.8 1.6-3.5 3.9-5.1 7.1-2.2 4.3-3.3 8.9-3.3 13.8s1.3 10.1 3.8 14.7c1.5 2.7 3 4.8 4.6 6.2l-1.3 1.6c-7.3-6.4-10.9-13.9-10.9-22.4s3.6-16.1 10.9-22.5z"></path><path d="m41.8 22.2c0-11.6 8.9-20.8 18.3-20.8s18.4 9.2 18.4 20.8-9 20.6-18.4 20.6-18.3-9.1-18.3-20.6zm30.8 0c0-10.5-4.7-18.6-12.5-18.6s-12.5 8.1-12.5 18.6 4.7 18.5 12.5 18.5 12.5-8 12.5-18.5z"></path><path d="m76.5.1c7.3 6.4 10.9 13.9 10.9 22.5s-3.6 16.1-10.9 22.4l-1.3-1.6c1.8-1.6 3.5-3.9 5.1-7.1 2.2-4.3 3.3-8.9 3.3-13.8s-1.3-10.1-3.8-14.7c-1.5-2.7-3.1-4.8-4.6-6.2l1.3-1.6v.1z"></path></svg></p><p class="kicker">Acropolis,
 a governed model of the organization</p><h1>Own the Knowledge, Rent the
 Thinking.</h1><p class="sub">Separating
-institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi<br>VarOps LLC<br>September 2026 · Version 1.0<br>DOI: <a href="https://doi.org/10.5281/zenodo.22775192">10.5281/zenodo.22775192</a></p><p class="links"><a href="https://varops.com/acropolis">website</a><span>|</span><a href="https://github.com/varops/acropolis-research">github</a><span>|</span><a href="mailto:research@varops.com">contact</a></p><p class="meta muted">Research report</p></header>
+institutional understanding from frontier intelligence</p><p class="meta">Ran Aroussi<br>VarOps LLC<br>October 2026 · Version 1.1 (v1.0: September 2026)<br>DOI: <a href="https://doi.org/10.5281/zenodo.22775191">10.5281/zenodo.22775191</a> (all versions; v1.0: <a href="https://doi.org/10.5281/zenodo.22775192">10.5281/zenodo.22775192</a>)</p><p class="links"><a href="https://varops.com/acropolis">website</a><span>|</span><a href="https://github.com/varops/acropolis-research">github</a><span>|</span><a href="mailto:research@varops.com">contact</a></p><p class="meta muted">Research report</p></header>
 <article>
 
 <h2 id="p-abstract">Abstract</h2>
@@ -948,6 +948,213 @@ the governance categories. Its overall is stated as a paired delta
 because it was measured under a rebuilt aggregation formula; absolute
 cross-formula comparisons are not valid, per-column and paired figures
 are.</p>
+<h3
+id="beam-100k-under-the-published-comparison-protocol-added-in-v11">BEAM
+100K under the published comparison protocol (added in v1.1)</h3>
+<p>The highest published BEAM results are scored under a different
+protocol from ours: the answer and judge prompts of one vendor's
+published BEAM adapter, which other vendors reuse unchanged. That
+protocol pastes the dataset's own annotations for each question into the
+answer prompt for six of BEAM's ten abilities, and its judges score
+against those same annotations:</p>
+<ul>
+<li>event ordering: the topics to order;</li>
+<li>summarization: the rubric items the summary must cover;</li>
+<li>preference following: the preference under test;</li>
+<li>instruction following: the instruction and its compliance
+indicators;</li>
+<li>abstention: why the question may be unanswerable;</li>
+<li>temporal reasoning: the key time points and a calculation hint.</li>
+</ul>
+<p>Its event-ordering score is Kendall tau-b mapped to 0–1, so an
+unrelated order earns about half credit. Our protocol uses BEAM's
+published tau × F1, which also requires naming the expected items. To
+compare on equal terms, we re-scored the evidence Acropolis retrieved in
+the September BEAM 100K runs under that protocol, with nothing
+re-retrieved, using two models:</p>
+<ul>
+<li>the leading figure's own setup: one frontier model,
+<code>gpt-5.6-luna</code>, answers and judges with reasoning off;</li>
+<li>our answer and judge model, <code>gemini-3.7-flash</code>.</li>
+</ul>
+<p>Appendix A.11 gives the method and its checks.</p>
+<p><strong>Table 3. BEAM 100K, 400 questions: our protocol and the
+published comparison protocol, on the same stored evidence.</strong>
+Source: <code>figures/table-3-beam100k-published-protocol.md</code>;
+per-question records in
+<code>reproduction/reports/beam/100k-published-protocol-2026-10/</code>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>configuration</th>
+<th>our protocol, answerable only (as in Figure 2)</th>
+<th>our protocol, all 400</th>
+<th>published protocol, gemini-3.7-flash</th>
+<th>published protocol, gpt-5.6-luna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Own everything, local single call</td>
+<td>53.3</td>
+<td>52.5</td>
+<td>85.2</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td>Own everything, local loop</td>
+<td>57.3</td>
+<td>56.4</td>
+<td>86.8</td>
+<td>87.9</td>
+</tr>
+<tr>
+<td>Own the knowledge, rent the thinking</td>
+<td>66.4</td>
+<td>64.7</td>
+<td>85.6</td>
+<td>87.7</td>
+</tr>
+<tr>
+<td>Frontier single call, same local brains</td>
+<td>64.5</td>
+<td>62.4</td>
+<td>85.6</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td>Frontier loop, same local brains</td>
+<td>66.8</td>
+<td>66.9</td>
+<td>85.3</td>
+<td>87.6</td>
+</tr>
+<tr>
+<td>Reference: frontier single call, published brains</td>
+<td>66.7</td>
+<td>65.1</td>
+<td>84.9</td>
+<td>88.1</td>
+</tr>
+<tr>
+<td>Reference: frontier loop, published brains</td>
+<td>67.5</td>
+<td>66.7</td>
+<td>86.0</td>
+<td>88.4</td>
+</tr>
+<tr>
+<td>Vendor Y⁴, highest published BEAM 100K figure</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>92.1</td>
+</tr>
+<tr>
+<td>Vendor Z⁵, author of the protocol's prompts</td>
+<td>—</td>
+<td>—</td>
+<td>76.9 (Gemini 3 Flash)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>● Every Acropolis cell has per-question records with saved verdicts
+in the bundle; <code>verify.py</code> recomputes each score from
+them.</p>
+<p>Figure 2's protocol column scores the answerable questions only and
+reports abstention as traps refused; the comparison protocol scores all
+400, abstention included, so the second column restates our protocol on
+that basis.</p>
+<p>Under the comparison protocol every configuration lands within 3.5
+points of every other: 84.9 to 88.4. The differences that separate them
+under our protocol, between 52.5 and 66.9, almost vanish. The protocol,
+not the system, sets most of the number.</p>
+<p><strong>Table 4. Where the distance between the two protocols comes
+from.</strong> Local single call on the local brains (the first row of
+Table 3); each step changes one thing. Source:
+<code>figures/table-4-protocol-distance.md</code>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>step</th>
+<th>gemini-3.7-flash</th>
+<th>gpt-5.6-luna</th>
+<th>six annotated abilities</th>
+<th>four unannotated abilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>our protocol: our answer contract, our judge</td>
+<td>52.5</td>
+<td>52.5</td>
+<td>50.6</td>
+<td>55.4</td>
+</tr>
+<tr>
+<td>the same stored answers under the comparison judge</td>
+<td>58.7</td>
+<td>63.9</td>
+<td>57.8</td>
+<td>60.2</td>
+</tr>
+<tr>
+<td>comparison answer prompt on the same evidence, annotations
+removed</td>
+<td>74.1</td>
+<td>74.0</td>
+<td>72.3</td>
+<td>76.7</td>
+</tr>
+<tr>
+<td>comparison answer prompt with the annotations, the published
+protocol</td>
+<td>85.2</td>
+<td>87.8</td>
+<td>91.4</td>
+<td>75.9</td>
+</tr>
+</tbody>
+</table></div>
+<p>The two right-hand columns are gemini-3.7-flash.</p>
+<p>From our 52.5 to the published protocol's 85.2 under one model, the
+distance divides into three parts of similar size:</p>
+<ul>
+<li><strong>The judge, +6.2.</strong> The comparison judge scores the
+same answers higher; with gpt-5.6-luna judging, +11.4.</li>
+<li><strong>Our answer contract, +15.4.</strong> Its rule is to answer
+only from material that literally states the answer and otherwise to
+refuse. That rule is the governance property this paper measures, and on
+a benchmark that rewards answering it costs about 15 points.</li>
+<li><strong>The annotations, +11.1.</strong> All of it falls on the six
+annotated abilities; the four unannotated abilities move by less than a
+point. Under gpt-5.6-luna the annotations add 13.8, and event ordering
+reaches 100.0 because the model orders the list it is handed.</li>
+</ul>
+<p>With the annotations removed, Acropolis evidence scores 74.1
+(gemini-3.7-flash) and 74.0 (gpt-5.6-luna).</p>
+<p>On the four abilities the annotations do not touch, the published
+protocol puts Acropolis at 75.9, against 82.9 for Vendor Y on the same
+four:</p>
+<ul>
+<li>knowledge update is most of the difference, 69.4 against 89.4;
+Vendor Y asks each knowledge-update question as of the update turn the
+dataset cites, which our re-scoring does not;</li>
+<li>contradiction resolution is 77.2 against 78.1;</li>
+<li>multi-session reasoning is 67.6 against 68.9.</li>
+</ul>
+<p>We have not checked the prompts behind other vendors' published BEAM
+figures, so Table 3 lists only the two vendors that publish this
+protocol.</p>
+<p>⁴ Vendor Y's published run, answer and judge
+<code>gpt-5.6-luna</code> with reasoning off, on all 400 questions, with
+its harness public. Source page and retrieval date in the bundle
+manifest.</p>
+<p>⁵ Vendor Z's own published figure, answered with Gemini 3 Flash as
+the vendor states, under the prompts it authored; its judge
+configuration is as the vendor states it and is not part of our
+check.</p>
 <h2 id="p-6-the-cost-of-record">6. The cost of record</h2>
 <p>A lossless index and a governed, intentionally lossy, multi-tenant
 substrate on rented CPU are not the same kind of thing, and the
@@ -1132,12 +1339,12 @@ re-run, the paper says so next to the figure.</p>
 <p>Cite as: Aroussi, R. (2026). <em>Own the Knowledge, Rent the
 Thinking. Separating institutional understanding from frontier
 intelligence.</em> Acropolis Technical Report 01, VarOps LLC, version
-1.0. Methodology: Appendix A, reference v1.2.</p>
+1.1. Methodology: Appendix A, reference v1.3.</p>
 </article>
 <hr class="part">
 <header class="cover small"><p class="kicker">Appendix A</p><h1>Benchmark methodology</h1></header>
 <article>
-<pre><code>Reference v1.2 (draft 4) · 2026-09-15
+<pre><code>Reference v1.3 · 2026-10-18 (v1.2: 2026-09-15; v1.3 adds the published-protocol re-scoring in A.11)
 Varys harness, main at draft:       93ad8b6c75d11e3679b9e7fe68c86a356fe58ccc  (merge of probe/never-refuse-contract, #65)
 Parthenon, main at draft:           554ae5b18273b6a1a92b8eb7099559c60ef534f4  (merge of feat/directory-generation-revocation, #50)
 Eunomia, main at draft:             549fbf122db8b19e8bde1092795a85456383ae73  (merge of test/permission-propagation-measured, #5)
@@ -2057,6 +2264,72 @@ parts: answerable-only scoring, a judge that does not see fabrications,
 and whatever model or retrieval difference remains. The probe row is not
 a published configuration and appears only in Part I's Figure 7 and
 here.</p>
+<p><strong>BEAM 100K under the published comparison protocol (added in
+v1.1, 2026-10-18).</strong> Section 5's Tables 3 and 4 re-score stored
+Acropolis evidence under the answer and judge prompts of the BEAM
+adapter the highest published BEAM figures use. The harness is
+<code>reproduction/beam-published-protocol/</code>, and its sources are
+in <code>reproduction/manifests/comparisons.md</code>.</p>
+<ul>
+<li><strong>Evidence.</strong>
+<ul>
+<li>Each question's evidence is the claims and observation excerpts the
+configuration's composer received in the September run, as saved in its
+ask report. Claim text is capped at 240 characters in the report;
+excerpts are kept at the server's 2,000.</li>
+<li>The evidence is passed as compact JSON in delivered order, with each
+excerpt's turn id and timestamp, in place of the adapter's recall
+response. Nothing is re-retrieved.</li>
+<li>An agentic row's evidence is what its report records as delivered to
+the composer.</li>
+</ul></li>
+<li><strong>Prompts and scoring.</strong>
+<ul>
+<li>The prompts are the adapter's, verbatim (file hashes in the
+manifest), and the scoring follows them:
+<ul>
+<li>rubric items are judged one at a time and rounded to 0, 0.5 or
+1;</li>
+<li>event-ordering items are matched by an equivalence prompt and scored
+as Kendall tau-b mapped to 0–1;</li>
+<li>the overall figure is the mean over all 400 questions.</li>
+</ul></li>
+<li>The scorer reproduces the 2,000 published question scores of the
+leading vendor's public harness from its saved verdicts with no
+mismatch, at all four BEAM sizes. The 400 questions are identical in
+text to that harness's 100K set.</li>
+</ul></li>
+<li><strong>Models.</strong>
+<ul>
+<li><code>gpt-5.6-luna</code> with reasoning off answers and judges, as
+in the leading published run.</li>
+<li><code>gemini-3.7-flash</code> answers and judges its own rows, with
+reasoning "minimal", because the endpoint refuses "none".</li>
+<li>Output is capped at 8,000 tokens to bound the provider's in-flight
+credit reservation; no reply in the runs exceeded 3,740 tokens.</li>
+</ul></li>
+<li><strong>Controls.</strong>
+<ul>
+<li>Annotations removed: the per-ability instructions kept and the
+dataset annotations withheld from the answer prompt, judge
+unchanged.</li>
+<li>Native answers re-judged: the September composer's stored answers,
+scored by the adapter's judge, with no new answers. An abstaining
+composer's stored answer is its contractual refusal token. Nine local
+single-call answers were empty in the stored reports and score 0, as the
+adapter scores a failed answer.</li>
+</ul></li>
+<li><strong>Differences from the leading run.</strong>
+<ul>
+<li>Knowledge-update questions are asked as of the end of the
+conversation, not as of the update turn the dataset cites.</li>
+<li>The evidence budget is ours rather than the leading run's 8,000
+evidence tokens: the median prompt is about 7,500 tokens and the mean
+about 23,000, because synthesis questions carry the largest
+envelopes.</li>
+</ul></li>
+<li><strong>Cost.</strong> $95.52 in model calls across 21 runs.</li>
+</ul>
 <h2 id="a-a-12-release-gate-for-reproducibility">A.12 Release gate for
 reproducibility</h2>
 <p>Reproducibility is a claim only if the artefacts are available.

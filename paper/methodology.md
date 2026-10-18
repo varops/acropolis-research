@@ -5,7 +5,7 @@
 > This is the machine-readable version of Appendix A to *Own the Knowledge, Rent the Thinking.* (Acropolis Technical Report 01), v1.0. The canonical published version is the PDF in `releases/` (DOI: 10.5281/zenodo.22775192). The Markdown may continue to evolve; the release is frozen.
 
 ```
-Reference v1.2 (draft 4) · 2026-09-15
+Reference v1.3 · 2026-10-18 (v1.2: 2026-09-15; v1.3 adds the published-protocol re-scoring in A.11)
 Varys harness, main at draft:       93ad8b6c75d11e3679b9e7fe68c86a356fe58ccc  (merge of probe/never-refuse-contract, #65)
 Parthenon, main at draft:           554ae5b18273b6a1a92b8eb7099559c60ef534f4  (merge of feat/directory-generation-revocation, #50)
 Eunomia, main at draft:             549fbf122db8b19e8bde1092795a85456383ae73  (merge of test/permission-propagation-measured, #5)

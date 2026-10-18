@@ -8,13 +8,13 @@
 
 - Technical Report 01
 - Ran Aroussi, VarOps LLC
-- September 2026, version 1.0
+- October 2026, version 1.1 (version 1.0: September 2026)
 
 
 This repository holds the paper, the methodology, and every benchmark report behind its numbers.
 
 The paper's claim in one line: institutional understanding and frontier reasoning can be separated. A locally operated 31B open-weight model can build the organizational record; a frontier model can be rented only for per-question reasoning over that record. Across LongMemEval-S, LoCoMo and BEAM 100K, keeping everything local retains 84 to 96 percent of all-frontier performance, and renting only the answer seat retains 96 to 99 percent.
-The Markdown under `paper/` is the source of truth and can evolve; the PDFs under `releases/` are the frozen, citable v1.0. This repository is not Acropolis source code.
+The Markdown under `paper/` is the source of truth and can evolve; the PDFs under `releases/` are the frozen, citable releases, v1.0 and v1.1. Version 1.1 adds one result, BEAM 100K under the published comparison protocol (Section 5, Tables 3 and 4; Appendix A.11), and changes nothing in v1.0. This repository is not Acropolis source code.
 
 It is the evidence the paper promises to publish: per-question run reports, their hashes, the code revisions and model pins that produced them, and enough of the method to re-run it.
 
@@ -29,8 +29,9 @@ It is the evidence the paper promises to publish: per-question run reports, thei
 | `paper/references.bib` | references |
 | `reproduction/README.md` | harness, revisions, model pins, dataset hashes, commands |
 | `reproduction/manifests/` | the public manifest over the published reports, and the manifest of the unredacted bundle |
-| `reproduction/reports/` | 2,539 per-question run reports, one JSON per shard or part |
-| `releases/` | the frozen v1.0: `acropolis-v1.0.pdf` (paper and Appendix A in one document, the citable object) and its Word source |
+| `reproduction/reports/` | 2,539 per-question run reports, one JSON per shard or part; v1.1 adds `beam/100k-published-protocol-2026-10/` (21 re-scoring runs) |
+| `reproduction/beam-published-protocol/` | the v1.1 re-scoring harness and `verify.py` |
+| `releases/` | the frozen releases: `acropolis-v1.0.pdf` and `acropolis-v1.1.pdf` (paper and Appendix A in one document, the citable objects) and their Word sources |
 | `CITATION.cff` | how to cite |
 
 ## Results
