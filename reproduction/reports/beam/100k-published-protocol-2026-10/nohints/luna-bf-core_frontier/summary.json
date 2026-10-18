@@ -1,0 +1,64 @@
+{
+  "questions": 400,
+  "failedAnswers": 0,
+  "failedVerdicts": 0,
+  "microAverage": 0.7532027004277421,
+  "macroAverage": 0.7532027004277421,
+  "categories": {
+    "abstention": {
+      "questions": 40,
+      "mean": 0.775
+    },
+    "contradiction_resolution": {
+      "questions": 40,
+      "mean": 0.7
+    },
+    "event_ordering": {
+      "questions": 40,
+      "mean": 0.5564466471345636
+    },
+    "information_extraction": {
+      "questions": 40,
+      "mean": 0.9197916666666666
+    },
+    "instruction_following": {
+      "questions": 40,
+      "mean": 0.8125
+    },
+    "knowledge_update": {
+      "questions": 40,
+      "mean": 0.69375
+    },
+    "multi_session_reasoning": {
+      "questions": 40,
+      "mean": 0.6723809523809524
+    },
+    "preference_following": {
+      "questions": 40,
+      "mean": 0.93125
+    },
+    "summarization": {
+      "questions": 40,
+      "mean": 0.7646577380952382
+    },
+    "temporal_reasoning": {
+      "questions": 40,
+      "mean": 0.70625
+    }
+  },
+  "row": "core_frontier",
+  "reports": [
+    "beam100-bf",
+    "beam100-bf"
+  ],
+  "answerModel": "openai/gpt-5.6-luna",
+  "answerReasoning": "none",
+  "judgeModel": "openai/gpt-5.6-luna",
+  "judgeReasoning": "none",
+  "noHints": true,
+  "promptsSha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+  "usd": 2.6523,
+  "seconds": 155,
+  "nativeAnswers": false,
+  "maxTokens": null
+}

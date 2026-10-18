@@ -544,6 +544,30 @@ answerable-only scoring, a judge that does not see fabrications, and whatever mo
 retrieval difference remains. The probe row is not a published configuration and
 appears only in Part I's Figure 7 and here.
 
+**BEAM 100K under the published comparison protocol (added in v1.1, 2026-10-18).** Section 5's Tables 3 and 4 re-score stored Acropolis evidence under the answer and judge prompts of the BEAM adapter the highest published BEAM figures use. The harness is `reproduction/beam-published-protocol/`, and its sources are in `reproduction/manifests/comparisons.md`.
+
+- **Evidence.**
+  - Each question's evidence is the claims and observation excerpts the configuration's composer received in the September run, as saved in its ask report. Claim text is capped at 240 characters in the report; excerpts are kept at the server's 2,000.
+  - The evidence is passed as compact JSON in delivered order, with each excerpt's turn id and timestamp, in place of the adapter's recall response. Nothing is re-retrieved.
+  - An agentic row's evidence is what its report records as delivered to the composer.
+- **Prompts and scoring.**
+  - The prompts are the adapter's, verbatim (file hashes in the manifest), and the scoring follows them:
+    - rubric items are judged one at a time and rounded to 0, 0.5 or 1;
+    - event-ordering items are matched by an equivalence prompt and scored as Kendall tau-b mapped to 0–1;
+    - the overall figure is the mean over all 400 questions.
+  - The scorer reproduces the 2,000 published question scores of the leading vendor's public harness from its saved verdicts with no mismatch, at all four BEAM sizes. The 400 questions are identical in text to that harness's 100K set.
+- **Models.**
+  - `gpt-5.6-luna` with reasoning off answers and judges, as in the leading published run.
+  - `gemini-3.7-flash` answers and judges its own rows, with reasoning "minimal", because the endpoint refuses "none".
+  - Output is capped at 8,000 tokens to bound the provider's in-flight credit reservation; no reply in the runs exceeded 3,740 tokens.
+- **Controls.**
+  - Annotations removed: the per-ability instructions kept and the dataset annotations withheld from the answer prompt, judge unchanged.
+  - Native answers re-judged: the September composer's stored answers, scored by the adapter's judge, with no new answers. An abstaining composer's stored answer is its contractual refusal token. Nine local single-call answers were empty in the stored reports and score 0, as the adapter scores a failed answer.
+- **Differences from the leading run.**
+  - Knowledge-update questions are asked as of the end of the conversation, not as of the update turn the dataset cites.
+  - The evidence budget is ours rather than the leading run's 8,000 evidence tokens: the median prompt is about 7,500 tokens and the mean about 23,000, because synthesis questions carry the largest envelopes.
+- **Cost.** $95.52 in model calls across 21 runs.
+
 ## A.12 Release gate for reproducibility
 
 Reproducibility is a claim only if the artefacts are available. Before publication,
