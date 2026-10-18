@@ -82,7 +82,7 @@ The two diagram figures (Figure 1, the boundary; Figure 4, the request path) are
 
 If you use the results, the methodology or the reports, please cite the report.
 
-Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence.* Acropolis, a governed model of the organization: Technical Report 01, version 1.1. VarOps LLC. https://doi.org/10.5281/zenodo.22775191 (all versions; version 1.0: https://doi.org/10.5281/zenodo.22775192)
+Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence.* Acropolis, a governed model of the organization: Technical Report 01, version 1.1. VarOps LLC. https://doi.org/10.5281/zenodo.22775191
 
 ```bibtex
 @techreport{aroussi2026ownknowledge,
