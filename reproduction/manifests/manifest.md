@@ -1,6 +1,6 @@
 # Report bundle manifest
 
-manifest.json SHA-256: `0190d4571c8cae4adedc20c65858b1aa09b5dbae2d8d3da2aeb37174ffd6f44d`
+manifest.json SHA-256: `726f2d6dcdc2dab4cedf13b02bbd4237ebdb43920d97bba399131125064131fa` (v1.1; v1.0: `0190d4571c8cae4adedc20c65858b1aa09b5dbae2d8d3da2aeb37174ffd6f44d`)
 
 repository https://github.com/varops/acropolis-varys · tag whitepaper-2026-09 · commit 93ad8b6c75d11e3679b9e7fe68c86a356fe58ccc · license CC-BY-4.0
 
@@ -2566,3 +2566,32 @@ repository https://github.com/varops/acropolis-varys · tag whitepaper-2026-09 �
 - **beam100_retrieval**: 80 reports
 - **beam1m_site_banked_partial**: 72 reports
 - **ingest**: 11 reports
+- **beam100_published_protocol_tables_3_4**: 42 files (21 re-scoring runs, v1.1)
+
+## Re-scoring runs (v1.1)
+
+BEAM 100K evidence from the September reports, re-scored under the published comparison protocol (paper Section 5, Tables 3 and 4; Appendix A.11). These are not harness run reports, so `manifest.json` lists them under `rescoring_runs`. `reproduction/beam-published-protocol/verify.py` recomputes every score from the saved verdicts.
+
+| run | answer | judge | annotations removed | stored answers re-judged | overall | results.jsonl SHA-256 |
+|---|---|---|---|---|---|---|
+| beam/100k-published-protocol-2026-10/full/gemini-bf-agentic_frontier | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 86.0 | 4b3eabe21e57 |
+| beam/100k-published-protocol-2026-10/full/gemini-bf-core_frontier | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 84.9 | 07475b76ef69 |
+| beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_frontier | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 85.3 | 27b9599326dc |
+| beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_owned | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 86.8 | 285709fe1f7c |
+| beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_upgrade | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 85.6 | ae4f1000ca32 |
+| beam/100k-published-protocol-2026-10/full/gemini-bg-core_frontier | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 85.6 | 616ccc9de942 |
+| beam/100k-published-protocol-2026-10/full/gemini-bg-core_owned | google/gemini-3.7-flash | google/gemini-3.7-flash | no | no | 85.2 | 8e9b32221619 |
+| beam/100k-published-protocol-2026-10/full/luna-bf-agentic_frontier | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 88.4 | 7b8635a20d90 |
+| beam/100k-published-protocol-2026-10/full/luna-bf-core_frontier | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 88.1 | 6cbdb209336d |
+| beam/100k-published-protocol-2026-10/full/luna-bg-agentic_frontier | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 87.6 | b43218b9aea5 |
+| beam/100k-published-protocol-2026-10/full/luna-bg-agentic_owned | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 87.9 | d49741179326 |
+| beam/100k-published-protocol-2026-10/full/luna-bg-agentic_upgrade | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 87.7 | ba1c4db2e2bc |
+| beam/100k-published-protocol-2026-10/full/luna-bg-core_frontier | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 87.8 | ae3ec72cb86f |
+| beam/100k-published-protocol-2026-10/full/luna-bg-core_owned | openai/gpt-5.6-luna | openai/gpt-5.6-luna | no | no | 87.8 | 959be5b2bf55 |
+| beam/100k-published-protocol-2026-10/nohints/gemini-bg-core_owned | google/gemini-3.7-flash | google/gemini-3.7-flash | yes | no | 74.1 | d8b067974adc |
+| beam/100k-published-protocol-2026-10/nohints/luna-bf-core_frontier | openai/gpt-5.6-luna | openai/gpt-5.6-luna | yes | no | 75.3 | 99710bdbf95a |
+| beam/100k-published-protocol-2026-10/nohints/luna-bg-core_owned | openai/gpt-5.6-luna | openai/gpt-5.6-luna | yes | no | 74.0 | 995efc4c56c0 |
+| beam/100k-published-protocol-2026-10/rejudge/gemini-bf-core_frontier | the source row's stored answers | google/gemini-3.7-flash | no | yes | 69.3 | 6796b16c6c9f |
+| beam/100k-published-protocol-2026-10/rejudge/gemini-bg-core_owned | the source row's stored answers | google/gemini-3.7-flash | no | yes | 58.7 | 12600cc61f86 |
+| beam/100k-published-protocol-2026-10/rejudge/luna-bf-core_frontier | the source row's stored answers | openai/gpt-5.6-luna | no | yes | 71.7 | b87533c9c6e8 |
+| beam/100k-published-protocol-2026-10/rejudge/luna-bg-core_owned | the source row's stored answers | openai/gpt-5.6-luna | no | yes | 63.9 | 872e0da2772d |

@@ -2,13 +2,16 @@ cff-version: 1.2.0
 message: "If you use these results or the methodology, please cite the report."
 title: "Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence"
 type: report
-doi: "10.5281/zenodo.22775192"
+doi: "10.5281/zenodo.22775191"
 identifiers:
   - type: other
     value: "Acropolis, a governed model of the organization: Technical Report 01"
-    description: "Report number; DOI to be assigned at publication"
-version: "1.0"
-date-released: "2026-09-15"
+    description: "Report number"
+  - type: doi
+    value: "10.5281/zenodo.22775192"
+    description: "Version 1.0"
+version: "1.1"
+date-released: "2026-10-18"
 authors:
   - family-names: "Aroussi"
     given-names: "Ran"

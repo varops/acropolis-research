@@ -1,6 +1,50 @@
 {
  "bundle_dir": "results",
  "figures": {
+  "beam100_published_protocol_tables_3_4": [
+   "beam/100k-published-protocol-2026-10/full/gemini-bf-agentic_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bf-agentic_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bf-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bf-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_upgrade/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_upgrade/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/full/gemini-bg-core_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bf-agentic_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bf-agentic_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bf-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bf-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_upgrade/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_upgrade/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/full/luna-bg-core_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/nohints/gemini-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/nohints/gemini-bg-core_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/nohints/luna-bf-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/nohints/luna-bf-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/nohints/luna-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/nohints/luna-bg-core_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/rejudge/gemini-bf-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/rejudge/gemini-bf-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/rejudge/gemini-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/rejudge/gemini-bg-core_owned/results.jsonl",
+   "beam/100k-published-protocol-2026-10/rejudge/luna-bf-core_frontier/summary.json",
+   "beam/100k-published-protocol-2026-10/rejudge/luna-bf-core_frontier/results.jsonl",
+   "beam/100k-published-protocol-2026-10/rejudge/luna-bg-core_owned/summary.json",
+   "beam/100k-published-protocol-2026-10/rejudge/luna-bg-core_owned/results.jsonl"
+  ],
   "beam100_retrieval": [
    "beam/100k-local-brains-2026-09/lon1/retrieval_frontier_10_20.json",
    "beam/100k-local-brains-2026-09/lon1/retrieval_frontier_11_20.json",
@@ -224103,5 +224147,718 @@
   "license": "CC-BY-4.0",
   "tag": "whitepaper-2026-09",
   "url": "https://github.com/varops/acropolis-varys"
- }
+ },
+ "rescoring_note": "v1.1: re-scoring runs over stored BEAM 100K evidence under the published comparison protocol (paper Section 5, Tables 3 and 4; Appendix A.11). Not harness run reports, so they are listed here rather than under reports; verify with reproduction/beam-published-protocol/verify.py.",
+ "rescoring_runs": [
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "4b3eabe21e57fdc1593bf7f2d6843ebd85ec7924b096d5b3ec65a10eb1480649"
+    },
+    "summary.json": {
+     "sha256": "18a391eab1504751c90fb697f48b691c625e78c03447e1a2cf6e6758395432e8"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 85.99,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bf-agentic_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "agentic_frontier",
+   "usd": 8.8585
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "07475b76ef69e08b743404c4c7b527fe83b540f3d09117c1bbcaffa9899d1759"
+    },
+    "summary.json": {
+     "sha256": "1b6007c6b8b56a97089817f45b308d1b948ef8f4f3bae1182ee3f61536e706bd"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 84.91,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bf-core_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "core_frontier",
+   "usd": 8.775
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "27b9599326dc036eb75d04eb814c2a9843f9b99d8371783f08cdcda9c487978c"
+    },
+    "summary.json": {
+     "sha256": "38f790218721da530e517c6e1585d48ea85938a8ceb2fdee6de36a8ddf0e78d8"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 85.33,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_frontier",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_frontier",
+   "usd": 8.8905
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "285709fe1f7cdec9da0e0ac4c7e446cc03a0d5c7dedfca6c7c371c7a7f400cce"
+    },
+    "summary.json": {
+     "sha256": "2daa871313e4c35464ee06163fc94b919f3d215116775f27e9d44e99b976ab59"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 86.85,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_owned",
+   "usd": 8.4995
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "ae4f1000ca320295fdefaff63879ad7141ceafe9c42e62710d211184944f366c"
+    },
+    "summary.json": {
+     "sha256": "51bbfb76f244c9a1df3feb8641d5f75c13caa7f4aed8ba94bb3754c92ec82090"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 85.6,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bg-agentic_upgrade",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_upgrade",
+   "usd": 8.6979
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "616ccc9de942997ea4dd328e07c5a4ef1429c86ee62e250ad89fd7017168e81c"
+    },
+    "summary.json": {
+     "sha256": "d7e46acc0005892da20e534eabe489ff3a3ce6f782615f25398e11e44f071587"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 85.63,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bg-core_frontier",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_frontier",
+   "usd": 8.9347
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "8e9b32221619ac72edad5c21aaa647bb0039a649c0a8a0f55a7be2ffd941e019"
+    },
+    "summary.json": {
+     "sha256": "48148c548f3914d18fc80fee310cf99fc38d0cd7da1caba83ae3eac96e9998f8"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 85.19,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/gemini-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 8.9234
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "7b8635a20d90c876effaa619e4e45af0f2b5d08943f665e7c2421d463264de00"
+    },
+    "summary.json": {
+     "sha256": "1e191aff9d20020cb5d9fd6c0bedb5d31d7490d7db7083279dc13f0a6873a499"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 88.4,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bf-agentic_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "agentic_frontier",
+   "usd": 2.4597
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "6cbdb209336db0b9da6a84ada944e70d8314faf0c838329677c9008df5beaed1"
+    },
+    "summary.json": {
+     "sha256": "74cfec5a22f98a06f67788d419653791c9ad0fef473730a7606464e802d6f8c1"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 88.07,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bf-core_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "core_frontier",
+   "usd": 2.4721
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "b43218b9aea5515656cb8516164f91870a3baede809a8dca96f346411f19f9cc"
+    },
+    "summary.json": {
+     "sha256": "545cf390a567a6805b6e360b70f1d8f2f17d8531b9a9b247e5ca0d55fa168273"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 87.64,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_frontier",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_frontier",
+   "usd": 2.5754
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "d49741179326d17c65ca86611fd91376496c7a9d322c9f478c16cce5af0db7bc"
+    },
+    "summary.json": {
+     "sha256": "cd942afe58b3aa8624222bfbcde6db1aaf2a5c92e6d38dddb43a4fec4ecf67ee"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 87.86,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_owned",
+   "usd": 2.021
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "ba1c4db2e2bc6df78ba7a0d1763bf301f051165802fcabf182e5a858b424d610"
+    },
+    "summary.json": {
+     "sha256": "4ee619bf4421811793cc71bb0c6b05e55e77bd38f738f2e344372692544d549d"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 87.68,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bg-agentic_upgrade",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "agentic_upgrade",
+   "usd": 1.9922
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "ae3ec72cb86f1e0fc9860618b2afc171555522bb9a93e90d2a23364043ba3705"
+    },
+    "summary.json": {
+     "sha256": "73acaa81e02384ff5a4e3b07cafd504671b45c2606ec1cd9306cbe6c323d184b"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 87.77,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bg-core_frontier",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_frontier",
+   "usd": 2.5686
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "959be5b2bf554048758d5aec048cd462eacf25655d8dbdb7b319107c1ec2f018"
+    },
+    "summary.json": {
+     "sha256": "91a887e31c5d31a7eea7cd74b424868fd486753af570929c2e4e23e7fed56d7c"
+    }
+   },
+   "group": "full",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": false,
+   "overall": 87.82,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/full/luna-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 2.4813
+  },
+  {
+   "answer": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "d8b067974adc00191860876cc276c90b67ff9da763c3463fd5708ff65b5aedd1"
+    },
+    "summary.json": {
+     "sha256": "208849b4e0f7ca8c6382b8a42d379da8b92c9258a180872906ab4f32944f16f8"
+    }
+   },
+   "group": "nohints",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": false,
+   "no_hints": true,
+   "overall": 74.08,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/nohints/gemini-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 8.9972
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "99710bdbf95a03c80e99554e31fc2a0995bf3f3ca44fe9d1cfc600dfaaeac648"
+    },
+    "summary.json": {
+     "sha256": "096709f006e0f45bdc26c794a685b67d1337464d0f8ac8a7add6f0f868d0c41c"
+    }
+   },
+   "group": "nohints",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": true,
+   "overall": 75.32,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/nohints/luna-bf-core_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "core_frontier",
+   "usd": 2.6523
+  },
+  {
+   "answer": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "995efc4c56c01b4f289b6036b9848990e8a514f445c36487fb299d47a0b5428f"
+    },
+    "summary.json": {
+     "sha256": "af9ae60c79e133831dfba8c56478cfe77f0f55231885d221b57e22fafd387f18"
+    }
+   },
+   "group": "nohints",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": false,
+   "no_hints": true,
+   "overall": 73.97,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/nohints/luna-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 1.7075
+  },
+  {
+   "answer": {
+    "model": "the source row's stored answers"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "6796b16c6c9f49e01833a8491631e6433cc8e5ca1f9cc79083998c6b0f1d596e"
+    },
+    "summary.json": {
+     "sha256": "9b8afeaf2fbda9fd193e3a95b41bd3f3cd052d769980460c0842e7c18122d2e2"
+    }
+   },
+   "group": "rejudge",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": true,
+   "no_hints": false,
+   "overall": 69.29,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/rejudge/gemini-bf-core_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "core_frontier",
+   "usd": 1.1693
+  },
+  {
+   "answer": {
+    "model": "the source row's stored answers"
+   },
+   "failed_answers": 9,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "12600cc61f860d10c2d3c52c7978c42ccb31262b907eb839fcd5bda410d35d2a"
+    },
+    "summary.json": {
+     "sha256": "9f23d9d6bca6789eb4552632388daf2f5b00b29c782c9393b661425fc8e0168f"
+    }
+   },
+   "group": "rejudge",
+   "judge": {
+    "model": "google/gemini-3.7-flash",
+    "reasoning": "minimal"
+   },
+   "max_tokens": 8000,
+   "native_answers": true,
+   "no_hints": false,
+   "overall": 58.74,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/rejudge/gemini-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 1.171
+  },
+  {
+   "answer": {
+    "model": "the source row's stored answers"
+   },
+   "failed_answers": 0,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "b87533c9c6e8a755a2c5e3ee63d5d40a9dc3df8560b4229dedf78d23c2cd90f0"
+    },
+    "summary.json": {
+     "sha256": "99d283f1843f21ff154b0fadcd9a64cdd50ea8f2e3a9f2bdf996447e12e8a354"
+    }
+   },
+   "group": "rejudge",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": 8000,
+   "native_answers": true,
+   "no_hints": false,
+   "overall": 71.69,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/rejudge/luna-bf-core_frontier",
+   "source_reports": [
+    "beam100-bf",
+    "beam100-bf"
+   ],
+   "source_row": "core_frontier",
+   "usd": 0.1558
+  },
+  {
+   "answer": {
+    "model": "the source row's stored answers"
+   },
+   "failed_answers": 9,
+   "failed_verdicts": 0,
+   "files": {
+    "results.jsonl": {
+     "sha256": "872e0da2772d53f52413107923d7b141986b27ec278cfda6c87f94eb1782bc4b"
+    },
+    "summary.json": {
+     "sha256": "98a6f15a3c8a72415f8771544a53e3be7ff22d8b8e46ed6bc475960f15105e44"
+    }
+   },
+   "group": "rejudge",
+   "judge": {
+    "model": "openai/gpt-5.6-luna",
+    "reasoning": "none"
+   },
+   "max_tokens": null,
+   "native_answers": true,
+   "no_hints": false,
+   "overall": 63.9,
+   "prompts_sha256": "7c958668ebcebcfddb1209fd73aab1d530c4b6be6422d6a9ed1121d39051e457",
+   "questions": 400,
+   "run": "beam/100k-published-protocol-2026-10/rejudge/luna-bg-core_owned",
+   "source_reports": [
+    "beam100-bg",
+    "beam100-bg"
+   ],
+   "source_row": "core_owned",
+   "usd": 0.1476
+  }
+ ]
 }

@@ -622,6 +622,8 @@ Appendix A.11 gives the method and its checks.
 
 ● Every Acropolis cell has per-question records with saved verdicts in the bundle; `verify.py` recomputes each score from them.
 
+Under the comparison protocol the protocol's model writes every answer, so no row of Table 3 is fully local there: the configuration names say how the record was built and the evidence retrieved, and only the first two columns measure each configuration's own answer seat.
+
 Figure 2's protocol column scores the answerable questions only and reports abstention as traps refused; the comparison protocol scores all 400, abstention included, so the second column restates our protocol on that basis.
 
 Under the comparison protocol every configuration lands within 3.5 points of every other: 84.9 to 88.4. The differences that separate them under our protocol, between 52.5 and 66.9, almost vanish. The protocol, not the system, sets most of the number.
