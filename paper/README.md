@@ -618,7 +618,7 @@ Appendix A.11 gives the method and its checks.
 | Reference: frontier single call, published brains | 66.7 | 65.1 | 84.9 | 88.1 |
 | Reference: frontier loop, published brains | 67.5 | 66.7 | 86.0 | 88.4 |
 | Vendor Y⁴, highest published BEAM 100K figure | — | — | — | 92.1 |
-| Vendor Z⁵, author of the protocol's prompts | — | — | 76.9 (Gemini 3 Flash) | — |
+| Vendor Z⁵, author of the protocol's prompts | — | — | 76.9 | — |
 
 ● Every Acropolis cell has per-question records with saved verdicts in the bundle; `verify.py` recomputes each score from them.
 

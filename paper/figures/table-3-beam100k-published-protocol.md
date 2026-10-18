@@ -10,6 +10,6 @@
 | Reference: frontier single call, published brains | 66.7 | 65.1 | 84.9 | 88.1 |
 | Reference: frontier loop, published brains | 67.5 | 66.7 | 86.0 | 88.4 |
 | Vendor Y⁴, highest published BEAM 100K figure | — | — | — | 92.1 |
-| Vendor Z⁵, author of the protocol's prompts | — | — | 76.9 (Gemini 3 Flash) | — |
+| Vendor Z⁵, author of the protocol's prompts | — | — | 76.9 | — |
 
 Added in v1.1. Per-question records: `reproduction/reports/beam/100k-published-protocol-2026-10/`. Vendor Y and Vendor Z sources: `reproduction/manifests/comparisons.md`.
