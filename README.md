@@ -4,7 +4,7 @@
 
 > **Acropolis, a governed model of the organization**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22775192.svg)](https://doi.org/10.5281/zenodo.22775192) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22775191.svg)](https://doi.org/10.5281/zenodo.22775191) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 - Technical Report 01
 - Ran Aroussi, VarOps LLC
@@ -82,7 +82,7 @@ The two diagram figures (Figure 1, the boundary; Figure 4, the request path) are
 
 If you use the results, the methodology or the reports, please cite the report.
 
-Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence.* Acropolis, a governed model of the organization: Technical Report 01, version 1.0. VarOps LLC. https://doi.org/10.5281/zenodo.22775192
+Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutional understanding from frontier intelligence.* Acropolis, a governed model of the organization: Technical Report 01, version 1.1. VarOps LLC. https://doi.org/10.5281/zenodo.22775191 (all versions; version 1.0: https://doi.org/10.5281/zenodo.22775192)
 
 ```bibtex
 @techreport{aroussi2026ownknowledge,
@@ -91,9 +91,9 @@ Aroussi, R. (2026). *Own the Knowledge, Rent the Thinking. Separating institutio
   institution = {VarOps LLC},
   number      = {Acropolis, a governed model of the organization: Technical Report 01},
   year        = {2026},
-  month       = {9},
-  version     = {1.0},
-  doi         = {10.5281/zenodo.22775192},
+  month       = {10},
+  version     = {1.1},
+  doi         = {10.5281/zenodo.22775191},
   url         = {https://github.com/varops/acropolis-research}
 }
 ```
